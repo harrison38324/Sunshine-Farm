@@ -1,14 +1,21 @@
-# Project : large fish eat small fish
+# Project : Sunshine Farm
 
 ## Made by Harrison 
 
 *Q&A*
 
 - What will the application do?
-    players should **control the player's fish** and eat smaller fish to become bigger and avoid being eaten by the larger fish.
-    If the player's fish touch the smaller fish, the smaller fish will be eaten and the player's fish will grow up.
-    If the player's fish touch the larger fish, game ends.
+    User can use this application to **plant different crops** to gain money and buy better and different kinds of crops, expand slot and unlock better fertilizer.
 - Who will use it?
-    the players should use it to play.
+    the players who want to kill time and find something relax to play can use it to play.
 - Why is this project of interest to me?
-    It is a very traditional game and I played it since I was very young and I may want to add more function and make the game more interesting. But at this stage, I will only describe the basic functionality.
+    I am pretty interested in these relax games because it can helps to find something to do while taking a break. And these games always have a positive feedback and keeps me playing it.
+## User Stories
+
+- As a user, I want to be able to buy a new kind of crop to my farm plot(plot means the space for crops to grow).
+- As a user, I want to be able to view the plots' status.
+- As a user, I want to be able to sell a crop.
+- As a user, I want to be able to view the crops I can buy and their price and their detailed data.
+- As a user, I want to be able to view the tools like fertilizer I have.
+- As a user, I want to be able to add fertilizer to the specific plot.
+- As a user, I want to be able to buy a tool into my tool package.
