@@ -5,7 +5,7 @@ public class Plants {
     private int price;
     private int growthTime;
 
-    // REQUIRES: price>=0 plantsName cannot be an empty string
+    // REQUIRES: price>=0 , growthTime>=0 plantsName cannot be an empty string
     // EFFECTS: set a new kind of plants by assigned the plantsName
     //          its price and the time it consumed to grow up
     public Plants(String plantsName,int price,int growthTime){
@@ -38,10 +38,16 @@ public class Plants {
         //stub
     }
 
-    // REQUIRES: 0<= percent <=1
+    // REQUIRES: time >= growthTime
     // MODIFIES: this
-    // EFFECTS: decrease the price by input percent
-    public void percentOff(double percent){
+    // EFFECTS: decrease the growthTime by input time
+    public void decreaseGrowthTime(int time){
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: apply the fertilizer to the plants
+    public void useFertilizer(Fertilizer fertilizer){
         //stub
     }
 }
