@@ -23,5 +23,26 @@ public class Plants {
     public int getGrowthTime(){
         //stub
     }
+
+    // REQUIRES: money >= 0
+    // MODIFIES: this
+    // EFFECTS: increase the price of the plant by the input money
+    public void increasePrice(int money){
+        //stub
+    }
+
+    // REQUIRES: money >= 0
+    // MODIFIES: this
+    // EFFECTS: decrease the price of the plant by the input money
+    public void decreasePrice(int money){
+        //stub
+    }
+
+    // REQUIRES: 0<= percent <=1
+    // MODIFIES: this
+    // EFFECTS: decrease the price by input percent
+    public void percentOff(double percent){
+        //stub
+    }
 }
 
