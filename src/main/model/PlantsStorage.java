@@ -5,6 +5,7 @@ import java.util.List;
 public class PlantsStorage {
     private List<Plants> plantsStorage;
 
+    //EFFECTS: generate a list which stores Plants
     public PlantsStorage(){
         //stub
     } 

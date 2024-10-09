@@ -5,6 +5,7 @@ import java.util.List;
 public class FertilizerStorage {
     private List<Fertilizer> fertilizerStorage;
 
+    // EFFECTS: generate a list which stores fertilizers
     public FertilizerStorage(){
         //stub
     }
