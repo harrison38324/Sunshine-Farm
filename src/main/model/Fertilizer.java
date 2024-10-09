@@ -8,7 +8,7 @@ public class Fertilizer {
     // REQUIRES: price >= 0 ,TimeReduced >= 0, Name cannot be empty String
     // EFFECTS: set a new kind of Fertilizer by assigned the Name
     //          its price and the time it reduces the plant to grow up
-    public Fertilizer(String plantsName,int price,int growthTime){
+    public Fertilizer(String Name,int price,int TimeReduced){
         //stub
     }
 
