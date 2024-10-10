@@ -1,5 +1,6 @@
 package model;
 
+
 public class Plants {
     private String plantsName;
     private int price;
@@ -9,46 +10,48 @@ public class Plants {
     // EFFECTS: set a new kind of plants by assigned the plantsName
     //          its price and the time it consumed to grow up
     public Plants(String plantsName,int price,int growthTime){
-        //stub
+        this.plantsName = plantsName;
+        this.price = price;
+        this.growthTime = growthTime;
     }
 
     public int getPrice(){
-        //stub
+        return price;
     }
      
-    public int getPlantsName(){
-        //stub
+    public String getPlantsName(){
+        return plantsName;
     }
 
     public int getGrowthTime(){
-        //stub
+        return growthTime;
     }
 
     // REQUIRES: money >= 0
     // MODIFIES: this
     // EFFECTS: increase the price of the plant by the input money
     public void increasePrice(int money){
-        //stub
+        price += money;
     }
 
     // REQUIRES: money >= 0
     // MODIFIES: this
     // EFFECTS: decrease the price of the plant by the input money
     public void decreasePrice(int money){
-        //stub
+        price -= money;
     }
 
     // REQUIRES: time >= growthTime
     // MODIFIES: this
     // EFFECTS: decrease the growthTime by input time
     public void decreaseGrowthTime(int time){
-        //stub
+        growthTime -= time;
     }
 
     // MODIFIES: this
     // EFFECTS: apply the fertilizer to the plants
     public void useFertilizer(Fertilizer fertilizer){
-        //stub
+        decreaseGrowthTime(fertilizer.getTimeReduced());
     }
 }
 
