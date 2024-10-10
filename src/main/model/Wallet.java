@@ -15,14 +15,14 @@ public class Wallet {
     // REQUIRES: money >= 0
     // MODIFIES: this
     // EFFECTS: add specific amount of money into wallet
-    public void earn(int money){
+    public void earn(int money) {
         walletBalance += money;
     }
 
     // REQUIRES: money >=0 and money <= walletBalance
     // MODIFIES: this
     // EFFECTS: spend specific moeny from wallet
-    public void spend(int money){
+    public void spend(int money) {
         walletBalance -= money;
     }
 

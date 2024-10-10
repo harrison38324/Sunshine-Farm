@@ -16,7 +16,7 @@ public class TestPlantsSlots {
     private List<Plants> plantsList;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         plantsSlots = new PlantsSlots();
         norPlants = new Plants("Apple tree", 10, 100);
         rarePlants = new Plants("Blueberry", 100, 200);
@@ -33,9 +33,9 @@ public class TestPlantsSlots {
     }
 
     @Test
-    void testGetPlants(){
-        assertEquals(plantsSlots.getPlants(0),norPlants);
-        assertEquals(plantsSlots.getPlants(1),rarePlants);
-        assertEquals(plantsSlots.getPlants(2),legendPlants);
+    void testGetPlants() {
+        assertEquals(plantsSlots.getPlants(0), norPlants);
+        assertEquals(plantsSlots.getPlants(1), rarePlants);
+        assertEquals(plantsSlots.getPlants(2), legendPlants);
     }
 }

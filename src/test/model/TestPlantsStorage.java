@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestPlantsStorage {
-    public PlantsStorage plantsStorage;
+    private PlantsStorage plantsStorage;
     private Plants norPlants;
     private Plants rarePlants;
     private Plants legendPlants;
@@ -18,7 +18,7 @@ public class TestPlantsStorage {
     private List<String> plantsNameList;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         plantsStorage = new PlantsStorage();
         norPlants = new Plants("Apple tree", 10, 100);
         rarePlants = new Plants("Blueberry", 100, 200);
@@ -37,18 +37,18 @@ public class TestPlantsStorage {
         plantsNameList.add("Apple tree");
         plantsNameList.add("Blueberry");
         plantsNameList.add("gold tree");
-    }   
-
-    @Test
-    void testAddPlants(){
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getPlantsStorage(),plantsList2);
     }
 
     @Test
-    void testRemove(){
+    void testAddPlants() {
+        plantsStorage.addPlants(norPlants);
+        plantsStorage.addPlants(rarePlants);
+        plantsStorage.addPlants(legendPlants);
+        assertEquals(plantsStorage.getPlantsStorage(), plantsList2);
+    }
+
+    @Test
+    void testRemove() {
         plantsStorage.addPlants(norPlants);
         plantsStorage.addPlants(rarePlants);
         plantsStorage.addPlants(legendPlants);
@@ -58,18 +58,18 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void testGetNameList(){
+    void testGetNameList() {
         plantsStorage.addPlants(norPlants);
         plantsStorage.addPlants(rarePlants);
         plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getNameList(),plantsNameList);
+        assertEquals(plantsStorage.getNameList(), plantsNameList);
     }
 
     @Test
-    void testGetPlantsStorage(){
+    void testGetPlantsStorage() {
         plantsStorage.addPlants(norPlants);
         plantsStorage.addPlants(rarePlants);
         plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getPlantsStorage(),plantsList2);
+        assertEquals(plantsStorage.getPlantsStorage(), plantsList2);
     }
 }

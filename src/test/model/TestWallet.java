@@ -9,17 +9,17 @@ public class TestWallet {
     private Wallet wallet;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         wallet = new Wallet();
     }
 
     @Test
-    void testGetBalance(){
+    void testGetBalance() {
         assertEquals(wallet.getBalance(), 0);
     }
 
     @Test
-    void testEarn(){
+    void testEarn() {
         wallet.earn(10);
         assertEquals(wallet.getBalance(), 10);
 
@@ -31,7 +31,7 @@ public class TestWallet {
     }
 
     @Test
-    void testSpend(){
+    void testSpend() {
         wallet.earn(100);
         assertEquals(wallet.getBalance(), 100);
         wallet.spend(1);

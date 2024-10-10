@@ -18,28 +18,28 @@ public class TestPlants {
 
     @Test
     void testgetPrice() {
-        assertEquals(plants.getPrice(),10);
+        assertEquals(plants.getPrice(), 10);
     }
 
     @Test
-    void testgetPlantsName(){
+    void testgetPlantsName() {
         assertEquals(plants.getPlantsName(), "Apple tree");
     }
 
     @Test
-    void testgetGrowthTime(){
+    void testgetGrowthTime() {
         assertEquals(plants.getGrowthTime(), 3);
     }
 
     @Test
-    void testincreasePrice(){
+    void testincreasePrice() {
         assertEquals(plants.getPrice(), 10);
         plants.increasePrice(1);
         assertEquals(plants.getPrice(), 11);
     }
 
     @Test
-    void testincreasePriceMutipleTimes(){
+    void testincreasePriceMutipleTimes() {
         assertEquals(plants.getPrice(), 10);
         plants.increasePrice(2);
         assertEquals(plants.getPrice(), 12);
@@ -50,14 +50,14 @@ public class TestPlants {
     }
 
     @Test
-    void testdecreasePrice(){
+    void testdecreasePrice() {
         assertEquals(plants.getPrice(), 10);
         plants.decreasePrice(1);
         assertEquals(plants.getPrice(), 9);
     }
 
     @Test
-    void testdecreasePriceMutipleTimes(){
+    void testdecreasePriceMutipleTimes() {
         assertEquals(plants.getPrice(), 10);
         plants.decreasePrice(2);
         assertEquals(plants.getPrice(), 8);
@@ -68,28 +68,29 @@ public class TestPlants {
     }
 
     @Test
-    void testdecreaseGrowthTime(){
+    void testdecreaseGrowthTime() {
         assertEquals(plants.getGrowthTime(), 3);
         plants.decreaseGrowthTime(1);
         assertEquals(plants.getGrowthTime(), 2);
     }
 
     @Test
-    void testdecreaseGrowthTimeMutipleTimes(){
+    void testdecreaseGrowthTimeMutipleTimes() {
         assertEquals(plants.getGrowthTime(), 3);
         plants.decreaseGrowthTime(1);
         assertEquals(plants.getGrowthTime(), 2);
         plants.decreaseGrowthTime(2);
         assertEquals(plants.getGrowthTime(), 0);
     }
+
     @Test
-    void testuseFertilizer(){
+    void testuseFertilizer() {
         plants.useFertilizer(fertilizer);
         assertEquals(plants.getGrowthTime(), 2);
     }
 
     @Test
-    void testuseFertilizerMutipleTimes(){
+    void testuseFertilizerMutipleTimes() {
         plants.useFertilizer(fertilizer);
         assertEquals(plants.getGrowthTime(), 2);
         plants.useFertilizer(fertilizer);

@@ -8,34 +8,34 @@ public class FertilizerStorage {
     private List<String> fertilizerNameList;
 
     // EFFECTS: generate a list which stores fertilizers
-    public FertilizerStorage(){
+    public FertilizerStorage() {
         fertilizerStorage = new ArrayList<>();
         fertilizerNameList = new ArrayList<>();
     }
 
-    // MODIFES: this 
+    // MODIFES: this
     // EFFECTS: add a fertilizer into fertilizerStorage
-    public void addFertilizer(Fertilizer fertilizer){
+    public void addFertilizer(Fertilizer fertilizer) {
         fertilizerStorage.add(fertilizer);
     }
 
     // REQUIRES: num >= 0
     // MODIFIES: this
     // EFFECTS: remove a fertilizer from the storage
-    public void remove(int num){
+    public void remove(int num) {
         fertilizerStorage.remove(num);
     }
 
     // EFFECTS: generate a Namelist of the Fertilizer
-    //          in the storage in original order.
-    public List<String> getNameList(){
-        for(int i=0; i < fertilizerStorage.size();i++){
+    // in the storage in original order.
+    public List<String> getNameList() {
+        for (int i = 0; i < fertilizerStorage.size(); i++) {
             fertilizerNameList.add(fertilizerStorage.get(i).getName());
         }
         return fertilizerNameList;
     }
 
-    public List<Fertilizer> getFertilizerStorage(){
+    public List<Fertilizer> getFertilizerStorage() {
         return fertilizerStorage;
     }
 }
