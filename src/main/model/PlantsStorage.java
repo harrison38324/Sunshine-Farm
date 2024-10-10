@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class PlantsStorage {
-    private List<Plants> plantsStorage;
+    protected List<Plants> plantsStorage;
     private List<String> plantsStorageNameList;
 
     //EFFECTS: generate a list which stores Plants
