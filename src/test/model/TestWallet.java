@@ -2,7 +2,7 @@ package model;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestWallet {
@@ -24,10 +24,10 @@ public class TestWallet {
         assertEquals(wallet.getBalance(), 10);
 
         wallet.earn(20);
-        assertEquals(wallet.getBalance(), 20);
+        assertEquals(wallet.getBalance(), 30);
 
         wallet.earn(0);
-        assertEquals(wallet.getBalance(), 20);
+        assertEquals(wallet.getBalance(), 30);
     }
 
     @Test
