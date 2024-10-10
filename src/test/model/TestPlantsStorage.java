@@ -10,11 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class TestPlantsStorage {
     public PlantsStorage plantsStorage;
-    protected Plants norPlants;
-    protected Plants rarePlants;
-    protected Plants legendPlants;
+    private Plants norPlants;
+    private Plants rarePlants;
+    private Plants legendPlants;
     private List<Plants> plantsList1;
-    protected List<Plants> plantsList2;
+    private List<Plants> plantsList2;
     private List<String> plantsNameList;
 
     @BeforeEach
