@@ -1,5 +1,7 @@
 package model;
 
+import org.junit.jupiter.params.shadow.com.univocity.parsers.common.StringCache;
+
 public class Fertilizer {
     private String Name;
     private int price;
@@ -9,33 +11,35 @@ public class Fertilizer {
     // EFFECTS: set a new kind of Fertilizer by assigned the Name
     //          its price and the time it reduces the plant to grow up
     public Fertilizer(String Name,int price,int TimeReduced){
-        //stub
+        this.Name = Name;
+        this.price = price;
+        this.TimeReduced = TimeReduced;
     }
 
     public int getPrice(){
-        //stub
+        return price;
     }
      
-    public int getName(){
-        //stub
+    public String getName(){
+        return Name;
     }
 
     public int getTimeReduced(){
-        //stub
+        return TimeReduced;
     }
 
     // REQUIRES: money >= 0
     // MODIFIES: this
     // EFFECTS: increase price by the input money
     public void increasePrice(int money){
-        //stub
+        price += money;
     }
 
     // REQUIRES: money >= 0, money<=Price
     // MODIFIES: this
     // EFFECTS: decrease price by the input money
     public void decreasePrice(int money){
-        //stub
+        price -= money;
     }
 
 
