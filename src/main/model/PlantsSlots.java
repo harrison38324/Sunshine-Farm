@@ -8,11 +8,11 @@ public class PlantsSlots extends PlantsStorage {
         super();
     }
 
-    // REQUIRES: num >= 0
+    // REQUIRES: num >= 0, num < fertilizerStorage.size()
     // EFFECTS: get the Plants in the PlantsSlots 
     //          with given Index num
-    public void getPlants(int num){
-        //stub
+    public Plants getPlants(int num){
+        return plantsStorage.get(num);
     }
 
 }
