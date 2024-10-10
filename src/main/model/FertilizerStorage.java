@@ -1,35 +1,41 @@
 package model;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class FertilizerStorage {
     private List<Fertilizer> fertilizerStorage;
+    private List<String> fertilizerNameList;
 
     // EFFECTS: generate a list which stores fertilizers
     public FertilizerStorage(){
-        //stub
+        fertilizerStorage = new ArrayList<>();
+        fertilizerNameList = new ArrayList<>();
     }
 
     // MODIFES: this 
     // EFFECTS: add a fertilizer into fertilizerStorage
     public void addFertilizer(Fertilizer fertilizer){
-
+        fertilizerStorage.add(fertilizer);
     }
 
     // REQUIRES: num >= 0
     // MODIFIES: this
     // EFFECTS: remove a fertilizer from the storage
     public void remove(int num){
-        //stub
+        fertilizerStorage.remove(num);
     }
 
     // EFFECTS: generate a Namelist of the Fertilizer
     //          in the storage in original order.
     public List<String> getNameList(){
-        //stub
+        for(int i=0; i < fertilizerStorage.size();i++){
+            fertilizerNameList.add(fertilizerStorage.get(i).getName());
+        }
+        return fertilizerNameList;
     }
 
     public List<Fertilizer> getFertilizerStorage(){
-        //stub
+        return fertilizerStorage;
     }
 }
