@@ -64,4 +64,12 @@ public class TestPlantsStorage {
         plantsStorage.addPlants(legendPlants);
         assertEquals(plantsStorage.getNameList(),plantsNameList);
     }
+
+    @Test
+    void testGetPlantsStorage(){
+        plantsStorage.addPlants(norPlants);
+        plantsStorage.addPlants(rarePlants);
+        plantsStorage.addPlants(legendPlants);
+        assertEquals(plantsStorage.getPlantsStorage(),plantsList2);
+    }
 }
