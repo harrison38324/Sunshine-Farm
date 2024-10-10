@@ -60,11 +60,11 @@ public class TestPlants {
     void testdecreasePriceMutipleTimes(){
         assertEquals(plants.getPrice(), 10);
         plants.decreasePrice(2);
-        assertEquals(plants.getPrice(), 7);
+        assertEquals(plants.getPrice(), 8);
         plants.decreasePrice(5);
-        assertEquals(plants.getPrice(), 2);
+        assertEquals(plants.getPrice(), 3);
         plants.decreasePrice(2);
-        assertEquals(plants.getPrice(), 0);
+        assertEquals(plants.getPrice(), 1);
     }
 
     @Test
