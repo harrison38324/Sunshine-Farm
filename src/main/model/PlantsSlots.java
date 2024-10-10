@@ -9,7 +9,8 @@ public class PlantsSlots extends PlantsStorage {
     }
 
     // REQUIRES: num >= 0
-    // EFFECTS: get the "num th" Plants in the PlantsSlots
+    // EFFECTS: get the Plants in the PlantsSlots 
+    //          with given Index num
     public void getPlants(int num){
         //stub
     }
