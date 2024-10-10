@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class TestPlantsSlot extends TestPlantsStorage {
+public class TestPlantsSlots extends TestPlantsStorage {
     private PlantsSlots plantsSlots;
 
     @BeforeEach
