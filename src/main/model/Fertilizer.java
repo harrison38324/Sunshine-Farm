@@ -16,11 +16,11 @@ public class Fertilizer {
         //stub
     }
      
-    public int getPlantsName(){
+    public int getName(){
         //stub
     }
 
-    public int getGrowthTime(){
+    public int getTimeReduced(){
         //stub
     }
 
@@ -31,7 +31,7 @@ public class Fertilizer {
         //stub
     }
 
-    // REQUIRES: money >= 0
+    // REQUIRES: money >= 0, money<=Price
     // MODIFIES: this
     // EFFECTS: decrease price by the input money
     public void decreasePrice(int money){
