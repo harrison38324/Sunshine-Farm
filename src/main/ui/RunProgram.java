@@ -1,8 +1,6 @@
 package ui;
 
 import java.util.Scanner;
-import java.util.List;
-import java.util.*;
 
 import model.*;
 
@@ -163,14 +161,14 @@ public class RunProgram {
             intCommand = input.nextInt();
             tryBuyingIndicatedFertilizer(intCommand);
         } else {
-            System.out.println("/n Invalid Input");
+            System.out.println("\n Invalid Input");
         }
     }
 
     // MODIFIES: this
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
-        if (command > plantsCommodity.getPlantsStorage().size()) {
+        if (command > plantsCommodity.getPlantsStorageSize()) {
             System.out.println("Input number is larger than you have");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
@@ -284,7 +282,7 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to sell the Plants
     private void trySellPlants(int command) {
-        if (command > plantsSlot.getPlantsStorage().size()) {
+        if (command > plantsSlot.getPlantsStorageSize()) {
             System.out.println("\nInput number is larger than you have");
         } else if (command < 0) {
             System.out.println("\nInput number cannot be negative");
@@ -305,7 +303,7 @@ public class RunProgram {
 
     // EFFECT: print the fertilizerStorage Name list
     private void printPlantsSlotStatusList() {
-        for (int i = 1; i <= plantsSlot.getPlantsStorage().size(); i++) {
+        for (int i = 1; i <= plantsSlot.getPlantsStorageSize(); i++) {
             String name = "Plant Name:" + plantsSlot.getPlants(i - 1).getPlantsName() + " Time to grow up: "
                     + plantsSlot.getPlants(i - 1).getGrowthTime();
             System.out.println(name);
@@ -315,25 +313,25 @@ public class RunProgram {
     // EFFECTS: print the FertilizerStorage Name list
     private void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
-            String name = fertilizerStorage.getFertilizerStorage().get(i - 1).getName();
+            String name = fertilizerStorage.getNameofFertilizeri(i - 1);
             System.out.println(name);
         }
     }
 
     // EFFECTS: print the PlantsStorage Name list
     private void printPlantsStorageNameList(PlantsStorage plantsStorage) {
-        for (int i = 1; i <= plantsStorage.getPlantsStorage().size(); i++) {
-            String name = plantsStorage.getPlantsStorage().get(i - 1).getPlantsName();
+        for (int i = 1; i <= plantsStorage.getPlantsStorageSize(); i++) {
+            String name = plantsStorage.getNameofPlantsi(i - 1);
             System.out.println(name);
         }
     }
 
     // EFFECTS: print the PlantsStorage Status list
     private void printPlantsStorageStatusList(PlantsStorage plantsStorage) {
-        for (int i = 1; i <= plantsStorage.getPlantsStorage().size(); i++) {
-            String name = plantsStorage.getPlantsStorage().get(i - 1).getPlantsName();
-            int price = plantsStorage.getPlantsStorage().get(i - 1).getPrice();
-            int growthTime = plantsStorage.getPlantsStorage().get(i - 1).getGrowthTime();
+        for (int i = 1; i <= plantsStorage.getPlantsStorageSize(); i++) {
+            String name = plantsStorage.getNameofPlantsi(i - 1);
+            int price = plantsStorage.getiPlants(i - 1).getPrice();
+            int growthTime = plantsStorage.getiPlants(i - 1).getGrowthTime();
             System.out.println(name + " its price: " + price + " its growthTime: " + growthTime);
         }
     }
@@ -341,9 +339,9 @@ public class RunProgram {
     // EFFECTS: print the FertilizerStorage Status list
     private void printFertilizerStorageStatusList(FertilizerStorage fertilizerStorage) {
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
-            String name = fertilizerStorage.getFertilizerStorage().get(i - 1).getName();
-            int price = fertilizerStorage.getFertilizerStorage().get(i - 1).getPrice();
-            int timeReduced = fertilizerStorage.getFertilizerStorage().get(i - 1).getTimeReduced();
+            String name = fertilizerStorage.getNameofFertilizeri(i - 1);
+            int price = fertilizerStorage.getiFertilizer(i - 1).getPrice();
+            int timeReduced = fertilizerStorage.getiFertilizer(i - 1).getTimeReduced();
             System.out.println(name + " its price: " + price + " Time reduce for plant to grow: " + timeReduced);
         }
     }
@@ -377,7 +375,7 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to plant Plants from the PlantsStorage
     private void tryPlantPlants(int command) {
-        if (command > plantsStorage.getPlantsStorage().size()) {
+        if (command > plantsStorage.getPlantsStorageSize()) {
             System.out.println("Input number is larger than you have");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
@@ -438,7 +436,7 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to apply the fertilizer to the plant that user indicated
     private void tryApplyFertilizer(int slotChosenCommand, int fertilizerCommand) {
-        if (slotChosenCommand > plantsSlot.getPlantsStorage().size()) {
+        if (slotChosenCommand > plantsSlot.getPlantsStorageSize()) {
             System.out.println("Input number is larger than you have");
         } else if (slotChosenCommand < 0) {
             System.out.println("Input number cannot be negative");
