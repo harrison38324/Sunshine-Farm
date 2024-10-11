@@ -333,10 +333,13 @@ public class RunProgram {
 
     // EFFECTS: print the PlantsStorage Name list
     private void printPlantsStorageNameList(PlantsStorage plantsStorage) {
+        System.out.println("\n The Fertilizer you have:");
+        System.out.println("\n-----------------");
         for (int i = 1; i <= plantsStorage.getPlantsStorageSize(); i++) {
             String name = plantsStorage.getNameofPlantsi(i - 1);
             System.out.println(name);
         }
+        System.out.println("\n-----------------");
     }
 
     // EFFECTS: print the PlantsStorage Status list
@@ -379,7 +382,6 @@ public class RunProgram {
 
     // EFFECTS: print the introduction information for user to plant plants
     private void printIntoInfoPlantPlants() {
-        System.out.println("\nyou have ");
         printPlantsStorageNameList(plantsStorage);
         System.out.println("\nPlease type the order number of the Plants you want to plant");
         System.out.println("\n type 0 to go back to the upper menu");
