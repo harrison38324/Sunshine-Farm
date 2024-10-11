@@ -167,13 +167,14 @@ public class RunProgram {
 
     // MODIFIES: this
     // EFFECTS: valid the user's input value to be int
-    private int validInputInt(){
+    private int validInputInt() {
         while (!input.hasNextInt()) {
             System.out.println("That's not a number!");
             input.next();
         }
         return input.nextInt();
     }
+
     // MODIFIES: this
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
