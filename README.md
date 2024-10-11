@@ -17,5 +17,5 @@
 - As a user, I want to be able to sell a crop.
 - As a user, I want to be able to view the crops I can buy and their price and their detailed data.
 - As a user, I want to be able to view the tools like fertilizer I have.
-- As a user, I want to be able to add fertilizer to the specific plot.
+- As a user, I want to be able to add fertilizer to the plot.
 - As a user, I want to be able to buy a tool into my tool package.
