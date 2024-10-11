@@ -52,6 +52,7 @@ public class RunProgram {
         System.out.println("\nGood bye!");
     }
 
+    // MODIFIES: this
     // EFFECTS: initiate the game
     private void init() {
         norPlant = new Plants("Apple", 50, 50);
@@ -102,6 +103,7 @@ public class RunProgram {
         System.out.println("\nq -> quit game");
     }
 
+    // MODIFIES: this
     // EFFECTS: choose sub Menu based on the user's input command
     private void chooseSubMenu(String command) {
         if (command.equals("f")) {
@@ -113,7 +115,7 @@ public class RunProgram {
         }
     }
 
-    //
+    // MODIFIES: this
     // EFFECTS: display market Menu and buy items based on user's input command
     private void marketMenu() {
         boolean keepGoing = true;
@@ -142,7 +144,7 @@ public class RunProgram {
         System.out.println("\nWhat do you want to buy, p -> Plants, f -> Fertilizer, b -> back");
     }
 
-    //
+    // MODIFIES: this
     // EFFECTS: try to buy Indicated commodity
     private void tryBuyingIndicatedCommodity(String command) {
         int intCommand = 0;
@@ -184,7 +186,7 @@ public class RunProgram {
         }
     }
 
-    //
+    // MODIFIES: this
     // EFFECTS: try to buy Indicated Fertilizer
     private void tryBuyingIndicatedFertilizer(int command) {
         if (command > fertilizerCommodity.getFertilizerStorage().size()) {
@@ -205,6 +207,7 @@ public class RunProgram {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: show the Farm Menu and process user's input
     private void farmMenu() {
         boolean keepGoing = true;
@@ -236,6 +239,7 @@ public class RunProgram {
         System.out.println("\tb  -> Back to the upper Menu");
     }
 
+    // MODIFIES: this
     // EFFECTS: excute the Operation based on the Input command
     private void operationInFarm(String command) {
         if (command.equals("cf")) {
@@ -255,7 +259,8 @@ public class RunProgram {
         }
     }
 
-    //
+    // MODIFIES: this
+    // EFFECTS: Sell Plants that is Mature
     private void sellMaturePlants() {
         boolean keepGoing = true;
         int command = 0;
@@ -274,7 +279,8 @@ public class RunProgram {
         }
     }
 
-    //
+    // MODIFIES: this
+    // EFFECTS: try to sell the Plants
     private void trySellPlants(int command) {
         if (command > plantsSlot.getPlantsStorage().size()) {
             System.out.println("\nInput number is larger than you have");
@@ -340,6 +346,7 @@ public class RunProgram {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: show the plant options and process user's input
     private void plantPlants() {
         boolean keepGoing = true;
@@ -379,6 +386,7 @@ public class RunProgram {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: show the fertilizer-using options and process user's input
     private void useFertilizer() {
         boolean keepGoing = true;
@@ -423,6 +431,8 @@ public class RunProgram {
         System.out.println("\n type 0 to go back to the upper menu");
     }
 
+    // REQUIRES: fertilizerCommand > 0 and fertilizerCommand <= the size of
+    // fertilizerStorage
     // MODIFIES: this
     // EFFECTS: try to apply the fertilizer to the plant that user indicated
     private void tryApplyFertilizer(int slotChosenCommand, int fertilizerCommand) {
