@@ -49,7 +49,8 @@ public class FertilizerStorage {
         return getFertilizerStorage().get(i).getName();
     }
 
-    // EFFETCS: dupilicate the indicated Plants and add them into the plantsStorage
+    // EFFETCS: dupilicate the indicated Fertilizer and add them into the
+    // fertilizerStorage
     public void buyFertilizer(Fertilizer indicateFertilizer) {
         Fertilizer boughtFertilizer = new Fertilizer(indicateFertilizer.getName(),
                 indicateFertilizer.getPrice(), indicateFertilizer.getGrowthTime());
