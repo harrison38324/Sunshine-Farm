@@ -274,7 +274,6 @@ public class RunProgram {
         boolean keepGoing = true;
         int command = 0;
         while (keepGoing) {
-            System.out.println("\n The Slot status:");
             printPlantsSlotStatusList();
             System.out.println("Type the order number (nth) Mature plant you want to sell");
             System.out.println("Type 0 to go back to the upper menu");
@@ -311,11 +310,14 @@ public class RunProgram {
 
     // EFFECT: print the fertilizerStorage Name list
     private void printPlantsSlotStatusList() {
+        System.out.println("\n The Slot status:");
+        System.out.println("\n-----------------");
         for (int i = 1; i <= plantsSlot.getPlantsStorageSize(); i++) {
             String name = "Plant Name:" + plantsSlot.getPlants(i - 1).getPlantsName() + " Time to grow up: "
                     + plantsSlot.getPlants(i - 1).getGrowthTime();
             System.out.println(name);
         }
+        System.out.println("\n-----------------");
     }
 
     // EFFECTS: print the FertilizerStorage Name list
@@ -459,7 +461,6 @@ public class RunProgram {
                 fertilizerStorage.remove(fertilizerCommand - 1);
             }
             System.out.println("\nApply fertilizer Succussfully!");
-            System.out.println("\nNow this is the status of Plants in your Farm:");
             printPlantsSlotStatusList();
         }
     }
