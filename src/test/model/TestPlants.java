@@ -97,4 +97,12 @@ public class TestPlants {
         plants.useFertilizer(fertilizer);
         assertEquals(plants.getGrowthTime(), 0);
     }
+
+    @Test
+    void testSetGrowthTime() {
+        plants.setGrowthTime(0);
+        assertEquals(plants.getGrowthTime(), 0);
+        plants.setGrowthTime(12);
+        assertEquals(plants.getGrowthTime(), 12);
+    }
 }
