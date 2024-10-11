@@ -44,7 +44,7 @@ public class PlantsStorage {
     }
 
     // EFFECTS: get the Plants with index in plantsStorage
-    public Plants getiPlants(int i){
+    public Plants getiPlants(int i) {
         return getPlantsStorage().get(i);
     }
 
