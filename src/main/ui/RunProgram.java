@@ -152,19 +152,28 @@ public class RunProgram {
             printPlantsStorageStatusList(plantsCommodity);
             System.out.println("Please type the order num of plants you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
-            intCommand = input.nextInt();
+            intCommand = validInputInt();
             tryBuyingIndicatedPlants(intCommand);
         } else if (command.equals("f")) {
             printFertilizerStorageStatusList(fertilizerCommodity);
             System.out.println("Please type the order num of fertilizer you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
-            intCommand = input.nextInt();
+            intCommand = validInputInt();
             tryBuyingIndicatedFertilizer(intCommand);
         } else {
             System.out.println("\n Invalid Input");
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: valid the user's input value to be int
+    private int validInputInt(){
+        while (!input.hasNextInt()) {
+            System.out.println("That's not a number!");
+            input.next();
+        }
+        return input.nextInt();
+    }
     // MODIFIES: this
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
@@ -269,8 +278,7 @@ public class RunProgram {
             printPlantsSlotStatusList();
             System.out.println("Type the order number (nth) Mature plant you want to sell");
             System.out.println("Type 0 to go back to the upper menu");
-
-            command = input.nextInt();
+            command = validInputInt();
             if (command == 0) {
                 keepGoing = false;
             } else {
@@ -354,7 +362,7 @@ public class RunProgram {
         while (keepGoing) {
 
             printIntoInfoPlantPlants();
-            command = input.nextInt();
+            command = validInputInt();
 
             if (command == 0) {
                 keepGoing = false;
@@ -394,12 +402,12 @@ public class RunProgram {
         int slotChosenCommand = 0;
         while (keepGoing) {
             printFertilizerCmdInstruct();
-            fertilizerCommand = input.nextInt();
+            fertilizerCommand = validInputInt();
             if (fertilizerCommand == 0) {
                 keepGoing = false;
             } else if (validFertilizerCmd(fertilizerCommand)) {
                 printSlotChosenCmdInstruct();
-                slotChosenCommand = input.nextInt();
+                slotChosenCommand = validInputInt();
                 if (slotChosenCommand == 0) {
                     keepGoing = false;
                 } else {
