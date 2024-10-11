@@ -94,7 +94,7 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void getiPlants(){
+    void testgetiPlants(){
         plantsStorage.addPlants(norPlants);
         plantsStorage.addPlants(rarePlants);
         plantsStorage.addPlants(legendPlants);
@@ -102,4 +102,6 @@ public class TestPlantsStorage {
         assertEquals(plantsStorage.getiPlants(1), rarePlants);
         assertEquals(plantsStorage.getiPlants(2), legendPlants);
     }
+
+
 }
