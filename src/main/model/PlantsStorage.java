@@ -21,7 +21,7 @@ public class PlantsStorage {
 
     // REQUIRES: num>=0
     // MODIFIES: this
-    // EFFECTS: remove a Plants from the Storage
+    // EFFECTS: remove a Plants in index num from the Storage
     public void remove(int num) {
         plantsStorage.remove(num);
     }
