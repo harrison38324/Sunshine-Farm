@@ -52,4 +52,11 @@ public class PlantsStorage {
     public String getNameofPlantsi(int i) {
         return getPlantsStorage().get(i).getPlantsName();
     }
+
+    // EFFETCS: dupilicate the indicated Plants and add them into the plantsStorage
+    public void buyPlants(PlantsStorage plantsStorage, Plants indicatePlants) {
+        Plants boughtPlants = new Plants(indicatePlants.getPlantsName(),
+                indicatePlants.getPrice(), indicatePlants.getGrowthTime());
+        plantsStorage.addPlants(boughtPlants);
+    }
 }
