@@ -322,10 +322,13 @@ public class RunProgram {
 
     // EFFECTS: print the FertilizerStorage Name list
     private void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
+        System.out.println("\n The Fertilizer you have:");
+        System.out.println("\n-----------------");
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
             String name = fertilizerStorage.getNameofFertilizeri(i - 1);
             System.out.println(name);
         }
+        System.out.println("\n-----------------");
     }
 
     // EFFECTS: print the PlantsStorage Name list
@@ -423,7 +426,6 @@ public class RunProgram {
 
     // EFFECTS: print instruction for Fertilizer command
     private void printFertilizerCmdInstruct() {
-        System.out.println("\nyou have these fertilizer");
         printFertilizerStorageNameList(fertilizerStorage);
         System.out.println("\nPlease type the order number of the Fertilizer you want to use");
         System.out.println("\n type 0 to go back to the upper menu");
