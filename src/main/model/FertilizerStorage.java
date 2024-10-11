@@ -38,4 +38,14 @@ public class FertilizerStorage {
     public List<Fertilizer> getFertilizerStorage() {
         return fertilizerStorage;
     }
+
+    // EFFECTS: get the Fertilizer of index i of the fertilizerStorage
+    public Fertilizer getiFertilizer(int i) {
+        return getFertilizerStorage().get(i);
+    }
+
+    // EFFECTS: get the Name of index i of the fertilizerStorage
+    public String getNameofFertilizeri(int i) {
+        return getFertilizerStorage().get(i).getName();
+    }
 }
