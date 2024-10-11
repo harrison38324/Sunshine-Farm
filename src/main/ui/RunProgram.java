@@ -178,7 +178,7 @@ public class RunProgram {
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
         if (command > plantsCommodity.getPlantsStorageSize()) {
-            System.out.println("Input number is too larger");
+            System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else {
@@ -199,7 +199,7 @@ public class RunProgram {
     // EFFECTS: try to buy Indicated Fertilizer
     private void tryBuyingIndicatedFertilizer(int command) {
         if (command > fertilizerCommodity.getFertilizerStorage().size()) {
-            System.out.println("Input number is too larger");
+            System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else {
