@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,5 +106,22 @@ public class TestFertilizerStorage {
         assertEquals(fertilizerStorage.getiFertilizer(0), legendFertilizer);
         assertEquals(fertilizerStorage.getiFertilizer(1), rareFertilizer);
         assertEquals(fertilizerStorage.getiFertilizer(2), norFertilizer);
+    }
+
+    @Test
+    void testbuyFertilizer(){
+        fertilizerStorage.buyFertilizer(norFertilizer);
+        assertFalse(fertilizerStorage.getiFertilizer(0) == norFertilizer);
+        assertEquals(fertilizerStorage.getiFertilizer(0).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.getiFertilizer(0).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.getiFertilizer(0).getPrice(), norFertilizer.getPrice());
+        fertilizerStorage.buyFertilizer(norFertilizer);
+        assertFalse(fertilizerStorage.getiFertilizer(1) == norFertilizer);
+        assertEquals(fertilizerStorage.getiFertilizer(1).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.getiFertilizer(1).getTimeReduced(), norFertilizer.getTimeReduced());
+        assertEquals(fertilizerStorage.getiFertilizer(1).getPrice(), norFertilizer.getPrice());
+        fertilizerStorage.getiFertilizer(1).decreasePrice(10);
+        assertEquals(fertilizerStorage.getiFertilizer(0).getPrice(), 20);
+        assertEquals(fertilizerStorage.getiFertilizer(1).getPrice(), 10);
     }
 }
