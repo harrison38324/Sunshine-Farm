@@ -317,7 +317,7 @@ public class RunProgram {
                     + plantsSlot.getPlants(i - 1).getGrowthTime();
             System.out.println(name);
         }
-        System.out.println("\n-----------------");
+        System.out.println("-----------------");
     }
 
     // EFFECTS: print the FertilizerStorage Name list
@@ -328,7 +328,7 @@ public class RunProgram {
             String name = fertilizerStorage.getNameofFertilizeri(i - 1);
             System.out.println(name);
         }
-        System.out.println("\n-----------------");
+        System.out.println("-----------------");
     }
 
     // EFFECTS: print the PlantsStorage Name list
@@ -339,7 +339,7 @@ public class RunProgram {
             String name = plantsStorage.getNameofPlantsi(i - 1);
             System.out.println(name);
         }
-        System.out.println("\n-----------------");
+        System.out.println("-----------------");
     }
 
     // EFFECTS: print the PlantsStorage Status list
