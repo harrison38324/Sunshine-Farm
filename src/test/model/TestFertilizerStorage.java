@@ -65,10 +65,10 @@ public class TestFertilizerStorage {
         fertilizerStorage.addFertilizer(legendFertilizer);
         assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList2);
         fertilizerStorage.remove(1);
-        assertEquals(fertilizerStorage.getFertilizerStorage(),fertilizerList4);
+        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList4);
         fertilizerStorage.remove(1);
         assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList1);
-        
+
     }
 
     @Test
@@ -85,5 +85,25 @@ public class TestFertilizerStorage {
         fertilizerStorage.addFertilizer(rareFertilizer);
         fertilizerStorage.addFertilizer(norFertilizer);
         assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList3);
+    }
+
+    @Test
+    void testGetNameofFertilizeri() {
+        fertilizerStorage.addFertilizer(legendFertilizer);
+        fertilizerStorage.addFertilizer(rareFertilizer);
+        fertilizerStorage.addFertilizer(norFertilizer);
+        assertEquals(fertilizerStorage.getNameofFertilizeri(0), "Advanced big bag fertilizer");
+        assertEquals(fertilizerStorage.getNameofFertilizeri(1), "Big bag fertilizer");
+        assertEquals(fertilizerStorage.getNameofFertilizeri(2), "Small bag fertilizer");
+    }
+
+    @Test
+    void testGetiFertilizer() {
+        fertilizerStorage.addFertilizer(legendFertilizer);
+        fertilizerStorage.addFertilizer(rareFertilizer);
+        fertilizerStorage.addFertilizer(norFertilizer);
+        assertEquals(fertilizerStorage.getiFertilizer(0), legendFertilizer);
+        assertEquals(fertilizerStorage.getiFertilizer(1), rareFertilizer);
+        assertEquals(fertilizerStorage.getiFertilizer(2), norFertilizer);
     }
 }
