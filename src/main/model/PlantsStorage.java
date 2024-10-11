@@ -38,4 +38,18 @@ public class PlantsStorage {
     public List<Plants> getPlantsStorage() {
         return plantsStorage;
     }
+
+    public int getPlantsStorageSize() {
+        return plantsStorage.size();
+    }
+
+    // EFFECTS: get the Plants with index in plantsStorage
+    public Plants getiPlants(int i){
+        return getPlantsStorage().get(i);
+    }
+
+    // EFFECTS: get the Name of index i of the plantsStorage
+    public String getNameofPlantsi(int i) {
+        return getPlantsStorage().get(i).getPlantsName();
+    }
 }
