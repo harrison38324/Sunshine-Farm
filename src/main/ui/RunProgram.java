@@ -135,9 +135,9 @@ public class RunProgram {
     private void printMarketCommodity() {
         System.out.println("\nThese items are on sell:");
         System.out.println("\nPlants:");
-        printPlantsStorageNamePriceList(plantsCommodity);
+        printPlantsStorageStatusList(plantsCommodity);
         System.out.println("\nFertilizer:");
-        printFertilizerStorageNamePriceList(fertilizerCommodity);
+        printFertilizerStorageStatusList(fertilizerCommodity);
         System.out.println("Your balance: " + wallet.getBalance());
         System.out.println("\nWhat do you want to buy, p -> Plants, f -> Fertilizer, b -> back");
     }
@@ -147,13 +147,13 @@ public class RunProgram {
     private void tryBuyingIndicatedCommodity(String command) {
         int intCommand = 0;
         if (command.equals("p")) {
-            printPlantsStorageNamePriceList(plantsCommodity);
+            printPlantsStorageStatusList(plantsCommodity);
             System.out.println("Please type the order num of plants you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
             intCommand = input.nextInt();
             tryBuyingIndicatedPlants(intCommand);
         } else if (command.equals("f")) {
-            printFertilizerStorageNamePriceList(fertilizerCommodity);
+            printFertilizerStorageStatusList(fertilizerCommodity);
             System.out.println("Please type the order num of fertilizer you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
             intCommand = input.nextInt();
@@ -219,7 +219,7 @@ public class RunProgram {
             if (command.equals("b")) {
                 keepGoing = false;
             } else {
-                OperationInFarm(command);
+                operationInFarm(command);
             }
         }
     }
@@ -237,7 +237,7 @@ public class RunProgram {
     }
 
     // EFFECTS: excute the Operation based on the Input command
-    private void OperationInFarm(String command) {
+    private void operationInFarm(String command) {
         if (command.equals("cf")) {
             printFertilizerStorageNameList(fertilizerStorage);
         } else if (command.equals("cp")) {
@@ -249,14 +249,14 @@ public class RunProgram {
         } else if (command.equals("cs")) {
             printPlantsSlotStatusList();
         } else if (command.equals("sp")) {
-            SellMaturePlants();
+            sellMaturePlants();
         } else {
             System.out.println("Input is Not a valid Value...");
         }
     }
 
     //
-    private void SellMaturePlants() {
+    private void sellMaturePlants() {
         boolean keepGoing = true;
         int command = 0;
         while (keepGoing) {
@@ -320,21 +320,23 @@ public class RunProgram {
         }
     }
 
-    // EFFECTS: print the PlantsStorage Name and Price list
-    private void printPlantsStorageNamePriceList(PlantsStorage plantsStorage) {
+    // EFFECTS: print the PlantsStorage Status list
+    private void printPlantsStorageStatusList(PlantsStorage plantsStorage) {
         for (int i = 1; i <= plantsStorage.getPlantsStorage().size(); i++) {
             String name = plantsStorage.getNameList().get(i - 1);
             int price = plantsStorage.getPlantsStorage().get(i - 1).getPrice();
-            System.out.println(name + " its price: " + price);
+            int growthTime = plantsStorage.getPlantsStorage().get(i - 1).getGrowthTime();
+            System.out.println(name + " its price: " + price + " its growthTime: " + growthTime);
         }
     }
 
-    // EFFECTS: print the FertilizerStorage Name list
-    private void printFertilizerStorageNamePriceList(FertilizerStorage fertilizerStorage) {
+    // EFFECTS: print the FertilizerStorage Status list
+    private void printFertilizerStorageStatusList(FertilizerStorage fertilizerStorage) {
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
             String name = fertilizerStorage.getNameList().get(i - 1);
             int price = fertilizerStorage.getFertilizerStorage().get(i - 1).getPrice();
-            System.out.println(name + " its price: " + price);
+            int timeReduced = fertilizerStorage.getFertilizerStorage().get(i - 1).getTimeReduced();
+            System.out.println(name + " its price: " + price + " Time reduce for plant to grow: " + timeReduced);
         }
     }
 
@@ -395,7 +397,7 @@ public class RunProgram {
                 } else {
                     tryApplyFertilizer(slotChosenCommand, fertilizerCommand);
                 }
-            }else {
+            } else {
                 System.out.println("Invalid Input(negative number or larger than the num of fertilizers you have)");
             }
         }
@@ -429,13 +431,13 @@ public class RunProgram {
         } else if (slotChosenCommand < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            int TimeReduced = fertilizerStorage.getFertilizerStorage().get(fertilizerCommand - 1).getTimeReduced();
+            int timeReduced = fertilizerStorage.getFertilizerStorage().get(fertilizerCommand - 1).getTimeReduced();
             Plants incdicatedPlants = plantsSlot.getPlants(slotChosenCommand - 1);
-            if (TimeReduced > incdicatedPlants.getGrowthTime()) {
+            if (timeReduced > incdicatedPlants.getGrowthTime()) {
                 incdicatedPlants.setGrowthTime(0);
                 fertilizerStorage.remove(fertilizerCommand - 1);
             } else {
-                incdicatedPlants.decreaseGrowthTime(TimeReduced);
+                incdicatedPlants.decreaseGrowthTime(timeReduced);
                 fertilizerStorage.remove(fertilizerCommand - 1);
             }
             System.out.println("\nApply fertilizer Succussfully!");
