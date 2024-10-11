@@ -54,9 +54,9 @@ public class PlantsStorage {
     }
 
     // EFFETCS: dupilicate the indicated Plants and add them into the plantsStorage
-    public void buyPlants(PlantsStorage plantsStorage, Plants indicatePlants) {
+    public void buyPlants(Plants indicatePlants) {
         Plants boughtPlants = new Plants(indicatePlants.getPlantsName(),
                 indicatePlants.getPrice(), indicatePlants.getGrowthTime());
-        plantsStorage.addPlants(boughtPlants);
+        addPlants(boughtPlants);
     }
 }
