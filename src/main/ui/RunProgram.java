@@ -334,7 +334,7 @@ public class RunProgram {
 
     // EFFECTS: print the PlantsStorage Name list
     private void printPlantsStorageNameList(PlantsStorage plantsStorage) {
-        System.out.println("\n The Fertilizer you have:");
+        System.out.println("\n The Plants you have:");
         System.out.println("\n-----------------");
         for (int i = 1; i <= plantsStorage.getPlantsStorageSize(); i++) {
             String name = plantsStorage.getNameofPlantsi(i - 1);
