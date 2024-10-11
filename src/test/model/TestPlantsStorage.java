@@ -72,4 +72,34 @@ public class TestPlantsStorage {
         plantsStorage.addPlants(legendPlants);
         assertEquals(plantsStorage.getPlantsStorage(), plantsList2);
     }
+
+    @Test
+    void testGetPlantsStorageSize(){
+        plantsStorage.addPlants(norPlants);
+        plantsStorage.addPlants(rarePlants);
+        plantsStorage.addPlants(legendPlants);
+        assertEquals(plantsStorage.getPlantsStorageSize(), 3);
+        plantsStorage.remove(1);
+        assertEquals(plantsStorage.getPlantsStorageSize(), 2);
+    }
+
+    @Test
+    void testGetNameofPlantsi(){
+        plantsStorage.addPlants(norPlants);
+        plantsStorage.addPlants(rarePlants);
+        plantsStorage.addPlants(legendPlants);
+        assertEquals(plantsStorage.getNameofPlantsi(0), "Apple tree");
+        assertEquals(plantsStorage.getNameofPlantsi(1), "Blueberry");
+        assertEquals(plantsStorage.getNameofPlantsi(2), "gold tree");
+    }
+
+    @Test
+    void getiPlants(){
+        plantsStorage.addPlants(norPlants);
+        plantsStorage.addPlants(rarePlants);
+        plantsStorage.addPlants(legendPlants);
+        assertEquals(plantsStorage.getiPlants(0), norPlants);
+        assertEquals(plantsStorage.getiPlants(1), rarePlants);
+        assertEquals(plantsStorage.getiPlants(2), legendPlants);
+    }
 }
