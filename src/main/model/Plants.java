@@ -52,4 +52,9 @@ public class Plants {
     public void useFertilizer(Fertilizer fertilizer) {
         decreaseGrowthTime(fertilizer.getTimeReduced());
     }
+
+    // REQUIRES: time >=0
+    public void setGrowthTime(int time) {
+        this.growthTime = time;
+    }
 }
