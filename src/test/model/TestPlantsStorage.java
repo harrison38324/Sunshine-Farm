@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,5 +104,20 @@ public class TestPlantsStorage {
         assertEquals(plantsStorage.getiPlants(2), legendPlants);
     }
 
-
+    @Test
+    void testbuyPlants(){
+        plantsStorage.buyPlants(norPlants);
+        assertFalse(plantsStorage.getiPlants(0) == norPlants);
+        assertEquals(plantsStorage.getiPlants(0).getPlantsName(), norPlants.getPlantsName());
+        assertEquals(plantsStorage.getiPlants(0).getGrowthTime(), norPlants.getGrowthTime());
+        assertEquals(plantsStorage.getiPlants(0).getPrice(), norPlants.getPrice());
+        plantsStorage.buyPlants(norPlants);
+        assertFalse(plantsStorage.getiPlants(1) == norPlants);
+        assertEquals(plantsStorage.getiPlants(1).getPlantsName(), norPlants.getPlantsName());
+        assertEquals(plantsStorage.getiPlants(1).getGrowthTime(), norPlants.getGrowthTime());
+        assertEquals(plantsStorage.getiPlants(1).getPrice(), norPlants.getPrice());
+        plantsStorage.getiPlants(1).decreaseGrowthTime(10);
+        assertEquals(plantsStorage.getiPlants(0).getGrowthTime(), 100);
+        assertEquals(plantsStorage.getiPlants(1).getGrowthTime(), 90);
+    }
 }
