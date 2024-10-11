@@ -14,6 +14,7 @@ public class TestFertilizerStorage {
     private List<Fertilizer> fertilizerList1;
     private List<Fertilizer> fertilizerList2;
     private List<Fertilizer> fertilizerList3;
+    private List<Fertilizer> fertilizerList4;
     private Fertilizer norFertilizer;
     private Fertilizer rareFertilizer;
     private Fertilizer legendFertilizer;
@@ -39,6 +40,10 @@ public class TestFertilizerStorage {
         fertilizerList3.add(rareFertilizer);
         fertilizerList3.add(norFertilizer);
 
+        fertilizerList4 = new ArrayList<>();
+        fertilizerList4.add(norFertilizer);
+        fertilizerList4.add(legendFertilizer);
+
         fertilizerNameList = new ArrayList<>();
         fertilizerNameList.add("Big bag fertilizer");
         fertilizerNameList.add("Small bag fertilizer");
@@ -60,8 +65,10 @@ public class TestFertilizerStorage {
         fertilizerStorage.addFertilizer(legendFertilizer);
         assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList2);
         fertilizerStorage.remove(1);
+        assertEquals(fertilizerStorage.getFertilizerStorage(),fertilizerList4);
         fertilizerStorage.remove(1);
         assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList1);
+        
     }
 
     @Test
