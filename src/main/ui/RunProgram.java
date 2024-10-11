@@ -1,6 +1,8 @@
 package ui;
 
 import java.util.Scanner;
+import java.util.List;
+import java.util.*;
 
 import model.*;
 
@@ -92,7 +94,7 @@ public class RunProgram {
         fertilizerStorage.addFertilizer(norFertilizer);
         fertilizerStorage.addFertilizer(norFertilizer);
 
-        wallet.earn(50);
+        wallet.earn(1000);
     }
 
     // EFFECTS: display the main Menu of options for user
@@ -313,7 +315,7 @@ public class RunProgram {
     // EFFECTS: print the FertilizerStorage Name list
     private void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
-            String name = fertilizerStorage.getNameList().get(i - 1);
+            String name = fertilizerStorage.getFertilizerStorage().get(i - 1).getName();
             System.out.println(name);
         }
     }
@@ -321,7 +323,7 @@ public class RunProgram {
     // EFFECTS: print the PlantsStorage Name list
     private void printPlantsStorageNameList(PlantsStorage plantsStorage) {
         for (int i = 1; i <= plantsStorage.getPlantsStorage().size(); i++) {
-            String name = plantsStorage.getNameList().get(i - 1);
+            String name = plantsStorage.getPlantsStorage().get(i - 1).getPlantsName();
             System.out.println(name);
         }
     }
@@ -329,7 +331,7 @@ public class RunProgram {
     // EFFECTS: print the PlantsStorage Status list
     private void printPlantsStorageStatusList(PlantsStorage plantsStorage) {
         for (int i = 1; i <= plantsStorage.getPlantsStorage().size(); i++) {
-            String name = plantsStorage.getNameList().get(i - 1);
+            String name = plantsStorage.getPlantsStorage().get(i - 1).getPlantsName();
             int price = plantsStorage.getPlantsStorage().get(i - 1).getPrice();
             int growthTime = plantsStorage.getPlantsStorage().get(i - 1).getGrowthTime();
             System.out.println(name + " its price: " + price + " its growthTime: " + growthTime);
@@ -339,7 +341,7 @@ public class RunProgram {
     // EFFECTS: print the FertilizerStorage Status list
     private void printFertilizerStorageStatusList(FertilizerStorage fertilizerStorage) {
         for (int i = 1; i <= fertilizerStorage.getFertilizerStorage().size(); i++) {
-            String name = fertilizerStorage.getNameList().get(i - 1);
+            String name = fertilizerStorage.getFertilizerStorage().get(i - 1).getName();
             int price = fertilizerStorage.getFertilizerStorage().get(i - 1).getPrice();
             int timeReduced = fertilizerStorage.getFertilizerStorage().get(i - 1).getTimeReduced();
             System.out.println(name + " its price: " + price + " Time reduce for plant to grow: " + timeReduced);
