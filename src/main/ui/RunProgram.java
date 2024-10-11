@@ -187,7 +187,7 @@ public class RunProgram {
             int price = indicatedPlants.getPrice();
             int balance = wallet.getBalance();
             if (balance >= price) {
-                plantsStorage.addPlants(indicatedPlants);
+                plantsStorage.buyPlants(indicatedPlants);
                 wallet.spend(price);
                 System.out.println("You have bought that Plants");
             } else {
@@ -204,11 +204,11 @@ public class RunProgram {
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            Fertilizer indicatedFertilizer = fertilizerCommodity.getFertilizerStorage().get(command - 1);
+            Fertilizer indicatedFertilizer = fertilizerCommodity.getiFertilizer(command - 1);
             int price = indicatedFertilizer.getPrice();
             int balance = wallet.getBalance();
             if (balance >= price) {
-                fertilizerStorage.addFertilizer(indicatedFertilizer);
+                fertilizerStorage.buyFertilizer(indicatedFertilizer);
                 wallet.spend(price);
                 System.out.println("You have bought that Fertilizer");
             } else {
@@ -456,7 +456,7 @@ public class RunProgram {
         } else if (slotChosenCommand < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            int timeReduced = fertilizerStorage.getFertilizerStorage().get(fertilizerCommand - 1).getTimeReduced();
+            int timeReduced = fertilizerStorage.getiFertilizer(fertilizerCommand - 1).getTimeReduced();
             Plants incdicatedPlants = plantsSlot.getPlants(slotChosenCommand - 1);
             if (timeReduced > incdicatedPlants.getGrowthTime()) {
                 incdicatedPlants.setGrowthTime(0);
