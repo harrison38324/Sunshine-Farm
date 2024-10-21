@@ -30,7 +30,7 @@ public class PlantsStorage {
     // in the storage in original order
     public List<String> getNameList() {
         for (int i = 0; i < plantsStorage.size(); i++) {
-            plantsStorageNameList.add(plantsStorage.get(i).getPlantsName());
+            plantsStorageNameList.add(plantsStorage.get(i).getName());
         }
         return plantsStorageNameList;
     }
@@ -50,13 +50,13 @@ public class PlantsStorage {
 
     // EFFECTS: get the Name of index i of the plantsStorage
     public String getNameofPlantsi(int i) {
-        return getPlantsStorage().get(i).getPlantsName();
+        return getPlantsStorage().get(i).getName();
     }
 
     // EFFETCS: dupilicate the indicated Plants and add them into the plantsStorage
     public void buyPlants(Plants indicatePlants) {
-        Plants boughtPlants = new Plants(indicatePlants.getPlantsName(),
-                indicatePlants.getPrice(), indicatePlants.getGrowthTime());
+        Plants boughtPlants = new Plants(indicatePlants.getName(),
+                indicatePlants.getPrice(), indicatePlants.getTime());
         addPlants(boughtPlants);
     }
 }
