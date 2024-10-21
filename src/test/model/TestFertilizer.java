@@ -25,7 +25,7 @@ public class TestFertilizer {
 
     @Test
     void testGetTimeReduced() {
-        assertEquals(fertilizer.getTimeReduced(), 1);
+        assertEquals(fertilizer.getTime(), 1);
     }
 
     @Test
