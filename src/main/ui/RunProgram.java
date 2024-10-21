@@ -88,7 +88,7 @@ public class RunProgram {
         fertilizerCommodity.addFertilizer(rareFertilizer);
         fertilizerCommodity.addFertilizer(legendFertilizer);
 
-        plantsStorage.addPlants(norPlant);
+        plantsStorage.buyPlants(norPlant);
         fertilizerStorage.addFertilizer(norFertilizer);
         fertilizerStorage.addFertilizer(norFertilizer);
 
