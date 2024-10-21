@@ -118,7 +118,7 @@ public class TestFertilizerStorage {
         fertilizerStorage.buyFertilizer(norFertilizer);
         assertFalse(fertilizerStorage.getiFertilizer(1) == norFertilizer);
         assertEquals(fertilizerStorage.getiFertilizer(1).getName(), norFertilizer.getName());
-        assertEquals(fertilizerStorage.getiFertilizer(1).getTimeReduced(), norFertilizer.getTimeReduced());
+        assertEquals(fertilizerStorage.getiFertilizer(1).getTime(), norFertilizer.getTime());
         assertEquals(fertilizerStorage.getiFertilizer(1).getPrice(), norFertilizer.getPrice());
         fertilizerStorage.getiFertilizer(1).decreasePrice(10);
         assertEquals(fertilizerStorage.getiFertilizer(0).getPrice(), 20);
