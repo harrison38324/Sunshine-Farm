@@ -53,7 +53,7 @@ public class FertilizerStorage {
     // fertilizerStorage
     public void buyFertilizer(Fertilizer indicateFertilizer) {
         Fertilizer boughtFertilizer = new Fertilizer(indicateFertilizer.getName(),
-                indicateFertilizer.getPrice(), indicateFertilizer.getTimeReduced());
+                indicateFertilizer.getPrice(), indicateFertilizer.getTime());
         addFertilizer(boughtFertilizer);
     }
 }
