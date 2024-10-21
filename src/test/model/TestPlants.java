@@ -22,12 +22,12 @@ public class TestPlants {
 
     @Test
     void testgetPlantsName() {
-        assertEquals(plants.getPlantsName(), "Apple tree");
+        assertEquals(plants.getName(), "Apple tree");
     }
 
     @Test
     void testgetGrowthTime() {
-        assertEquals(plants.getGrowthTime(), 3);
+        assertEquals(plants.getTime(), 3);
     }
 
     @Test
@@ -68,41 +68,41 @@ public class TestPlants {
 
     @Test
     void testdecreaseGrowthTime() {
-        assertEquals(plants.getGrowthTime(), 3);
-        plants.decreaseGrowthTime(1);
-        assertEquals(plants.getGrowthTime(), 2);
+        assertEquals(plants.getTime(), 3);
+        plants.decreaseTime(1);
+        assertEquals(plants.getTime(), 2);
     }
 
     @Test
     void testdecreaseGrowthTimeMutipleTimes() {
-        assertEquals(plants.getGrowthTime(), 3);
-        plants.decreaseGrowthTime(1);
-        assertEquals(plants.getGrowthTime(), 2);
-        plants.decreaseGrowthTime(2);
-        assertEquals(plants.getGrowthTime(), 0);
+        assertEquals(plants.getTime(), 3);
+        plants.decreaseTime(1);
+        assertEquals(plants.getTime(), 2);
+        plants.decreaseTime(2);
+        assertEquals(plants.getTime(), 0);
     }
 
     @Test
     void testuseFertilizer() {
         plants.useFertilizer(fertilizer);
-        assertEquals(plants.getGrowthTime(), 2);
+        assertEquals(plants.getTime(), 2);
     }
 
     @Test
     void testuseFertilizerMutipleTimes() {
         plants.useFertilizer(fertilizer);
-        assertEquals(plants.getGrowthTime(), 2);
+        assertEquals(plants.getTime(), 2);
         plants.useFertilizer(fertilizer);
-        assertEquals(plants.getGrowthTime(), 1);
+        assertEquals(plants.getTime(), 1);
         plants.useFertilizer(fertilizer);
-        assertEquals(plants.getGrowthTime(), 0);
+        assertEquals(plants.getTime(), 0);
     }
 
     @Test
     void testSetGrowthTime() {
-        plants.setGrowthTime(0);
-        assertEquals(plants.getGrowthTime(), 0);
-        plants.setGrowthTime(12);
-        assertEquals(plants.getGrowthTime(), 12);
+        plants.setTime(0);
+        assertEquals(plants.getTime(), 0);
+        plants.setTime(12);
+        assertEquals(plants.getTime(), 12);
     }
 }
