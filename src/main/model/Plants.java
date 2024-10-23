@@ -8,8 +8,8 @@ public class Plants extends AgriculturalEntity {
     // REQUIRES: price>=0 , growthTime>=0 plantsName cannot be an empty string
     // EFFECTS: set a new kind of plants by assigned the plantsName
     // its price and the time it consumed to grow up
-    public Plants(String plantsName, int price, int growthTime) {
-        super(plantsName, price, growthTime);
+    public Plants(String name, int price, int time) {
+        super(name, price, time);
     }
 
     // public int getPrice() {
