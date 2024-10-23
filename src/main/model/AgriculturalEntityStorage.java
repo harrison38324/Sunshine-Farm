@@ -43,7 +43,7 @@ public class AgriculturalEntityStorage {
     // EFFETCS: dupilicate the indicated Plants and add them into the plantsStorage
     public void buyEntity(AgriculturalEntity indicateEntity) {
         AgriculturalEntity boughtEntity = new AgriculturalEntity(indicateEntity.getName(),
-        indicateEntity.getPrice(), indicateEntity.getTime());
+                indicateEntity.getPrice(), indicateEntity.getTime());
         Storage.add(boughtEntity);
     }
 

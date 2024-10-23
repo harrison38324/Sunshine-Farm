@@ -1,6 +1,6 @@
 package model;
 
-public class Plants extends AgriculturalEntity{
+public class Plants extends AgriculturalEntity {
     // private String plantsName;
     // private int price;
     // private int growthTime;
@@ -9,40 +9,40 @@ public class Plants extends AgriculturalEntity{
     // EFFECTS: set a new kind of plants by assigned the plantsName
     // its price and the time it consumed to grow up
     public Plants(String plantsName, int price, int growthTime) {
-        super(plantsName,price,growthTime);
+        super(plantsName, price, growthTime);
     }
 
     // public int getPrice() {
-    //     return price;
+    // return price;
     // }
 
     // public String getPlantsName() {
-    //     return plantsName;
+    // return plantsName;
     // }
 
     // public int getGrowthTime() {
-    //     return growthTime;
+    // return growthTime;
     // }
 
     // // REQUIRES: money >= 0
     // // MODIFIES: this
     // // EFFECTS: increase the price of the plant by the input money
     // public void increasePrice(int money) {
-    //     price += money;
+    // price += money;
     // }
 
     // // REQUIRES: money >= 0
     // // MODIFIES: this
     // // EFFECTS: decrease the price of the plant by the input money
     // public void decreasePrice(int money) {
-    //     price -= money;
+    // price -= money;
     // }
 
     // // REQUIRES: time >= growthTime
     // // MODIFIES: this
     // // EFFECTS: decrease the growthTime by input time
     // public void decreaseGrowthTime(int time) {
-    //     growthTime -= time;
+    // growthTime -= time;
     // }
 
     // MODIFIES: this
@@ -53,6 +53,6 @@ public class Plants extends AgriculturalEntity{
 
     // // REQUIRES: time >=0
     // public void setGrowthTime(int time) {
-    //     this.growthTime = time;
+    // this.growthTime = time;
     // }
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Fertilizer extends AgriculturalEntity{
+public class Fertilizer extends AgriculturalEntity {
     // private String name;
     // private int price;
     // private int timeReduced;
@@ -13,29 +13,29 @@ public class Fertilizer extends AgriculturalEntity{
     }
 
     // public int getPrice() {
-    //     return price;
+    // return price;
     // }
 
     // public String getName() {
-    //     return name;
+    // return name;
     // }
 
     // public int getTimeReduced() {
-    //     return timeReduced;
+    // return timeReduced;
     // }
 
     // // REQUIRES: money >= 0
     // // MODIFIES: this
     // // EFFECTS: increase price by the input money
     // public void increasePrice(int money) {
-    //     price += money;
+    // price += money;
     // }
 
     // // REQUIRES: money >= 0, money<=Price
     // // MODIFIES: this
     // // EFFECTS: decrease price by the input money
     // public void decreasePrice(int money) {
-    //     price -= money;
+    // price -= money;
     // }
 
 }
