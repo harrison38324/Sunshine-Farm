@@ -22,9 +22,9 @@ public class TestPlantsSlots {
         rarePlants = new Plants("Blueberry", 100, 200);
         legendPlants = new Plants("gold tree", 1000, 500);
 
-        plantsSlots.addPlants(norPlants);
-        plantsSlots.addPlants(rarePlants);
-        plantsSlots.addPlants(legendPlants);
+        plantsSlots.add(norPlants);
+        plantsSlots.add(rarePlants);
+        plantsSlots.add(legendPlants);
 
         plantsList = new ArrayList<>();
         plantsList.add(norPlants);

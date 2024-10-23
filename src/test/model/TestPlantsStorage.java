@@ -42,82 +42,82 @@ public class TestPlantsStorage {
 
     @Test
     void testAddPlants() {
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getPlantsStorage(), plantsList2);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
+        assertEquals(plantsStorage.getStorage(), plantsList2);
     }
 
     @Test
     void testRemove() {
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
         plantsStorage.remove(2);
         plantsStorage.remove(1);
-        assertEquals(plantsStorage.getPlantsStorage(), plantsList1);
+        assertEquals(plantsStorage.getStorage(), plantsList1);
     }
 
     @Test
     void testGetNameList() {
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
         assertEquals(plantsStorage.getNameList(), plantsNameList);
     }
 
     @Test
     void testGetPlantsStorage() {
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getPlantsStorage(), plantsList2);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
+        assertEquals(plantsStorage.getStorage(), plantsList2);
     }
 
     @Test
     void testGetPlantsStorageSize(){
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getPlantsStorageSize(), 3);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
+        assertEquals(plantsStorage.getStorageSize(), 3);
         plantsStorage.remove(1);
-        assertEquals(plantsStorage.getPlantsStorageSize(), 2);
+        assertEquals(plantsStorage.getStorageSize(), 2);
     }
 
     @Test
     void testGetNameofPlantsi(){
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getNameofPlantsi(0), "Apple tree");
-        assertEquals(plantsStorage.getNameofPlantsi(1), "Blueberry");
-        assertEquals(plantsStorage.getNameofPlantsi(2), "gold tree");
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
+        assertEquals(plantsStorage.getNameofi(0), "Apple tree");
+        assertEquals(plantsStorage.getNameofi(1), "Blueberry");
+        assertEquals(plantsStorage.getNameofi(2), "gold tree");
     }
 
     @Test
     void testgetiPlants(){
-        plantsStorage.addPlants(norPlants);
-        plantsStorage.addPlants(rarePlants);
-        plantsStorage.addPlants(legendPlants);
-        assertEquals(plantsStorage.getiPlants(0), norPlants);
-        assertEquals(plantsStorage.getiPlants(1), rarePlants);
-        assertEquals(plantsStorage.getiPlants(2), legendPlants);
+        plantsStorage.add(norPlants);
+        plantsStorage.add(rarePlants);
+        plantsStorage.add(legendPlants);
+        assertEquals(plantsStorage.geti(0), norPlants);
+        assertEquals(plantsStorage.geti(1), rarePlants);
+        assertEquals(plantsStorage.geti(2), legendPlants);
     }
 
     @Test
     void testbuyPlants(){
-        plantsStorage.buyPlants(norPlants);
-        assertFalse(plantsStorage.getiPlants(0) == norPlants);
-        assertEquals(plantsStorage.getiPlants(0).getName(), norPlants.getName());
-        assertEquals(plantsStorage.getiPlants(0).getTime(), norPlants.getTime());
-        assertEquals(plantsStorage.getiPlants(0).getPrice(), norPlants.getPrice());
-        plantsStorage.buyPlants(norPlants);
-        assertFalse(plantsStorage.getiPlants(1) == norPlants);
-        assertEquals(plantsStorage.getiPlants(1).getName(), norPlants.getName());
-        assertEquals(plantsStorage.getiPlants(1).getTime(), norPlants.getTime());
-        assertEquals(plantsStorage.getiPlants(1).getPrice(), norPlants.getPrice());
-        plantsStorage.getiPlants(1).decreaseTime(10);
-        assertEquals(plantsStorage.getiPlants(0).getTime(), 100);
-        assertEquals(plantsStorage.getiPlants(1).getTime(), 90);
+        plantsStorage.buyEntity(norPlants);
+        assertFalse(plantsStorage.geti(0) == norPlants);
+        assertEquals(plantsStorage.geti(0).getName(), norPlants.getName());
+        assertEquals(plantsStorage.geti(0).getTime(), norPlants.getTime());
+        assertEquals(plantsStorage.geti(0).getPrice(), norPlants.getPrice());
+        plantsStorage.buyEntity(norPlants);
+        assertFalse(plantsStorage.geti(1) == norPlants);
+        assertEquals(plantsStorage.geti(1).getName(), norPlants.getName());
+        assertEquals(plantsStorage.geti(1).getTime(), norPlants.getTime());
+        assertEquals(plantsStorage.geti(1).getPrice(), norPlants.getPrice());
+        plantsStorage.geti(1).decreaseTime(10);
+        assertEquals(plantsStorage.geti(0).getTime(), 100);
+        assertEquals(plantsStorage.geti(1).getTime(), 90);
     }
 }

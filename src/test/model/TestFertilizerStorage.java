@@ -53,75 +53,75 @@ public class TestFertilizerStorage {
 
     @Test
     void testAddFertilizer() {
-        fertilizerStorage.addFertilizer(norFertilizer);
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(legendFertilizer);
-        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList2);
+        fertilizerStorage.add(norFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(legendFertilizer);
+        assertEquals(fertilizerStorage.getStorage(), fertilizerList2);
     }
 
     @Test
     void testRemove() {
-        fertilizerStorage.addFertilizer(norFertilizer);
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(legendFertilizer);
-        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList2);
+        fertilizerStorage.add(norFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(legendFertilizer);
+        assertEquals(fertilizerStorage.getStorage(), fertilizerList2);
         fertilizerStorage.remove(1);
-        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList4);
+        assertEquals(fertilizerStorage.getStorage(), fertilizerList4);
         fertilizerStorage.remove(1);
-        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList1);
+        assertEquals(fertilizerStorage.getStorage(), fertilizerList1);
 
     }
 
     @Test
     void testGetNameList() {
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(norFertilizer);
-        fertilizerStorage.addFertilizer(legendFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(norFertilizer);
+        fertilizerStorage.add(legendFertilizer);
         assertEquals(fertilizerStorage.getNameList(), fertilizerNameList);
     }
 
     @Test
     void testGetFertilizerStorage() {
-        fertilizerStorage.addFertilizer(legendFertilizer);
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(norFertilizer);
-        assertEquals(fertilizerStorage.getFertilizerStorage(), fertilizerList3);
+        fertilizerStorage.add(legendFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(norFertilizer);
+        assertEquals(fertilizerStorage.getStorage(), fertilizerList3);
     }
 
     @Test
     void testGetNameofFertilizeri() {
-        fertilizerStorage.addFertilizer(legendFertilizer);
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(norFertilizer);
-        assertEquals(fertilizerStorage.getNameofFertilizeri(0), "Advanced big bag fertilizer");
-        assertEquals(fertilizerStorage.getNameofFertilizeri(1), "Big bag fertilizer");
-        assertEquals(fertilizerStorage.getNameofFertilizeri(2), "Small bag fertilizer");
+        fertilizerStorage.add(legendFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(norFertilizer);
+        assertEquals(fertilizerStorage.getNameofi(0), "Advanced big bag fertilizer");
+        assertEquals(fertilizerStorage.getNameofi(1), "Big bag fertilizer");
+        assertEquals(fertilizerStorage.getNameofi(2), "Small bag fertilizer");
     }
 
     @Test
     void testGetiFertilizer() {
-        fertilizerStorage.addFertilizer(legendFertilizer);
-        fertilizerStorage.addFertilizer(rareFertilizer);
-        fertilizerStorage.addFertilizer(norFertilizer);
-        assertEquals(fertilizerStorage.getiFertilizer(0), legendFertilizer);
-        assertEquals(fertilizerStorage.getiFertilizer(1), rareFertilizer);
-        assertEquals(fertilizerStorage.getiFertilizer(2), norFertilizer);
+        fertilizerStorage.add(legendFertilizer);
+        fertilizerStorage.add(rareFertilizer);
+        fertilizerStorage.add(norFertilizer);
+        assertEquals(fertilizerStorage.geti(0), legendFertilizer);
+        assertEquals(fertilizerStorage.geti(1), rareFertilizer);
+        assertEquals(fertilizerStorage.geti(2), norFertilizer);
     }
 
     @Test
     void testbuyFertilizer(){
-        fertilizerStorage.buyFertilizer(norFertilizer);
-        assertFalse(fertilizerStorage.getiFertilizer(0) == norFertilizer);
-        assertEquals(fertilizerStorage.getiFertilizer(0).getName(), norFertilizer.getName());
-        assertEquals(fertilizerStorage.getiFertilizer(0).getName(), norFertilizer.getName());
-        assertEquals(fertilizerStorage.getiFertilizer(0).getPrice(), norFertilizer.getPrice());
-        fertilizerStorage.buyFertilizer(norFertilizer);
-        assertFalse(fertilizerStorage.getiFertilizer(1) == norFertilizer);
-        assertEquals(fertilizerStorage.getiFertilizer(1).getName(), norFertilizer.getName());
-        assertEquals(fertilizerStorage.getiFertilizer(1).getTime(), norFertilizer.getTime());
-        assertEquals(fertilizerStorage.getiFertilizer(1).getPrice(), norFertilizer.getPrice());
-        fertilizerStorage.getiFertilizer(1).decreasePrice(10);
-        assertEquals(fertilizerStorage.getiFertilizer(0).getPrice(), 20);
-        assertEquals(fertilizerStorage.getiFertilizer(1).getPrice(), 10);
+        fertilizerStorage.buyEntity(norFertilizer);
+        assertFalse(fertilizerStorage.geti(0) == norFertilizer);
+        assertEquals(fertilizerStorage.geti(0).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.geti(0).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.geti(0).getPrice(), norFertilizer.getPrice());
+        fertilizerStorage.buyEntity(norFertilizer);
+        assertFalse(fertilizerStorage.geti(1) == norFertilizer);
+        assertEquals(fertilizerStorage.geti(1).getName(), norFertilizer.getName());
+        assertEquals(fertilizerStorage.geti(1).getTime(), norFertilizer.getTime());
+        assertEquals(fertilizerStorage.geti(1).getPrice(), norFertilizer.getPrice());
+        fertilizerStorage.geti(1).decreasePrice(10);
+        assertEquals(fertilizerStorage.geti(0).getPrice(), 20);
+        assertEquals(fertilizerStorage.geti(1).getPrice(), 10);
     }
 }
