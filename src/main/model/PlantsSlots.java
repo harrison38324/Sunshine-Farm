@@ -11,8 +11,8 @@ public class PlantsSlots extends PlantsStorage {
     // REQUIRES: num >= 0, num < fertilizerStorage.size()
     // EFFECTS: get the Plants in the PlantsSlots
     // with given Index num
-    public Plants getPlants(int num) {
-        return plantsStorage.get(num);
+    public AgriculturalEntity getPlants(int num) {
+        return Storage.get(num);
     }
 
 }
