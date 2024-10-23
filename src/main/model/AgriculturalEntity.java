@@ -1,5 +1,8 @@
 package model;
 
+// the Aricultrual Entity includes (Plants or Fertilizer),each entity have 3 property:
+// name, price, time. time for plants is the time needed to grow up, time for fertilizer is
+// the time it can reduced the growth time of plants.
 public class AgriculturalEntity {
     protected String name;
     protected int price;

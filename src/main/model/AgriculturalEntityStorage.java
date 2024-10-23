@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 import java.util.ArrayList;
 
+// the storage of AgriculturalEntity, a list of the entities
 public class AgriculturalEntityStorage {
     protected List<AgriculturalEntity> Storage;
     protected List<String> StorageNameList;

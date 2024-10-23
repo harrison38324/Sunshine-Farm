@@ -1,5 +1,6 @@
 package model;
 
+// the amount of money you have
 public class Wallet {
     private int walletBalance;
 

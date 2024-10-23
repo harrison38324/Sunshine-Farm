@@ -11,6 +11,8 @@ import model.Wallet;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+// a class for saving Game data
 public class SaveGameData {
     private String source;
 

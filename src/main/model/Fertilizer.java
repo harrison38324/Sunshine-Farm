@@ -1,5 +1,9 @@
 package model;
 
+// the Fertilizer that used to reduce the growth time for Plants
+// can only apply on plants in the plantsSlot(planted plants)
+// have 3 property: 'name' 'price' 'time Reduced'
+// 'time Reduced' means how much time it can reduced the growth time of Plants
 public class Fertilizer extends AgriculturalEntity {
     // private String name;
     // private int price;

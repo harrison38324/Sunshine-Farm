@@ -3,8 +3,13 @@ package ui;
 import java.util.Scanner;
 
 import model.*;
+import persistence.LoadGameData;
+import persistence.SaveGameData;
 
-// Sunshine Farm application
+// the ui for the whole application
+// have functions for all the application
+// have farm menu which you can plant Plants,use Fertillizer,check status of the farm, sell mature plants
+// have market menu which you can buy agricultural entities
 public class RunProgram {
     private Scanner input;
 
@@ -23,6 +28,10 @@ public class RunProgram {
     private Wallet wallet;
 
     private PlantsSlots plantsSlot;
+
+    private LoadGameData loadGameData;
+    private SaveGameData saveGameData;
+    private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: run run the Sunshine Farm application
     public RunProgram() {
@@ -100,6 +109,8 @@ public class RunProgram {
         System.out.println("\nHello,Sunshine Farm, what do you want to do today?");
         System.out.println("\nf -> go to farm");
         System.out.println("\nm -> go to market");
+        System.out.println("\ns -> save game data");
+        System.out.println("\nl -> load game data");
         System.out.println("\nq -> quit game");
     }
 
@@ -110,6 +121,10 @@ public class RunProgram {
             farmMenu();
         } else if (command.equals("m")) {
             marketMenu();
+        } else if (command.equals("l")) {
+            loadGameData = new LoadGameData(JSON_STORE);
+        } else if (command.equals("s")) {
+            saveGameData = new SaveGameData(JSON_STORE);
         } else {
             System.out.println("Input is Not a valid value...");
         }

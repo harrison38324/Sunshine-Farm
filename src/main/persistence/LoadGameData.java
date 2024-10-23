@@ -5,6 +5,7 @@ import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
 
+// the class used for Game Data loading
 public class LoadGameData {
     private String source;
 
