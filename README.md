@@ -21,4 +21,3 @@
 - As a user, I want to be able to buy a tool into my tool package.
 - As a user, I want to be able to save my entire state data (like money I earned, plants I planted, itmes I owned) to file
 - As a user, I want to be able to have option to reload my data from file.
-- As a user, when I select the quit option from the application menu, I want to be reminded to save my to-do list to file and have the option to do so or not.
