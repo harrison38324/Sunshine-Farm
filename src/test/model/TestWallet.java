@@ -45,7 +45,7 @@ public class TestWallet {
     }
 
     @Test
-    void testSetBalance(){
+    void testSetBalance() {
         wallet.setBalance(120);
         assertEquals(wallet.getBalance(), 120);
         wallet.earn(20);

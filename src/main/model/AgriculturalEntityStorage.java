@@ -63,7 +63,7 @@ public class AgriculturalEntityStorage {
 
     // MODIFIES: this
     // EFFECTS: clear the Storage
-    public void clear(){
+    public void clear() {
         Storage.clear();
     }
 }

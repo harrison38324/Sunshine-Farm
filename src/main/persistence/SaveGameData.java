@@ -28,7 +28,7 @@ public class SaveGameData {
     // MODIFIES: this
     // EFFECTS: save the AgriculturalEntity data
     private void saveAgriculturalEntityData(AgriculturalEntityStorage agriculturalEntityStorage, JSONObject gameData,
-            String storageName,String timeName) {
+            String storageName, String timeName) {
         JSONArray agriculturalEntityArray = new JSONArray();
         for (AgriculturalEntity agriculturalEntity : agriculturalEntityStorage.getStorage()) {
             JSONObject newAgriculturalEnity = new JSONObject();
@@ -49,9 +49,9 @@ public class SaveGameData {
 
         gameData.put("money", wallet.getBalance());
 
-        saveAgriculturalEntityData(fertilizerStorage, gameData, "fertilizerStorage","timeReduced");
-        saveAgriculturalEntityData(plantsStorage, gameData, "plantsStorage","growthTime");
-        saveAgriculturalEntityData(plantsSlot, gameData, "plantsSlot","growthTime");
+        saveAgriculturalEntityData(fertilizerStorage, gameData, "fertilizerStorage", "timeReduced");
+        saveAgriculturalEntityData(plantsStorage, gameData, "plantsStorage", "growthTime");
+        saveAgriculturalEntityData(plantsSlot, gameData, "plantsSlot", "growthTime");
 
         file = new FileWriter(source);
         file.write(gameData.toString(4));

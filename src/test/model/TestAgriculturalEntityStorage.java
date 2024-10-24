@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-
 public class TestAgriculturalEntityStorage {
     private AgriculturalEntityStorage agriculturalEntityStorage;
     private List<AgriculturalEntity> agriculturalEntityArray;
@@ -16,7 +15,7 @@ public class TestAgriculturalEntityStorage {
     private AgriculturalEntity agriculturalEntity2;
 
     @Test
-    void testClear(){
+    void testClear() {
         agriculturalEntityArray = new ArrayList<>();
         agriculturalEntity1 = new AgriculturalEntity("test1", 0, 0);
         agriculturalEntity2 = new AgriculturalEntity("test2", 10, 102);
@@ -32,6 +31,6 @@ public class TestAgriculturalEntityStorage {
         agriculturalEntityStorage.clear();
         emptyAgriculturalEntityArray = new ArrayList<>();
         assertEquals(emptyAgriculturalEntityArray, agriculturalEntityStorage.getStorage());
-    
+
     }
 }

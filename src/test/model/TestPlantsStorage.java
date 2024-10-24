@@ -75,7 +75,7 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void testGetPlantsStorageSize(){
+    void testGetPlantsStorageSize() {
         plantsStorage.add(norPlants);
         plantsStorage.add(rarePlants);
         plantsStorage.add(legendPlants);
@@ -85,7 +85,7 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void testGetNameofPlantsi(){
+    void testGetNameofPlantsi() {
         plantsStorage.add(norPlants);
         plantsStorage.add(rarePlants);
         plantsStorage.add(legendPlants);
@@ -95,7 +95,7 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void testgetiPlants(){
+    void testgetiPlants() {
         plantsStorage.add(norPlants);
         plantsStorage.add(rarePlants);
         plantsStorage.add(legendPlants);
@@ -105,7 +105,7 @@ public class TestPlantsStorage {
     }
 
     @Test
-    void testbuyPlants(){
+    void testbuyPlants() {
         plantsStorage.buyEntity(norPlants);
         assertFalse(plantsStorage.geti(0) == norPlants);
         assertEquals(plantsStorage.geti(0).getName(), norPlants.getName());

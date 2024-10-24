@@ -28,7 +28,7 @@ public class Wallet {
     }
 
     // REQUIRES: money >= 0
-    public void setBalance(int money){
+    public void setBalance(int money) {
         this.walletBalance = money;
     }
 

@@ -109,7 +109,7 @@ public class TestFertilizerStorage {
     }
 
     @Test
-    void testbuyFertilizer(){
+    void testbuyFertilizer() {
         fertilizerStorage.buyEntity(norFertilizer);
         assertFalse(fertilizerStorage.geti(0) == norFertilizer);
         assertEquals(fertilizerStorage.geti(0).getName(), norFertilizer.getName());

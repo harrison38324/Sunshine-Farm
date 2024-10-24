@@ -79,9 +79,9 @@ public class TestLoadGameData {
         try {
             data.loadGameData(testWallet, testFertilizerStorage, testPlantsStorage, testPlantsSlots);
             assertEquals(testWallet.getBalance(), 1000);
-            helperTestData(testFertilizerStorage,normalFertilizerStorage);
-            helperTestData(testPlantsStorage,normalPlantsStorage);
-            helperTestData(testPlantsSlots,normalPlantsSlots);
+            helperTestData(testFertilizerStorage, normalFertilizerStorage);
+            helperTestData(testPlantsStorage, normalPlantsStorage);
+            helperTestData(testPlantsSlots, normalPlantsSlots);
 
         } catch (IOException e) {
             fail("Throw IOException- not expected!");
@@ -89,26 +89,26 @@ public class TestLoadGameData {
     }
 
     // EFFECTS: help checkk every value in the Game data
-    public void helperTestData(AgriculturalEntityStorage testStorage,AgriculturalEntityStorage norStorage){
+    public void helperTestData(AgriculturalEntityStorage testStorage, AgriculturalEntityStorage norStorage) {
         int i = 0;
-            for(AgriculturalEntity agriculturalEntity:testStorage.getStorage()){
-                assertEquals(agriculturalEntity.getName(), norStorage.geti(i).getName());
-                assertEquals(agriculturalEntity.getPrice(), norStorage.geti(i).getPrice());
-                assertEquals(agriculturalEntity.getTime(), norStorage.geti(i).getTime());
-                i++;
-            }
+        for (AgriculturalEntity agriculturalEntity : testStorage.getStorage()) {
+            assertEquals(agriculturalEntity.getName(), norStorage.geti(i).getName());
+            assertEquals(agriculturalEntity.getPrice(), norStorage.geti(i).getPrice());
+            assertEquals(agriculturalEntity.getTime(), norStorage.geti(i).getTime());
+            i++;
+        }
     }
 
     @Test
     void testLoadEmptyGameData() {
         LoadGameData data = new LoadGameData("./data/testLoadEmptyGameData.json");
-        try{
+        try {
             data.loadGameData(testWallet, testFertilizerStorage, testPlantsStorage, testPlantsSlots);
             assertEquals(testWallet.getBalance(), 1000);
             assertEquals(normalFertilizerStorage.getStorage(), testFertilizerStorage.getStorage());
             assertEquals(normalPlantsStorage.getStorage(), testPlantsStorage.getStorage());
-            assertEquals(normalPlantsSlots.getStorage(),testPlantsStorage.getStorage());
-        } catch(IOException e) {
+            assertEquals(normalPlantsSlots.getStorage(), testPlantsStorage.getStorage());
+        } catch (IOException e) {
             fail("Throw IOException- not expected!");
         }
     }

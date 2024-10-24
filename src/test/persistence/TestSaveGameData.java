@@ -100,27 +100,29 @@ public class TestSaveGameData {
             assertEquals(gameData.getJSONArray("plantsStorage").length(), 2);
             assertEquals(gameData.getJSONArray("plantsSlot").length(), 2);
 
-            assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(0).getString("name"), "Normal Fertilizer");
+            assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(0).getString("name"),
+                    "Normal Fertilizer");
             assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(0).getInt("price"), 10);
             assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(0).getInt("timeReduced"), 20);
 
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(0).getString("name"), "Apple");
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(0).getInt("price"), 50);
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(0).getInt("growthTime"), 50);
-            
+
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getString("name"), "Apple");
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getInt("price"), 50);
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getInt("growthTime"), 20);
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////
-            assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(1).getString("name"), "Rare Fertilizer");
+            assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(1).getString("name"),
+                    "Rare Fertilizer");
             assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(1).getInt("price"), 30);
             assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(1).getInt("timeReduced"), 70);
 
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(1).getString("name"), "Golden Apple");
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(1).getInt("price"), 200);
             assertEquals(gameData.getJSONArray("plantsStorage").getJSONObject(1).getInt("growthTime"), 100);
-            
+
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(1).getString("name"), "Golden Apple");
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(1).getInt("price"), 200);
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(1).getInt("growthTime"), 10);
@@ -128,5 +130,5 @@ public class TestSaveGameData {
             fail("Throw IOException- not expected!");
         }
     }
-    
+
 }

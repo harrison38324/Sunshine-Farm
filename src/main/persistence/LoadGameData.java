@@ -25,10 +25,11 @@ public class LoadGameData {
 
     // MODIFIES: this
     // EFFECTS: load AgriculturalEntityStorage Data
-    private void loadAgriculturalEntityStorageData(AgriculturalEntityStorage agriculturalEntityStorage,String storageName,String timeName){
+    private void loadAgriculturalEntityStorageData(AgriculturalEntityStorage agriculturalEntityStorage,
+            String storageName, String timeName) {
         JSONArray agriculturalEntityStorageArray = gameData.getJSONArray(storageName);
         agriculturalEntityStorage.clear();
-        for(int i = 0 ; i < agriculturalEntityStorageArray.length();i++){
+        for (int i = 0; i < agriculturalEntityStorageArray.length(); i++) {
             JSONObject newAgriculturalEntity = agriculturalEntityStorageArray.getJSONObject(i);
             String name = newAgriculturalEntity.getString("name");
             int price = newAgriculturalEntity.getInt("price");
@@ -48,8 +49,8 @@ public class LoadGameData {
 
         int moneyData = gameData.getInt("money");
         wallet.setBalance(moneyData);
-        loadAgriculturalEntityStorageData(fertilizerStorage,"fertilizerStorage","timeReduced");
-        loadAgriculturalEntityStorageData(plantsStorage,"plantsStorage","growthTime");
-        loadAgriculturalEntityStorageData(plantsSlot,"plantsSlot","growthTime");
+        loadAgriculturalEntityStorageData(fertilizerStorage, "fertilizerStorage", "timeReduced");
+        loadAgriculturalEntityStorageData(plantsStorage, "plantsStorage", "growthTime");
+        loadAgriculturalEntityStorageData(plantsSlot, "plantsSlot", "growthTime");
     }
 }

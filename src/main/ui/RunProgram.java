@@ -128,7 +128,7 @@ public class RunProgram {
                 loadGameData.loadGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
                 System.out.println("Load successfully!");
                 System.out.println("\nNow you have:");
-                System.out.println("Your Balance: "+wallet.getBalance());
+                System.out.println("Your Balance: " + wallet.getBalance());
                 printFertilizerStorageNameList(fertilizerStorage);
                 printPlantsStorageNameList(plantsStorage);
                 printPlantsSlotStatusList();
@@ -137,10 +137,10 @@ public class RunProgram {
             }
         } else if (command.equals("s")) {
             saveGameData = new SaveGameData(JSON_STORE);
-            try{
-            saveGameData.saveGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
-            System.out.println("Save successfully!");
-            }catch(IOException e){
+            try {
+                saveGameData.saveGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
+                System.out.println("Save successfully!");
+            } catch (IOException e) {
                 System.out.println("Fail to save Game Data");
             }
         } else {
