@@ -23,7 +23,7 @@ public class LoadGameData {
         this.source = source;
     }
 
-    // MODIFIES: this
+    // MODIFIES: this,agriculturalEntityStorage
     // EFFECTS: load AgriculturalEntityStorage Data
     private void loadAgriculturalEntityStorageData(AgriculturalEntityStorage agriculturalEntityStorage,
             String storageName, String timeName) {
@@ -39,7 +39,7 @@ public class LoadGameData {
         }
     }
 
-    // MODIFIES: this
+    // MODIFIES: this,wallet,fertilizerStorage,plantsStorage,plantsSlot
     // EFFECTS: load the game
     // data(plantsStorage,fertilizerStorage,wallet,plantsSlot)
     public void loadGameData(Wallet wallet, FertilizerStorage fertilizerStorage, PlantsStorage plantsStorage,
