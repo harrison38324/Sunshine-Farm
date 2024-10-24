@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.*;
@@ -123,8 +124,25 @@ public class RunProgram {
             marketMenu();
         } else if (command.equals("l")) {
             loadGameData = new LoadGameData(JSON_STORE);
+            try {
+                loadGameData.loadGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
+                System.out.println("Load successfully!");
+                System.out.println("\nNow you have:");
+                System.out.println("Your Balance: "+wallet.getBalance());
+                printFertilizerStorageNameList(fertilizerStorage);
+                printPlantsStorageNameList(plantsStorage);
+                printPlantsSlotStatusList();
+            } catch (Exception e) {
+                System.out.println("Fail to load Game Data");
+            }
         } else if (command.equals("s")) {
             saveGameData = new SaveGameData(JSON_STORE);
+            try{
+            saveGameData.saveGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
+            System.out.println("Save successfully!");
+            }catch(IOException e){
+                System.out.println("Fail to save Game Data");
+            }
         } else {
             System.out.println("Input is Not a valid value...");
         }
