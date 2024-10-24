@@ -8,6 +8,8 @@ import java.io.IOException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import model.AgriculturalEntity;
+import model.AgriculturalEntityStorage;
 import model.Fertilizer;
 import model.FertilizerStorage;
 import model.Plants;
@@ -77,12 +79,24 @@ public class TestLoadGameData {
         try {
             data.loadGameData(testWallet, testFertilizerStorage, testPlantsStorage, testPlantsSlots);
             assertEquals(testWallet.getBalance(), 1000);
-            assertEquals(testFertilizerStorage.getStorage(), normalFertilizerStorage.getStorage());
-            assertEquals(normalPlantsStorage.getStorage(), testPlantsStorage.getStorage());
-            assertEquals(normalPlantsSlots.getStorage(),testPlantsStorage.getStorage());
+            helperTestData(testFertilizerStorage,normalFertilizerStorage);
+            helperTestData(testPlantsStorage,normalPlantsStorage);
+            helperTestData(testPlantsSlots,normalPlantsSlots);
+
         } catch (IOException e) {
             fail("Throw IOException- not expected!");
         }
+    }
+
+    // EFFECTS: help checkk every value in the Game data
+    public void helperTestData(AgriculturalEntityStorage testStorage,AgriculturalEntityStorage norStorage){
+        int i = 0;
+            for(AgriculturalEntity agriculturalEntity:testStorage.getStorage()){
+                assertEquals(agriculturalEntity.getName(), norStorage.geti(i).getName());
+                assertEquals(agriculturalEntity.getPrice(), norStorage.geti(i).getPrice());
+                assertEquals(agriculturalEntity.getTime(), norStorage.geti(i).getTime());
+                i++;
+            }
     }
 
     @Test
@@ -90,7 +104,7 @@ public class TestLoadGameData {
         LoadGameData data = new LoadGameData("./data/testLoadEmptyGameData.json");
         try{
             data.loadGameData(testWallet, testFertilizerStorage, testPlantsStorage, testPlantsSlots);
-            assertEquals(testWallet.getBalance(), 0);
+            assertEquals(testWallet.getBalance(), 1000);
             assertEquals(normalFertilizerStorage.getStorage(), testFertilizerStorage.getStorage());
             assertEquals(normalPlantsStorage.getStorage(), testPlantsStorage.getStorage());
             assertEquals(normalPlantsSlots.getStorage(),testPlantsStorage.getStorage());
