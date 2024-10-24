@@ -60,4 +60,10 @@ public class AgriculturalEntityStorage {
     public void remove(int num) {
         Storage.remove(num);
     }
+
+    // MODIFIES: this
+    // EFFECTS: clear the Storage
+    public void clear(){
+        Storage.clear();
+    }
 }
