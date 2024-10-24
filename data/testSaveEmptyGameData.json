@@ -1,9 +1,6 @@
 {
+    "fertilizerStorage": [],
     "money": 0,
-    "fertilizerStorage": [
-    ],
-    "plantsStorage":[
-    ],
-    "plantsSlot":[
-    ]
+    "plantsSlot": [],
+    "plantsStorage": []
 }
