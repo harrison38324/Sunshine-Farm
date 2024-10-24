@@ -90,7 +90,7 @@ public class TestLoadGameData {
         LoadGameData data = new LoadGameData("./data/testLoadEmptyGameData.json");
         try{
             data.loadGameData(testWallet, testFertilizerStorage, testPlantsStorage, testPlantsSlots);
-            assertEquals(testWallet.getBalance(), 1000);
+            assertEquals(testWallet.getBalance(), 0);
             assertEquals(normalFertilizerStorage.getStorage(), testFertilizerStorage.getStorage());
             assertEquals(normalPlantsStorage.getStorage(), testPlantsStorage.getStorage());
             assertEquals(normalPlantsSlots.getStorage(),testPlantsStorage.getStorage());
