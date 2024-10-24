@@ -43,4 +43,18 @@ public class TestWallet {
         wallet.spend(0);
         assertEquals(wallet.getBalance(), 24);
     }
+
+    @Test
+    void testSetBalance(){
+        wallet.setBalance(120);
+        assertEquals(wallet.getBalance(), 120);
+        wallet.earn(20);
+        assertEquals(wallet.getBalance(), 140);
+        wallet.spend(23);
+        assertEquals(wallet.getBalance(), 117);
+        wallet.setBalance(88);
+        assertEquals(wallet.getBalance(), 88);
+        wallet.setBalance(0);
+        assertEquals(wallet.getBalance(), 0);
+    }
 }

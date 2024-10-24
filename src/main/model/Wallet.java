@@ -27,4 +27,9 @@ public class Wallet {
         walletBalance -= money;
     }
 
+    // REQUIRES: money >= 0
+    public void setBalance(int money){
+        this.walletBalance = money;
+    }
+
 }
