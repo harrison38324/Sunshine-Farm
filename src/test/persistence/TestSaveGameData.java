@@ -80,7 +80,7 @@ public class TestSaveGameData {
         slotNorPlants = new Plants("Apple", 50, 20);
         slotLegendPlants = new Plants("Golden Apple", 200, 10);
 
-        norWallet.earn(200);
+        norWallet.setBalance(200);
 
         normalFertilizerStorage.add(norFertilizer);
         normalFertilizerStorage.add(rareFertilizer);
@@ -93,7 +93,7 @@ public class TestSaveGameData {
 
         try {
             saveGameData.saveGameData(norWallet, normalFertilizerStorage, normalPlantsStorage, normalPlantsSlots);
-            String content = new String(Files.readAllBytes(Paths.get("./data/testSaveEmptyGameData.json")));
+            String content = new String(Files.readAllBytes(Paths.get("./data/testSaveNormalGameData.json")));
             JSONObject gameData = new JSONObject(content);
             assertEquals(gameData.getInt("money"), 200);
             assertEquals(gameData.getJSONArray("fertilizerStorage").length(), 2);
@@ -110,7 +110,7 @@ public class TestSaveGameData {
             
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getString("name"), "Apple");
             assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getInt("price"), 50);
-            assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getInt("growthTime"), 10);
+            assertEquals(gameData.getJSONArray("plantsSlot").getJSONObject(0).getInt("growthTime"), 20);
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////
             assertEquals(gameData.getJSONArray("fertilizerStorage").getJSONObject(1).getString("name"), "Rare Fertilizer");
@@ -128,6 +128,5 @@ public class TestSaveGameData {
             fail("Throw IOException- not expected!");
         }
     }
-
     
 }
