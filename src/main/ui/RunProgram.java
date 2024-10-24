@@ -215,6 +215,7 @@ public class RunProgram {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
+        } else if (command == 0) {
         } else {
             AgriculturalEntity indicatedPlants = plantsCommodity.geti(command - 1);
             int price = indicatedPlants.getPrice();
@@ -236,6 +237,7 @@ public class RunProgram {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
+        } else if (command == 0) {
         } else {
             AgriculturalEntity indicatedFertilizer = fertilizerCommodity.geti(command - 1);
             int price = indicatedFertilizer.getPrice();
