@@ -23,7 +23,7 @@ public class SaveGameData {
     // EFFECTS: save the game
     // data(plantsStorage,fertilizerStorage,wallet,plantsSlot)
     public void saveGameData(Wallet wallet, FertilizerStorage fertilizerStorage, PlantsStorage plantsStorage,
-            PlantsSlots plantsSlot) {
+            PlantsSlots plantsSlot) throws IOException {
         // stub
     }
 

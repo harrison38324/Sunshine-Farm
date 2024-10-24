@@ -1,5 +1,7 @@
 package persistence;
 
+import java.io.IOException;
+
 import model.FertilizerStorage;
 import model.PlantsSlots;
 import model.PlantsStorage;
@@ -16,7 +18,7 @@ public class LoadGameData {
     // EFFECTS: load the game
     // data(plantsStorage,fertilizerStorage,wallet,plantsSlot)
     public void loadGameData(Wallet wallet, FertilizerStorage fertilizerStorage, PlantsStorage plantsStorage,
-            PlantsSlots plantsSlot) {
+            PlantsSlots plantsSlot) throws IOException {
         // stub
     }
 }
