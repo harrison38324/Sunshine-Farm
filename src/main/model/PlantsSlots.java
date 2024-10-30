@@ -15,7 +15,7 @@ public class PlantsSlots extends PlantsStorage {
     // EFFECTS: get the Plants in the PlantsSlots
     // with given Index num
     public AgriculturalEntity getPlants(int num) {
-        return Storage.get(num);
+        return storage.get(num);
     }
 
 }

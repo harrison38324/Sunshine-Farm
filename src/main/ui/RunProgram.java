@@ -126,12 +126,7 @@ public class RunProgram {
             loadGameData = new LoadGameData(JSON_STORE);
             try {
                 loadGameData.loadGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
-                System.out.println("Load successfully!");
-                System.out.println("\nNow you have:");
-                System.out.println("Your Balance: " + wallet.getBalance());
-                printFertilizerStorageNameList(fertilizerStorage);
-                printPlantsStorageNameList(plantsStorage);
-                printPlantsSlotStatusList();
+                printLoadedData();
             } catch (Exception e) {
                 System.out.println("Fail to load Game Data");
             }
@@ -146,6 +141,16 @@ public class RunProgram {
         } else {
             System.out.println("Input is Not a valid value...");
         }
+    }
+
+    // EFFECTS: print the loaded data after loaded the data
+    private void printLoadedData() {
+        System.out.println("Load successfully!");
+        System.out.println("\nNow you have:");
+        System.out.println("Your Balance: " + wallet.getBalance());
+        printFertilizerStorageNameList(fertilizerStorage);
+        printPlantsStorageNameList(plantsStorage);
+        printPlantsSlotStatusList();
     }
 
     // MODIFIES: this
@@ -215,8 +220,7 @@ public class RunProgram {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
-        } else if (command == 0) {
-        } else {
+        } else if (command > 0) {
             AgriculturalEntity indicatedPlants = plantsCommodity.geti(command - 1);
             int price = indicatedPlants.getPrice();
             int balance = wallet.getBalance();
@@ -237,8 +241,7 @@ public class RunProgram {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
-        } else if (command == 0) {
-        } else {
+        } else if (command > 0) {
             AgriculturalEntity indicatedFertilizer = fertilizerCommodity.geti(command - 1);
             int price = indicatedFertilizer.getPrice();
             int balance = wallet.getBalance();

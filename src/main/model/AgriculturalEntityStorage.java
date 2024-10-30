@@ -5,30 +5,30 @@ import java.util.ArrayList;
 
 // the storage of AgriculturalEntity, a list of the entities
 public class AgriculturalEntityStorage {
-    protected List<AgriculturalEntity> Storage;
-    protected List<String> StorageNameList;
+    protected List<AgriculturalEntity> storage;
+    protected List<String> storageNameList;
 
     // EFFECTS: generate a list which stores Plants
     public AgriculturalEntityStorage() {
-        Storage = new ArrayList<>();
-        StorageNameList = new ArrayList<>();
+        storage = new ArrayList<>();
+        storageNameList = new ArrayList<>();
     }
 
     // EFFECTS: generate a Namelist of the Plants
     // in the storage in original order
     public List<String> getNameList() {
-        for (int i = 0; i < Storage.size(); i++) {
-            StorageNameList.add(Storage.get(i).getName());
+        for (int i = 0; i < storage.size(); i++) {
+            storageNameList.add(storage.get(i).getName());
         }
-        return StorageNameList;
+        return storageNameList;
     }
 
     public List<AgriculturalEntity> getStorage() {
-        return Storage;
+        return storage;
     }
 
     public int getStorageSize() {
-        return Storage.size();
+        return storage.size();
     }
 
     // EFFECTS: get the Plants with index in Storage
@@ -45,25 +45,25 @@ public class AgriculturalEntityStorage {
     public void buyEntity(AgriculturalEntity indicateEntity) {
         AgriculturalEntity boughtEntity = new AgriculturalEntity(indicateEntity.getName(),
                 indicateEntity.getPrice(), indicateEntity.getTime());
-        Storage.add(boughtEntity);
+        storage.add(boughtEntity);
     }
 
     // MODIFIES: this
     // EFFECTS: add a AgriculturalEntity into plantsStorage
     public void add(AgriculturalEntity entity) {
-        Storage.add(entity);
+        storage.add(entity);
     }
 
     // REQUIRES: num>=0
     // MODIFIES: this
     // EFFECTS: remove a AgriculturalEntity in index num from the Storage
     public void remove(int num) {
-        Storage.remove(num);
+        storage.remove(num);
     }
 
     // MODIFIES: this
     // EFFECTS: clear the Storage
     public void clear() {
-        Storage.clear();
+        storage.clear();
     }
 }
