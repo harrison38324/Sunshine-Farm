@@ -16,47 +16,9 @@ public class Plants extends AgriculturalEntity {
         super(name, price, growthTime);
     }
 
-    // public int getPrice() {
-    // return price;
-    // }
-
-    // public String getPlantsName() {
-    // return plantsName;
-    // }
-
-    // public int getGrowthTime() {
-    // return growthTime;
-    // }
-
-    // // REQUIRES: money >= 0
-    // // MODIFIES: this
-    // // EFFECTS: increase the price of the plant by the input money
-    // public void increasePrice(int money) {
-    // price += money;
-    // }
-
-    // // REQUIRES: money >= 0
-    // // MODIFIES: this
-    // // EFFECTS: decrease the price of the plant by the input money
-    // public void decreasePrice(int money) {
-    // price -= money;
-    // }
-
-    // // REQUIRES: time >= growthTime
-    // // MODIFIES: this
-    // // EFFECTS: decrease the growthTime by input time
-    // public void decreaseGrowthTime(int time) {
-    // growthTime -= time;
-    // }
-
     // MODIFIES: this
     // EFFECTS: apply the fertilizer to the plants
     public void useFertilizer(Fertilizer fertilizer) {
         decreaseTime(fertilizer.getTime());
     }
-
-    // // REQUIRES: time >=0
-    // public void setGrowthTime(int time) {
-    // this.growthTime = time;
-    // }
 }

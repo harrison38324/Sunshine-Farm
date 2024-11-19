@@ -15,31 +15,4 @@ public class Fertilizer extends AgriculturalEntity {
     public Fertilizer(String name, int price, int timeReduced) {
         super(name, price, timeReduced);
     }
-
-    // public int getPrice() {
-    // return price;
-    // }
-
-    // public String getName() {
-    // return name;
-    // }
-
-    // public int getTimeReduced() {
-    // return timeReduced;
-    // }
-
-    // // REQUIRES: money >= 0
-    // // MODIFIES: this
-    // // EFFECTS: increase price by the input money
-    // public void increasePrice(int money) {
-    // price += money;
-    // }
-
-    // // REQUIRES: money >= 0, money<=Price
-    // // MODIFIES: this
-    // // EFFECTS: decrease price by the input money
-    // public void decreasePrice(int money) {
-    // price -= money;
-    // }
-
 }
