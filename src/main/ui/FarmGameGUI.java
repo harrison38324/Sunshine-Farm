@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 // Sunshine Farm Game user interface
 public class FarmGameGUI extends JFrame {
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
 
     // constructor of the FarmGameGUI, initialize the GUI
     public FarmGameGUI(){
@@ -14,25 +16,28 @@ public class FarmGameGUI extends JFrame {
         setSize(400,300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel();
+        mainPanel.setLayout(cardLayout);
 
-        JLabel statusLabel = new JLabel("Welcome to the Game");
-        statusLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-        createJbuttons();
-
-        addButtonListeners();
+        JPanel mainMenu = createMainMenu();
+        JPanel farmMenu = createFarmMenu();
+        JPanel shopMenu = createShopMenu();
 
     }
 
-    // EFFECTS: creates Jbuttons needed for the Game
-    private void createJbuttons(){
-        JButton viewPlotButton = new JButton("View Plot Status");//stub
+    // EFFECTS: create Main Menu of the game
+    private JPanel createMainMenu(){
+        return new JPanel();
     }
 
-    // EFFECTS: creates correct button listeners for the given Jbuttions
-    private void addButtonListeners(){
-        //stub
+    // EFFECTS: create Farm Menu
+    private JPanel createFarmMenu(){
+        return new JPanel();
+    }
+
+    // EFFECTS: create Shop Menu
+    private JPanel createShopMenu(){
+        return new JPanel();
     }
 }
