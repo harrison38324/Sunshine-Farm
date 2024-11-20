@@ -12,6 +12,7 @@ import persistence.SaveGameData;
 // have farm menu which you can plant Plants,use Fertillizer,check status of the farm, sell mature plants
 // have market menu which you can buy agricultural entities
 public class RunProgram {
+    private CoreLogic coreLogic;
     private Scanner input;
 
     private Plants norPlant;
@@ -45,6 +46,8 @@ public class RunProgram {
         boolean keepGoing = true;
         String command = null;
 
+        coreLogic = new CoreLogic();
+        
         init();
         farmDefaultValue();
 
