@@ -24,7 +24,7 @@ public class RunProgram {
     private PlantsStorage plantsCommodity;
     private FertilizerStorage fertilizerCommodity;
     private PlantsStorage plantsStorage;
-    private FertilizerStorage fertilizerStorage;
+    protected FertilizerStorage fertilizerStorage;
 
     private Wallet wallet;
 
@@ -360,7 +360,7 @@ public class RunProgram {
     }
 
     // EFFECTS: print the FertilizerStorage Name list
-    private void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
+    protected void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
         System.out.println("\n The Fertilizer you have:");
         System.out.println("\n-----------------");
         for (int i = 1; i <= fertilizerStorage.getStorage().size(); i++) {

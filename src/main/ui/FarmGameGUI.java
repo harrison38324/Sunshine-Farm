@@ -11,9 +11,9 @@ public class FarmGameGUI extends JFrame {
     private JPanel mainPanel;
 
     // constructor of the FarmGameGUI, initialize the GUI
-    public FarmGameGUI(){
+    public FarmGameGUI() {
         setTitle("SunShine Farm");
-        setSize(400,300);
+        setSize(400, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         cardLayout = new CardLayout();
@@ -24,20 +24,44 @@ public class FarmGameGUI extends JFrame {
         JPanel farmMenu = createFarmMenu();
         JPanel shopMenu = createShopMenu();
 
+        mainPanel.add(mainMenu, "Main Menu");
+        mainPanel.add(farmMenu, "Farm Menu");
+        mainPanel.add(shopMenu, "Shop Menu");
+
+        add(mainPanel);
+
+        setVisible(true);
     }
 
     // EFFECTS: create Main Menu of the game
-    private JPanel createMainMenu(){
-        return new JPanel();
+    private JPanel createMainMenu() {
+        JPanel mainMenuPanel = new JPanel();
+
+        mainMenuPanel.setLayout(new FlowLayout());
+
+        JButton goToFarm = new JButton("Go to Farm");
+        JButton goToShop = new JButton("Go to Shop");
+
+        goToFarm.addActionListener(e -> cardLayout.show(mainPanel, "Shop Menu"));
+        goToShop.addActionListener(e -> cardLayout.show(mainPanel, "Shop Menu"));
+
+        JLabel mainMenuTextLabel = new JLabel("Hello,Sunshine Farm, what do you want to do today?");
+
+        mainMenuPanel.add(mainMenuTextLabel);
+        mainMenuPanel.add(goToFarm);
+        mainMenuPanel.add(goToShop);
+
+        return mainMenuPanel;
     }
 
     // EFFECTS: create Farm Menu
-    private JPanel createFarmMenu(){
+    private JPanel createFarmMenu() {
+        
         return new JPanel();
     }
 
     // EFFECTS: create Shop Menu
-    private JPanel createShopMenu(){
+    private JPanel createShopMenu() {
         return new JPanel();
     }
 }
