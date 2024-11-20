@@ -1,42 +1,21 @@
 {
-    "fertilizerStorage": [
+    "fertilizerStorage": [],
+    "money": 690,
+    "plantsSlot": [
         {
-            "price": 60,
-            "name": "legend Fertilizer",
-            "timeReduced": 200
+            "growthTime": 40,
+            "price": 100,
+            "name": "blueberry"
         },
-        {
-            "price": 30,
-            "name": "Rare Fertilizer",
-            "timeReduced": 70
-        }
-    ],
-    "money": 110,
-    "plantsSlot": [{
-        "growthTime": 60,
-        "price": 200,
-        "name": "Golden Apple"
-    }],
-    "plantsStorage": [
         {
             "growthTime": 50,
             "price": 50,
             "name": "Apple"
-        },
-        {
-            "growthTime": 100,
-            "price": 200,
-            "name": "Golden Apple"
-        },
-        {
-            "growthTime": 100,
-            "price": 200,
-            "name": "Golden Apple"
-        },
-        {
-            "growthTime": 100,
-            "price": 200,
-            "name": "Golden Apple"
         }
-    ]
+    ],
+    "plantsStorage": [{
+        "growthTime": 100,
+        "price": 200,
+        "name": "Golden Apple"
+    }]
 }

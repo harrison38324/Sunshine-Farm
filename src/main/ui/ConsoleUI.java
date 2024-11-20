@@ -11,32 +11,32 @@ import persistence.SaveGameData;
 // have functions for all the application
 // have farm menu which you can plant Plants,use Fertillizer,check status of the farm, sell mature plants
 // have market menu which you can buy agricultural entities
-public class RunProgram {
-    private CoreLogic coreLogic;
+public class ConsoleUI {
+    private CoreData coreData;
     private Scanner input;
 
-    private Plants norPlant;
-    private Plants rarePlant;
-    private Plants legendPlant;
-    private Fertilizer norFertilizer;
-    private Fertilizer rareFertilizer;
-    private Fertilizer legendFertilizer;
+    // private Plants norPlant;
+    // private Plants rarePlant;
+    // private Plants legendPlant;
+    // private Fertilizer norFertilizer;
+    // private Fertilizer rareFertilizer;
+    // private Fertilizer legendFertilizer;
 
-    private PlantsStorage plantsCommodity;
-    private FertilizerStorage fertilizerCommodity;
-    private PlantsStorage plantsStorage;
-    protected FertilizerStorage fertilizerStorage;
+    // private PlantsStorage plantsCommodity;
+    // private FertilizerStorage fertilizerCommodity;
+    // private PlantsStorage plantsStorage;
+    // protected FertilizerStorage fertilizerStorage;
 
-    private Wallet wallet;
+    // private Wallet wallet;
 
-    private PlantsSlots plantsSlot;
+    // private PlantsSlots plantsSlot;
 
-    private LoadGameData loadGameData;
-    private SaveGameData saveGameData;
+    // private LoadGameData loadGameData;
+    // private SaveGameData saveGameData;
     private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: run run the Sunshine Farm application
-    public RunProgram() {
+    public ConsoleUI() {
         runProgram();
     }
 
@@ -46,10 +46,9 @@ public class RunProgram {
         boolean keepGoing = true;
         String command = null;
 
-        coreLogic = new CoreLogic();
-        
+        coreData = new CoreData();
+
         init();
-        farmDefaultValue();
 
         while (keepGoing) {
             displayMainMenu();
@@ -68,44 +67,8 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: initiate the game
     private void init() {
-        norPlant = new Plants("Apple", 50, 50);
-        rarePlant = new Plants("blueberry", 100, 80);
-        legendPlant = new Plants("Golden Apple", 200, 100);
-
-        norFertilizer = new Fertilizer("Normal Fertilizer", 10, 20);
-        rareFertilizer = new Fertilizer("Rare Fertilizer", 30, 70);
-        legendFertilizer = new Fertilizer("legend Fertilizer", 60, 200);
-
-        plantsCommodity = new PlantsStorage();
-        fertilizerCommodity = new FertilizerStorage();
-
-        plantsStorage = new PlantsStorage();
-        fertilizerStorage = new FertilizerStorage();
-
-        wallet = new Wallet();
-
-        plantsSlot = new PlantsSlots();
-
         input = new Scanner(System.in);
         input.useDelimiter("\r?\n|\r");
-    }
-
-    // MODIFIES: this
-    // EFFECTS: set default value to the Farm status
-    private void farmDefaultValue() {
-        plantsCommodity.add(norPlant);
-        plantsCommodity.add(rarePlant);
-        plantsCommodity.add(legendPlant);
-
-        fertilizerCommodity.add(norFertilizer);
-        fertilizerCommodity.add(rareFertilizer);
-        fertilizerCommodity.add(legendFertilizer);
-
-        plantsStorage.buyEntity(norPlant);
-        fertilizerStorage.add(norFertilizer);
-        fertilizerStorage.add(norFertilizer);
-
-        wallet.earn(1000);
     }
 
     // EFFECTS: display the main Menu of options for user
@@ -126,17 +89,19 @@ public class RunProgram {
         } else if (command.equals("m")) {
             marketMenu();
         } else if (command.equals("l")) {
-            loadGameData = new LoadGameData(JSON_STORE);
+            coreData.loadGameData = new LoadGameData(JSON_STORE);
             try {
-                loadGameData.loadGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
+                coreData.loadGameData.loadGameData(coreData.wallet, coreData.fertilizerStorage,
+                        coreData.plantsStorage, coreData.plantsSlot);
                 printLoadedData();
             } catch (Exception e) {
                 System.out.println("Fail to load Game Data");
             }
         } else if (command.equals("s")) {
-            saveGameData = new SaveGameData(JSON_STORE);
+            coreData.saveGameData = new SaveGameData(JSON_STORE);
             try {
-                saveGameData.saveGameData(wallet, fertilizerStorage, plantsStorage, plantsSlot);
+                coreData.saveGameData.saveGameData(coreData.wallet, coreData.fertilizerStorage,
+                        coreData.plantsStorage, coreData.plantsSlot);
                 System.out.println("Save successfully!");
             } catch (IOException e) {
                 System.out.println("Fail to save Game Data");
@@ -150,9 +115,9 @@ public class RunProgram {
     private void printLoadedData() {
         System.out.println("Load successfully!");
         System.out.println("\nNow you have:");
-        System.out.println("Your Balance: " + wallet.getBalance());
-        printFertilizerStorageNameList(fertilizerStorage);
-        printPlantsStorageNameList(plantsStorage);
+        System.out.println("Your Balance: " + coreData.wallet.getBalance());
+        printFertilizerStorageNameList(coreData.fertilizerStorage);
+        printPlantsStorageNameList(coreData.plantsStorage);
         printPlantsSlotStatusList();
     }
 
@@ -178,10 +143,10 @@ public class RunProgram {
     private void printMarketCommodity() {
         System.out.println("\nThese items are on sell:");
         System.out.println("\nPlants:");
-        printPlantsStorageStatusList(plantsCommodity);
+        printPlantsStorageStatusList(coreData.plantsCommodity);
         System.out.println("\nFertilizer:");
-        printFertilizerStorageStatusList(fertilizerCommodity);
-        System.out.println("Your balance: " + wallet.getBalance());
+        printFertilizerStorageStatusList(coreData.fertilizerCommodity);
+        System.out.println("Your balance: " + coreData.wallet.getBalance());
         System.out.println("\nWhat do you want to buy, p -> Plants, f -> Fertilizer, b -> back");
     }
 
@@ -190,13 +155,13 @@ public class RunProgram {
     private void tryBuyingIndicatedCommodity(String command) {
         int intCommand = 0;
         if (command.equals("p")) {
-            printPlantsStorageStatusList(plantsCommodity);
+            printPlantsStorageStatusList(coreData.plantsCommodity);
             System.out.println("Please type the order num of plants you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
             intCommand = validInputInt();
             tryBuyingIndicatedPlants(intCommand);
         } else if (command.equals("f")) {
-            printFertilizerStorageStatusList(fertilizerCommodity);
+            printFertilizerStorageStatusList(coreData.fertilizerCommodity);
             System.out.println("Please type the order num of fertilizer you want to buy");
             System.out.println("Type 0 to go back to the upper menu");
             intCommand = validInputInt();
@@ -219,17 +184,17 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
-        if (command > plantsCommodity.getStorageSize()) {
+        if (command > coreData.plantsCommodity.getStorageSize()) {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else if (command > 0) {
-            AgriculturalEntity indicatedPlants = plantsCommodity.geti(command - 1);
+            AgriculturalEntity indicatedPlants = coreData.plantsCommodity.geti(command - 1);
             int price = indicatedPlants.getPrice();
-            int balance = wallet.getBalance();
+            int balance = coreData.wallet.getBalance();
             if (balance >= price) {
-                plantsStorage.buyEntity(indicatedPlants);
-                wallet.spend(price);
+                coreData.plantsStorage.buyEntity(indicatedPlants);
+                coreData.wallet.spend(price);
                 System.out.println("You have bought that Plants");
             } else {
                 System.out.println("You don't have sufficient Balance");
@@ -240,17 +205,17 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to buy Indicated Fertilizer
     private void tryBuyingIndicatedFertilizer(int command) {
-        if (command > fertilizerCommodity.getStorage().size()) {
+        if (command > coreData.fertilizerCommodity.getStorage().size()) {
             System.out.println("Input number is too large");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else if (command > 0) {
-            AgriculturalEntity indicatedFertilizer = fertilizerCommodity.geti(command - 1);
+            AgriculturalEntity indicatedFertilizer = coreData.fertilizerCommodity.geti(command - 1);
             int price = indicatedFertilizer.getPrice();
-            int balance = wallet.getBalance();
+            int balance = coreData.wallet.getBalance();
             if (balance >= price) {
-                fertilizerStorage.buyEntity(indicatedFertilizer);
-                wallet.spend(price);
+                coreData.fertilizerStorage.buyEntity(indicatedFertilizer);
+                coreData.wallet.spend(price);
                 System.out.println("You have bought that Fertilizer");
             } else {
                 System.out.println("You don't have sufficient Balance");
@@ -294,9 +259,9 @@ public class RunProgram {
     // EFFECTS: excute the Operation based on the Input command
     private void operationInFarm(String command) {
         if (command.equals("cf")) {
-            printFertilizerStorageNameList(fertilizerStorage);
+            printFertilizerStorageNameList(coreData.fertilizerStorage);
         } else if (command.equals("cp")) {
-            printPlantsStorageNameList(plantsStorage);
+            printPlantsStorageNameList(coreData.plantsStorage);
         } else if (command.equals("pp")) {
             plantPlants();
         } else if (command.equals("uf")) {
@@ -331,18 +296,18 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to sell the Plants
     private void trySellPlants(int command) {
-        if (command > plantsSlot.getStorageSize()) {
+        if (command > coreData.plantsSlot.getStorageSize()) {
             System.out.println("\nInput number is larger than you have");
         } else if (command < 0) {
             System.out.println("\nInput number cannot be negative");
         } else {
-            AgriculturalEntity indicatedPlants = plantsSlot.getPlants(command - 1);
+            AgriculturalEntity indicatedPlants = coreData.plantsSlot.getPlants(command - 1);
             int growthTime = indicatedPlants.getTime();
             int price = indicatedPlants.getPrice();
             if (growthTime == 0) {
-                wallet.earn(price * 2);
+                coreData.wallet.earn(price * 2);
                 System.out.println("\nYou sold " + indicatedPlants.getName() + " and get " + price * 2);
-                plantsSlot.remove(command - 1);
+                coreData.plantsSlot.remove(command - 1);
             } else {
                 System.out
                         .println("\nThe Plant " + indicatedPlants.getName() + " is not mature,(growth time > 0)");
@@ -354,9 +319,9 @@ public class RunProgram {
     private void printPlantsSlotStatusList() {
         System.out.println("\n The Slot status:");
         System.out.println("\n-----------------");
-        for (int i = 1; i <= plantsSlot.getStorageSize(); i++) {
-            String name = "Plant Name:" + plantsSlot.getPlants(i - 1).getName() + " Time to grow up: "
-                    + plantsSlot.getPlants(i - 1).getTime();
+        for (int i = 1; i <= coreData.plantsSlot.getStorageSize(); i++) {
+            String name = "Plant Name:" + coreData.plantsSlot.getPlants(i - 1).getName() + " Time to grow up: "
+                    + coreData.plantsSlot.getPlants(i - 1).getTime();
             System.out.println(name);
         }
         System.out.println("-----------------");
@@ -424,7 +389,7 @@ public class RunProgram {
 
     // EFFECTS: print the introduction information for user to plant plants
     private void printIntoInfoPlantPlants() {
-        printPlantsStorageNameList(plantsStorage);
+        printPlantsStorageNameList(coreData.plantsStorage);
         System.out.println("\nPlease type the order number of the Plants you want to plant");
         System.out.println("\n type 0 to go back to the upper menu");
     }
@@ -432,13 +397,13 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to plant Plants from the PlantsStorage
     private void tryPlantPlants(int command) {
-        if (command > plantsStorage.getStorageSize()) {
+        if (command > coreData.plantsStorage.getStorageSize()) {
             System.out.println("Input number is larger than you have");
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            plantsSlot.add(plantsStorage.getStorage().get(command - 1));
-            plantsStorage.remove(command - 1);
+            coreData.plantsSlot.add(coreData.plantsStorage.getStorage().get(command - 1));
+            coreData.plantsStorage.remove(command - 1);
             System.out.println("\nPlant successfully!");
         }
     }
@@ -470,14 +435,14 @@ public class RunProgram {
 
     // EFFECTS: print instruction for Fertilizer command
     private void printFertilizerCmdInstruct() {
-        printFertilizerStorageNameList(fertilizerStorage);
+        printFertilizerStorageNameList(coreData.fertilizerStorage);
         System.out.println("\nPlease type the order number of the Fertilizer you want to use");
         System.out.println("\n type 0 to go back to the upper menu");
     }
 
     // EFFECTS: verify indicated fertilizer exist
     private boolean validFertilizerCmd(int fertilizerCommand) {
-        return ((fertilizerCommand > 0) && (fertilizerCommand <= fertilizerStorage.getStorage().size()));
+        return ((fertilizerCommand > 0) && (fertilizerCommand <= coreData.fertilizerStorage.getStorage().size()));
     }
 
     // EFFECTS: print instruction for slot chosen command
@@ -492,19 +457,19 @@ public class RunProgram {
     // MODIFIES: this
     // EFFECTS: try to apply the fertilizer to the plant that user indicated
     private void tryApplyFertilizer(int slotChosenCommand, int fertilizerCommand) {
-        if (slotChosenCommand > plantsSlot.getStorageSize()) {
+        if (slotChosenCommand > coreData.plantsSlot.getStorageSize()) {
             System.out.println("Input number is larger than you have");
         } else if (slotChosenCommand < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            int timeReduced = fertilizerStorage.geti(fertilizerCommand - 1).getTime();
-            AgriculturalEntity incdicatedPlants = plantsSlot.getPlants(slotChosenCommand - 1);
+            int timeReduced = coreData.fertilizerStorage.geti(fertilizerCommand - 1).getTime();
+            AgriculturalEntity incdicatedPlants = coreData.plantsSlot.getPlants(slotChosenCommand - 1);
             if (timeReduced > incdicatedPlants.getTime()) {
                 incdicatedPlants.setTime(0);
-                fertilizerStorage.remove(fertilizerCommand - 1);
+                coreData.fertilizerStorage.remove(fertilizerCommand - 1);
             } else {
                 incdicatedPlants.decreaseTime(timeReduced);
-                fertilizerStorage.remove(fertilizerCommand - 1);
+                coreData.fertilizerStorage.remove(fertilizerCommand - 1);
             }
             System.out.println("\nApply fertilizer Succussfully!");
             printPlantsSlotStatusList();

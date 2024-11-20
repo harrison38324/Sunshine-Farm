@@ -12,7 +12,7 @@ import persistence.LoadGameData;
 import persistence.SaveGameData;
 
 // the Core Logic : the core data and methods for Console UI and GUI
-public class CoreLogic {
+public class CoreData {
     protected Scanner input;
 
     protected Plants norPlant;
@@ -33,10 +33,9 @@ public class CoreLogic {
 
     protected LoadGameData loadGameData;
     protected SaveGameData saveGameData;
-    protected static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: initialize the game data
-    public CoreLogic(){
+    public CoreData(){
         norPlant = new Plants("Apple", 50, 50);
         rarePlant = new Plants("blueberry", 100, 80);
         legendPlant = new Plants("Golden Apple", 200, 100);
@@ -69,4 +68,7 @@ public class CoreLogic {
 
         wallet.earn(1000);
     }
+
+
+
 }
