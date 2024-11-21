@@ -1,6 +1,6 @@
 {
     "fertilizerStorage": [],
-    "money": 690,
+    "money": 630,
     "plantsSlot": [
         {
             "growthTime": 40,
@@ -8,7 +8,7 @@
             "name": "blueberry"
         },
         {
-            "growthTime": 50,
+            "growthTime": 0,
             "price": 50,
             "name": "Apple"
         }

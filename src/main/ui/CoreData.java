@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 
+import model.AgriculturalEntity;
 import model.Fertilizer;
 import model.FertilizerStorage;
 import model.Plants;
@@ -69,6 +70,13 @@ public class CoreData {
         wallet.earn(1000);
     }
 
+    // REQUIRES: plant is Plant, plant given is in the PlantsStorage
+    // MODIFISE: this
+    // EFFECTS: plant Plants to the Plants Slot
+    public void plantPlants(AgriculturalEntity plant){
+        plantsStorage.getStorage().remove(plant);
+        
+    }
 
 
 }

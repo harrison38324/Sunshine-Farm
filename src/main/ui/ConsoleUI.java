@@ -36,7 +36,8 @@ public class ConsoleUI {
     private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: run run the Sunshine Farm application
-    public ConsoleUI() {
+    public ConsoleUI(CoreData coreData) {
+        this.coreData = coreData;
         runProgram();
     }
 
@@ -45,8 +46,6 @@ public class ConsoleUI {
     private void runProgram() {
         boolean keepGoing = true;
         String command = null;
-
-        coreData = new CoreData();
 
         init();
 
@@ -328,7 +327,7 @@ public class ConsoleUI {
     }
 
     // EFFECTS: print the FertilizerStorage Name list
-    protected void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
+    private void printFertilizerStorageNameList(FertilizerStorage fertilizerStorage) {
         System.out.println("\n The Fertilizer you have:");
         System.out.println("\n-----------------");
         for (int i = 1; i <= fertilizerStorage.getStorage().size(); i++) {
