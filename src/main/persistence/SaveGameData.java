@@ -1,19 +1,17 @@
 package persistence;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import model.AgriculturalEntity;
 import model.AgriculturalEntityStorage;
-import model.Fertilizer;
 import model.FertilizerStorage;
 import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
-import netscape.javascript.JSObject;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 // a class for saving Game data
 public class SaveGameData {

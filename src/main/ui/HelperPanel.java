@@ -56,7 +56,7 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
                             + " Price:" + agriculturalEntity.getPrice());
             tempButton.addActionListener(e -> {
                 buttonMethod(agriculturalEntity, tempButton);
-                refreshButtons();
+                refreshStatus();
             });
             this.add(tempButton);
         }
@@ -64,25 +64,11 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
 
     // MODIFIES: this
     // EFFECTS: regenerate the buttons based on the latest core data
-    public void refreshButtons() {
+    public void refreshStatus() {
         removeAll();
         add(headerLabel);
         add(backButton);
 
-        initButtons();
-
-        revalidate();
-        repaint();
-    }
-
-    // MODIFIES: this
-    // EFFECTS: regenerate the buttons based on the latest core data
-    public void refreshButtons(AgriculturalEntityStorage agriculturalEntityStorage, String timePropertyText) {
-        removeAll();
-        add(headerLabel);
-        add(backButton);
-
-        initialValue(agriculturalEntityStorage, timePropertyText);
         initButtons();
 
         revalidate();

@@ -104,7 +104,8 @@ public class CoreData {
     // REQUIRES: indicatedPlant should in plantsSlot
     // MODIFES: this
     // EFFECTS: if the selected plants in slot is mature(time to growth = 0), sell
-    // it and get money, remove it from plot, if the growth time >0, throw NotMatureException()
+    // it and get money, remove it from plot, if the growth time >0, throw
+    // NotMatureException()
     // if growth time <0, throw egativeGrowthTimeException()
     public void sellMaturePlants(AgriculturalEntity indicatedPlant)
             throws NotMatureException, NegativeGrowthTimeException {
@@ -121,18 +122,19 @@ public class CoreData {
     }
 
     // MODIFIES: this
-    // EFFECTS: try to buy one item, if the money is enough, other wise throw MoneyNotEnoughException()
-    public void tryToBuyCommodity(AgriculturalEntity agriculturalEntity) throws MoneyNotEnoughException{
+    // EFFECTS: try to buy one item, if the money is enough, other wise throw
+    // MoneyNotEnoughException()
+    public void tryToBuyCommodity(AgriculturalEntity agriculturalEntity) throws MoneyNotEnoughException {
         int price = agriculturalEntity.getPrice();
         int saving = wallet.getBalance();
-        if(price <= saving){
+        if (price <= saving) {
             wallet.spend(price);
-            if(agriculturalEntity instanceof Fertilizer){
+            if (agriculturalEntity instanceof Fertilizer) {
                 fertilizerStorage.add(agriculturalEntity);
-            }else if (agriculturalEntity instanceof Plants ){
+            } else if (agriculturalEntity instanceof Plants) {
                 plantsStorage.add(agriculturalEntity);
             }
-        } else{
+        } else {
             throw new MoneyNotEnoughException();
         }
     }

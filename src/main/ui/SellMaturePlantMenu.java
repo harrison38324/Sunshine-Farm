@@ -7,13 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
-import model.AgriculturalEntityStorage;
 import model.timeException.NegativeGrowthTimeException;
 import model.timeException.NotMatureException;
 
 public class SellMaturePlantMenu extends HelperPanel {
-    
-
     public SellMaturePlantMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());

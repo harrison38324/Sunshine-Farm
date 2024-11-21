@@ -29,14 +29,14 @@ public class FarmGameGUI extends JFrame {
 
         setupJPanels();
         addToMainPanel();
-        
+
         add(mainPanel);
 
         setVisible(true);
     }
 
     // EFFECTS: set up main panel
-    private void setUpMainPanel(){
+    private void setUpMainPanel() {
         cardLayout = new CardLayout();
         mainPanel = new JPanel();
         mainPanel.setLayout(cardLayout);
@@ -53,10 +53,10 @@ public class FarmGameGUI extends JFrame {
         farmMenu = new FarmMenu(cardLayout, mainPanel, coreData, plantPlantsMenu, selectFertilizerMenu,
                 applyFertilizerMenu, sellMaturePlantMenu);
     }
-    
+
     // MODIFIEES: this
     // EFFECTS: add set up JPanels to the main Panel
-    private void addToMainPanel(){
+    private void addToMainPanel() {
         mainPanel.add(mainMenu, "Main Menu");
         mainPanel.add(farmMenu, "Farm Menu");
         mainPanel.add(shopMenu, "Shop Menu");

@@ -1,14 +1,13 @@
 package ui;
 
-import javax.swing.*;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
 
-import model.AgriculturalEntity;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import model.AgriculturalEntityStorage;
-import model.FertilizerStorage;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 // Farm Menu panel
 public class FarmMenu extends JPanel {
@@ -33,7 +32,8 @@ public class FarmMenu extends JPanel {
 
     // the main part of the FarmMenu Panel
     public FarmMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData, PlantPlantsMenu plantPlantsMenu,
-            SelectFertilizerMenu selectFertilizerMenu, ApplyFertilizerMenu applyFertilizerMenu, SellMaturePlantMenu sellMaturePlantMenu) {
+            SelectFertilizerMenu selectFertilizerMenu, ApplyFertilizerMenu applyFertilizerMenu,
+            SellMaturePlantMenu sellMaturePlantMenu) {
         this.plantPlantsMenu = plantPlantsMenu;
         this.selectFertilizerMenu = selectFertilizerMenu;
         this.applyFertilizerMenu = applyFertilizerMenu;
@@ -41,7 +41,7 @@ public class FarmMenu extends JPanel {
         this.coreData = coreData;
 
         this.mainPanel = mainPanel;
-        this.cardLayout =cardLayout;
+        this.cardLayout = cardLayout;
 
         setLayout(new FlowLayout());
 
@@ -80,16 +80,18 @@ public class FarmMenu extends JPanel {
         checkSLotsStatus
                 .addActionListener(e -> farmMenuText
                         .setText(generateAriculturalEntityNameList(coreData.plantsSlot, "Plant Slot")));
-        plantPlants.addActionListener(e -> displayMenu(plantPlantsMenu,"Plant Plants Menu"));
-        useFertilizer.addActionListener(e -> {applyFertilizerMenu.refreshButtons();
-            displayMenu(selectFertilizerMenu,"Select Fertilizer Menu");});
-        sellMaturePlants.addActionListener(e -> displayMenu(sellMaturePlantMenu,"Sell Mature Plant Menu"));
+        plantPlants.addActionListener(e -> displayMenu(plantPlantsMenu, "Plant Plants Menu"));
+        useFertilizer.addActionListener(e -> {
+            applyFertilizerMenu.refreshStatus();
+            displayMenu(selectFertilizerMenu, "Select Fertilizer Menu");
+        });
+        sellMaturePlants.addActionListener(e -> displayMenu(sellMaturePlantMenu, "Sell Mature Plant Menu"));
     }
 
     // EFFECTS: refresh the buttons in the menu and display it
-    private void displayMenu(HelperPanel helperPanel,String constrain){
-        helperPanel.refreshButtons();
-        cardLayout.show(mainPanel,constrain);
+    private void displayMenu(HelperPanel helperPanel, String constrain) {
+        helperPanel.refreshStatus();
+        cardLayout.show(mainPanel, constrain);
     }
 
     // EFFECTS: add buttons to the FarmMenu
