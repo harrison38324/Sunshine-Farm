@@ -2,33 +2,32 @@ package ui;
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
 
 // Plant plants Menu for planting actions
 public class PlantPlantsMenu extends HelperPanel {
-    private CoreData coreData;
-    private JLabel plantPlantsMenuText;
-    private CardLayout cardLayout;
-    private JPanel mainPanel;
 
     public PlantPlantsMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-
-        initButtons(coreData.plantsStorage, "Time to grow up");
+        initialValue(coreData.plantsStorage,"Time to grow up");
+        initButtons();
     }
 
     @Override
     // MODIFIES: coreData
     // EFFECTS: Plant plants - remove plant from storage and plant to the slots
-    public void buttonMethod(AgriculturalEntity plant) {
+    public void buttonMethod(AgriculturalEntity plant,JButton tempButton) {
         cardLayout.show(mainPanel, "Farm Menu");
         coreData.plantPlants(plant);
+        remove(tempButton);
+        revalidate();
+        repaint();
     }
 
     // EFFECTS: below, 3 methods set values for the PlantPlantsMenu in HelperPanel

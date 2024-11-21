@@ -22,10 +22,19 @@ public class FarmMenu extends JPanel {
     private JButton sellMaturePlants;
     private JLabel farmMenuText;
 
+    private PlantPlantsMenu plantPlantsMenu;
+    private SelectFertilizerMenu selectFertilizerMenu;
+    private ApplyFertilizerMenu applyFertilizerMenu;
+    private SellMaturePlantMenu sellMaturePlantMenu;
     private CoreData coreData;
 
     // the main part of the FarmMenu Panel
-    public FarmMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
+    public FarmMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData, PlantPlantsMenu plantPlantsMenu,
+            SelectFertilizerMenu selectFertilizerMenu, ApplyFertilizerMenu applyFertilizerMenu, SellMaturePlantMenu sellMaturePlantMenu) {
+        this.plantPlantsMenu = plantPlantsMenu;
+        this.selectFertilizerMenu = selectFertilizerMenu;
+        this.applyFertilizerMenu = applyFertilizerMenu;
+        this.sellMaturePlantMenu = sellMaturePlantMenu;
         this.coreData = coreData;
         setLayout(new FlowLayout());
 
@@ -66,7 +75,10 @@ public class FarmMenu extends JPanel {
                         .setText(generateAriculturalEntityNameList(coreData.plantsSlot, "Plant Slot")));
         plantPlants.addActionListener(e -> cardLayout.show(mainPanel, "Plant Plants Menu"));
         useFertilizer.addActionListener(e -> cardLayout.show(mainPanel, "Select Fertilizer Menu"));
-        sellMaturePlants.addActionListener(e -> cardLayout.show(mainPanel, "Sell Mature Plant Menu"));
+        sellMaturePlants.addActionListener(e -> {
+            sellMaturePlantMenu.refreshButtons();
+            cardLayout.show(mainPanel, "Sell Mature Plant Menu");
+        });
     }
 
     // EFFECTS: add buttons to the FarmMenu

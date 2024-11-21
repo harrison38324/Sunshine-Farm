@@ -3,24 +3,25 @@ package ui;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
 
 
 public class SelectFertilizerMenu extends HelperPanel {
-    private CoreData coreData;
 
     public SelectFertilizerMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initButtons(coreData.fertilizerStorage, "Time to reduce");
+        initialValue(coreData.fertilizerStorage,"Time to reduce");
+        initButtons();
     }
 
     @Override
     // MODIFIES: coreData
     // EFFECTS: select the fertilizer and show the ApplyFertilizerMenu
-    public void buttonMethod(AgriculturalEntity agriculturalEntity) {
+    public void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton) {
         coreData.selectedFertilizer = agriculturalEntity;
         cardLayout.show(mainPanel,"Apply Fertilizer Menu");
     }

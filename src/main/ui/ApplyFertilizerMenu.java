@@ -3,6 +3,7 @@ package ui;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
@@ -12,13 +13,14 @@ public class ApplyFertilizerMenu extends HelperPanel {
     public ApplyFertilizerMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initButtons(coreData.plantsSlot, "time to grow up");
+        initialValue(coreData.plantsSlot, "time to grow up");
+        initButtons();
     }
 
     @Override
     // MODIFIES: coreData
     // EFFECTS: apply the fertilizer and remove it from the storage
-    public void buttonMethod(AgriculturalEntity agriculturalEntity) {
+    public void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton) {
         coreData.applyFertilizer(coreData.selectedFertilizer,agriculturalEntity);
         coreData.selectedFertilizer = null;
     }

@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.Scanner;
+
 import model.AgriculturalEntity;
 import model.Fertilizer;
 import model.FertilizerStorage;
@@ -8,6 +9,8 @@ import model.Plants;
 import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
+import model.timeException.NegativeGrowthTimeException;
+import model.timeException.NotMatureException;
 import persistence.LoadGameData;
 import persistence.SaveGameData;
 
@@ -95,6 +98,25 @@ public class CoreData {
             selectedPlant.decreaseTime(timeReduced);
         }
         fertilizerStorage.remove(selectedFertilizer);
+    }
+
+    // REQUIRES: indicatedPlant should in plantsSlot
+    // MODIFES: this
+    // EFFECTS: if the selected plants in slot is mature(time to growth = 0), sell
+    // it and get money, remove it from plot, if the growth time >0, throw NotMatureException()
+    // if growth time <0, throw egativeGrowthTimeException()
+    public void sellMaturePlants(AgriculturalEntity indicatedPlant)
+            throws NotMatureException, NegativeGrowthTimeException {
+        int timeToGrow = indicatedPlant.getTime();
+        int price = indicatedPlant.getPrice();
+        if (timeToGrow == 0) {
+            plantsSlot.remove(indicatedPlant);
+            wallet.earn(price * 2);
+        } else if (timeToGrow > 0) {
+            throw new NotMatureException();
+        } else {
+            throw new NegativeGrowthTimeException();
+        }
     }
 
 }

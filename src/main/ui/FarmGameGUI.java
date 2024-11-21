@@ -24,21 +24,21 @@ public class FarmGameGUI extends JFrame {
         mainPanel.setLayout(cardLayout);
 
         JPanel mainMenu = createMainMenu();
-        JPanel farmMenu = new FarmMenu(cardLayout, mainPanel, coreData);
         JPanel shopMenu = createShopMenu();
-        JPanel plantPlantsMenu = new PlantPlantsMenu(cardLayout, mainPanel, coreData);
-        JPanel selectFertilizerMenu = new SelectFertilizerMenu(cardLayout, mainPanel, coreData);
-        JPanel applyFertilizerMenu = new ApplyFertilizerMenu(cardLayout, mainPanel, coreData);
-        JPanel sellMaturePlantMenu = new SellMaturePlantMenu(cardLayout, applyFertilizerMenu, coreData);
-
+        PlantPlantsMenu plantPlantsMenu = new PlantPlantsMenu(cardLayout, mainPanel, coreData);
+        SelectFertilizerMenu selectFertilizerMenu = new SelectFertilizerMenu(cardLayout, mainPanel, coreData);
+        ApplyFertilizerMenu applyFertilizerMenu = new ApplyFertilizerMenu(cardLayout, mainPanel, coreData);
+        SellMaturePlantMenu sellMaturePlantMenu = new SellMaturePlantMenu(cardLayout, mainPanel, coreData);
+        JPanel farmMenu = new FarmMenu(cardLayout, mainPanel, coreData, plantPlantsMenu, selectFertilizerMenu,
+                applyFertilizerMenu, sellMaturePlantMenu);
 
         mainPanel.add(mainMenu, "Main Menu");
         mainPanel.add(farmMenu, "Farm Menu");
         mainPanel.add(shopMenu, "Shop Menu");
-        mainPanel.add(plantPlantsMenu,"Plant Plants Menu");
-        mainPanel.add(selectFertilizerMenu,"Select Fertilizer Menu");
-        mainPanel.add(applyFertilizerMenu,"Apply Fertilizer Menu");
-        mainPanel.add(sellMaturePlantMenu,"Sell Mature Plant Menu");
+        mainPanel.add(plantPlantsMenu, "Plant Plants Menu");
+        mainPanel.add(selectFertilizerMenu, "Select Fertilizer Menu");
+        mainPanel.add(applyFertilizerMenu, "Apply Fertilizer Menu");
+        mainPanel.add(sellMaturePlantMenu, "Sell Mature Plant Menu");
 
         add(mainPanel);
 

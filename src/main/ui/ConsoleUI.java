@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import model.*;
+import model.timeException.NegativeGrowthTimeException;
+import model.timeException.NotMatureException;
 import persistence.LoadGameData;
 import persistence.SaveGameData;
 
@@ -294,15 +296,15 @@ public class ConsoleUI {
             System.out.println("\nInput number cannot be negative");
         } else {
             AgriculturalEntity indicatedPlants = coreData.plantsSlot.getPlants(command - 1);
-            int growthTime = indicatedPlants.getTime();
             int price = indicatedPlants.getPrice();
-            if (growthTime == 0) {
-                coreData.wallet.earn(price * 2);
+            try {
+                coreData.sellMaturePlants(indicatedPlants);
                 System.out.println("\nYou sold " + indicatedPlants.getName() + " and get " + price * 2);
-                coreData.plantsSlot.remove(command - 1);
-            } else {
+            } catch (NotMatureException e) {
                 System.out
                         .println("\nThe Plant " + indicatedPlants.getName() + " is not mature,(growth time > 0)");
+            } catch (NegativeGrowthTimeException e) {
+                System.out.println("ERROR the time to grow up is negative!");
             }
         }
     }
