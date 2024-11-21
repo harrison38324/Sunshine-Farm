@@ -27,8 +27,9 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
     }
 
     // MODIFIES: this
-    // EFFECTS: set agriculturalEntityStorage wanted to create button and timePropertyText
-    public void initialValue(AgriculturalEntityStorage agriculturalEntityStorage,String timePropertyText){
+    // EFFECTS: set agriculturalEntityStorage wanted to create button and
+    // timePropertyText
+    public void initialValue(AgriculturalEntityStorage agriculturalEntityStorage, String timePropertyText) {
         this.agriculturalEntityStorage = agriculturalEntityStorage;
         this.timePropertyText = timePropertyText;
     }
@@ -51,7 +52,8 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
     public void initButtons() {
         for (AgriculturalEntity agriculturalEntity : agriculturalEntityStorage.getStorage()) {
             JButton tempButton = new JButton(
-                    agriculturalEntity.getName() + " " + timePropertyText + ": " + agriculturalEntity.getTime());
+                    agriculturalEntity.getName() + " " + timePropertyText + ": " + agriculturalEntity.getTime()
+                            + " Price:" + agriculturalEntity.getPrice());
             tempButton.addActionListener(e -> {
                 buttonMethod(agriculturalEntity, tempButton);
                 refreshButtons();
@@ -60,12 +62,27 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: regenerate the buttons based on the latest core data
     public void refreshButtons() {
         removeAll();
         add(headerLabel);
         add(backButton);
 
+        initButtons();
 
+        revalidate();
+        repaint();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: regenerate the buttons based on the latest core data
+    public void refreshButtons(AgriculturalEntityStorage agriculturalEntityStorage, String timePropertyText) {
+        removeAll();
+        add(headerLabel);
+        add(backButton);
+
+        initialValue(agriculturalEntityStorage, timePropertyText);
         initButtons();
 
         revalidate();

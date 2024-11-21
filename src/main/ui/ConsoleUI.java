@@ -396,8 +396,7 @@ public class ConsoleUI {
         } else if (command < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            coreData.plantsSlot.add(coreData.plantsStorage.getStorage().get(command - 1));
-            coreData.plantsStorage.remove(command - 1);
+            coreData.plantPlants(coreData.plantsStorage.geti(command - 1));
             System.out.println("\nPlant successfully!");
         }
     }

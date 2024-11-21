@@ -23,6 +23,7 @@ public class SelectFertilizerMenu extends HelperPanel {
     // EFFECTS: select the fertilizer and show the ApplyFertilizerMenu
     public void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton) {
         coreData.selectedFertilizer = agriculturalEntity;
+        
         cardLayout.show(mainPanel,"Apply Fertilizer Menu");
     }
 

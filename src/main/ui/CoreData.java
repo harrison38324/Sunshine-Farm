@@ -9,6 +9,7 @@ import model.Plants;
 import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
+import model.MoneyNotEnoughException.MoneyNotEnoughException;
 import model.timeException.NegativeGrowthTimeException;
 import model.timeException.NotMatureException;
 import persistence.LoadGameData;
@@ -116,6 +117,23 @@ public class CoreData {
             throw new NotMatureException();
         } else {
             throw new NegativeGrowthTimeException();
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: try to buy one item, if the money is enough, other wise throw MoneyNotEnoughException()
+    public void tryToBuyCommodity(AgriculturalEntity agriculturalEntity) throws MoneyNotEnoughException{
+        int price = agriculturalEntity.getPrice();
+        int saving = wallet.getBalance();
+        if(price <= saving){
+            wallet.spend(price);
+            if(agriculturalEntity instanceof Fertilizer){
+                fertilizerStorage.add(agriculturalEntity);
+            }else if (agriculturalEntity instanceof Plants ){
+                plantsStorage.add(agriculturalEntity);
+            }
+        } else{
+            throw new MoneyNotEnoughException();
         }
     }
 

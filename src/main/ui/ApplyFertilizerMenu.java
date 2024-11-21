@@ -22,6 +22,7 @@ public class ApplyFertilizerMenu extends HelperPanel {
     // EFFECTS: apply the fertilizer and remove it from the storage
     public void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton) {
         coreData.applyFertilizer(coreData.selectedFertilizer,agriculturalEntity);
+        cardLayout.show(mainPanel,"Farm Menu");
         coreData.selectedFertilizer = null;
     }
 
