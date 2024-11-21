@@ -1,7 +1,6 @@
 package ui;
 
 import java.util.Scanner;
-
 import model.AgriculturalEntity;
 import model.Fertilizer;
 import model.FertilizerStorage;
@@ -16,6 +15,7 @@ import persistence.SaveGameData;
 public class CoreData {
     protected Scanner input;
 
+    protected AgriculturalEntity selectedFertilizer;
     protected Plants norPlant;
     protected Plants rarePlant;
     protected Plants legendPlant;
@@ -35,8 +35,9 @@ public class CoreData {
     protected LoadGameData loadGameData;
     protected SaveGameData saveGameData;
 
-    // EFFECTS: initialize the game data
-    public CoreData(){
+    // EFFECTS: the game data and the core behavior about the game data
+    public CoreData() {
+        selectedFertilizer = null;
         norPlant = new Plants("Apple", 50, 50);
         rarePlant = new Plants("blueberry", 100, 80);
         legendPlant = new Plants("Golden Apple", 200, 100);
@@ -73,10 +74,27 @@ public class CoreData {
     // REQUIRES: plant is Plant, plant given is in the PlantsStorage
     // MODIFISE: this
     // EFFECTS: plant Plants to the Plants Slot
-    public void plantPlants(AgriculturalEntity plant){
-        plantsStorage.getStorage().remove(plant);
-        
+    public void plantPlants(AgriculturalEntity plant) {
+        plantsStorage.remove(plant);
+        plantsSlot.add(plant);
     }
 
+    // REQUIRES: selectedFertilizer is in the fertilizerStorage
+    // MODIFIES: this
+    // EFFECTS: apply fertilizer to that plant and remove it from the
+    // fertilizerStorage
+    // if the fertilizer' time reduce is larger than the time that the selected
+    // plant needed
+    // to grow up, set the time to grow up to zero
+    public void applyFertilizer(AgriculturalEntity selectedFertilizer, AgriculturalEntity selectedPlant) {
+        int timeReduced = selectedFertilizer.getTime();
+        int timeToGrow = selectedPlant.getTime();
+        if (timeReduced >= timeToGrow) {
+            selectedPlant.setTime(0);
+        } else {
+            selectedPlant.decreaseTime(timeReduced);
+        }
+        fertilizerStorage.remove(selectedFertilizer);
+    }
 
 }

@@ -64,7 +64,7 @@ public class AgriculturalEntityStorage {
     // REQUIRES: agriculturalEntityStorage contains agricultureEntity
     // MODIFISE: this
     // EFFECTS: remove the given agriculturalEntity from agriculturalEntityStorage
-    public void remove(AgriculturalEntity agriculturalEntity){
+    public void remove(AgriculturalEntity agriculturalEntity) {
         storage.remove(agriculturalEntity);
     }
 

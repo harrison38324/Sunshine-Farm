@@ -20,20 +20,21 @@ public class FarmMenu extends JPanel {
     private JButton plantPlants;
     private JButton useFertilizer;
     private JButton sellMaturePlants;
-    private JLabel FarmMenuText;
+    private JLabel farmMenuText;
+
     private CoreData coreData;
 
     // the main part of the FarmMenu Panel
     public FarmMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         this.coreData = coreData;
-        setLayout(new CardLayout());
+        setLayout(new FlowLayout());
 
-        FarmMenuText = new JLabel("This is your Sunshine Farm, what do you want to do");
+        farmMenuText = new JLabel("This is your Sunshine Farm, what do you want to do");
 
         createButtons();
         addActionListeners(cardLayout, mainPanel);
 
-        add(FarmMenuText);
+        add(farmMenuText);
         addButtonsToFarmMenu();
     }
 
@@ -56,17 +57,22 @@ public class FarmMenu extends JPanel {
         goToShop.addActionListener(e -> cardLayout.show(mainPanel, "Shop Menu"));
         goToMainMenu.addActionListener(e -> cardLayout.show(mainPanel, "Main Menu"));
         checkFertilizer.addActionListener(
-                e -> FarmMenuText.setText(generateAriculturalEntityNameList(coreData.fertilizerStorage)));
-        checkPlantsStorage.addActionListener(e -> FarmMenuText.setText(generateAriculturalEntityNameList(coreData.plantsStorage)));
-        checkSLotsStatus.addActionListener(e -> FarmMenuText.setText(generateAriculturalEntityNameList(coreData.plantsSlot)));
-        plantPlants.addActionListener(e->)
-        useFertilizer
-        sellMaturePlants
+                e -> farmMenuText
+                        .setText(generateAriculturalEntityNameList(coreData.fertilizerStorage, "Fertilizer Storage")));
+        checkPlantsStorage.addActionListener(
+                e -> farmMenuText.setText(generateAriculturalEntityNameList(coreData.plantsStorage, "Plants Storage")));
+        checkSLotsStatus
+                .addActionListener(e -> farmMenuText
+                        .setText(generateAriculturalEntityNameList(coreData.plantsSlot, "Plant Slot")));
+        plantPlants.addActionListener(e -> cardLayout.show(mainPanel, "Plant Plants Menu"));
+        useFertilizer.addActionListener(e -> cardLayout.show(mainPanel, "Select Fertilizer Menu"));
+        sellMaturePlants.addActionListener(e -> cardLayout.show(mainPanel, "Sell Mature Plant Menu"));
     }
 
     // EFFECTS: add buttons to the FarmMenu
     private void addButtonsToFarmMenu() {
         add(goToShop);
+        add(goToMainMenu);
         add(checkFertilizer);
         add(checkPlantsStorage);
         add(checkSLotsStatus);
@@ -76,11 +82,11 @@ public class FarmMenu extends JPanel {
     }
 
     // EFFECTS: generate the FertilizerStorage Name List
-    private String generateAriculturalEntityNameList(AgriculturalEntityStorage agriculturalEntityStorage) {
+    private String generateAriculturalEntityNameList(AgriculturalEntityStorage agriculturalEntityStorage, String name) {
         String tempString = new String();
-        tempString += "\n The Fertilizer you have:";
-        for (String name : agriculturalEntityStorage.getNameList()) {
-            tempString += name;
+        tempString += "\n The " + name + " status: ";
+        for (String plantName : agriculturalEntityStorage.getNameList()) {
+            tempString += plantName + " ";
         }
         return tempString;
     }

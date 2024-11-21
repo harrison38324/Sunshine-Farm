@@ -14,25 +14,6 @@ import persistence.SaveGameData;
 public class ConsoleUI {
     private CoreData coreData;
     private Scanner input;
-
-    // private Plants norPlant;
-    // private Plants rarePlant;
-    // private Plants legendPlant;
-    // private Fertilizer norFertilizer;
-    // private Fertilizer rareFertilizer;
-    // private Fertilizer legendFertilizer;
-
-    // private PlantsStorage plantsCommodity;
-    // private FertilizerStorage fertilizerCommodity;
-    // private PlantsStorage plantsStorage;
-    // protected FertilizerStorage fertilizerStorage;
-
-    // private Wallet wallet;
-
-    // private PlantsSlots plantsSlot;
-
-    // private LoadGameData loadGameData;
-    // private SaveGameData saveGameData;
     private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: run run the Sunshine Farm application
@@ -88,25 +69,37 @@ public class ConsoleUI {
         } else if (command.equals("m")) {
             marketMenu();
         } else if (command.equals("l")) {
-            coreData.loadGameData = new LoadGameData(JSON_STORE);
-            try {
-                coreData.loadGameData.loadGameData(coreData.wallet, coreData.fertilizerStorage,
-                        coreData.plantsStorage, coreData.plantsSlot);
-                printLoadedData();
-            } catch (Exception e) {
-                System.out.println("Fail to load Game Data");
-            }
+            loadGameData();
         } else if (command.equals("s")) {
-            coreData.saveGameData = new SaveGameData(JSON_STORE);
-            try {
-                coreData.saveGameData.saveGameData(coreData.wallet, coreData.fertilizerStorage,
-                        coreData.plantsStorage, coreData.plantsSlot);
-                System.out.println("Save successfully!");
-            } catch (IOException e) {
-                System.out.println("Fail to save Game Data");
-            }
+            saveGameData();
         } else {
             System.out.println("Input is Not a valid value...");
+        }
+    }
+
+    // MODIFES: coreData
+    // EFFECTS: load game data
+    private void loadGameData() {
+        coreData.loadGameData = new LoadGameData(JSON_STORE);
+        try {
+            coreData.loadGameData.loadGameData(coreData.wallet, coreData.fertilizerStorage,
+                    coreData.plantsStorage, coreData.plantsSlot);
+            printLoadedData();
+        } catch (Exception e) {
+            System.out.println("Fail to load Game Data");
+        }
+    }
+
+    // MODIFES: JSON_STORE
+    // EFFECTS: save game data
+    private void saveGameData() {
+        coreData.saveGameData = new SaveGameData(JSON_STORE);
+        try {
+            coreData.saveGameData.saveGameData(coreData.wallet, coreData.fertilizerStorage,
+                    coreData.plantsStorage, coreData.plantsSlot);
+            System.out.println("Save successfully!");
+        } catch (IOException e) {
+            System.out.println("Fail to save Game Data");
         }
     }
 
@@ -461,15 +454,9 @@ public class ConsoleUI {
         } else if (slotChosenCommand < 0) {
             System.out.println("Input number cannot be negative");
         } else {
-            int timeReduced = coreData.fertilizerStorage.geti(fertilizerCommand - 1).getTime();
-            AgriculturalEntity incdicatedPlants = coreData.plantsSlot.getPlants(slotChosenCommand - 1);
-            if (timeReduced > incdicatedPlants.getTime()) {
-                incdicatedPlants.setTime(0);
-                coreData.fertilizerStorage.remove(fertilizerCommand - 1);
-            } else {
-                incdicatedPlants.decreaseTime(timeReduced);
-                coreData.fertilizerStorage.remove(fertilizerCommand - 1);
-            }
+            AgriculturalEntity selectedFertilizer = coreData.fertilizerStorage.geti(fertilizerCommand - 1);
+            AgriculturalEntity selectedPlant = coreData.plantsSlot.getPlants(slotChosenCommand - 1);
+            coreData.applyFertilizer(selectedFertilizer, selectedPlant);
             System.out.println("\nApply fertilizer Succussfully!");
             printPlantsSlotStatusList();
         }

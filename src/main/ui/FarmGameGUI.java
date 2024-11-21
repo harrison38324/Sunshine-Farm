@@ -26,10 +26,19 @@ public class FarmGameGUI extends JFrame {
         JPanel mainMenu = createMainMenu();
         JPanel farmMenu = new FarmMenu(cardLayout, mainPanel, coreData);
         JPanel shopMenu = createShopMenu();
+        JPanel plantPlantsMenu = new PlantPlantsMenu(cardLayout, mainPanel, coreData);
+        JPanel selectFertilizerMenu = new SelectFertilizerMenu(cardLayout, mainPanel, coreData);
+        JPanel applyFertilizerMenu = new ApplyFertilizerMenu(cardLayout, mainPanel, coreData);
+        JPanel sellMaturePlantMenu = new SellMaturePlantMenu(cardLayout, applyFertilizerMenu, coreData);
+
 
         mainPanel.add(mainMenu, "Main Menu");
         mainPanel.add(farmMenu, "Farm Menu");
         mainPanel.add(shopMenu, "Shop Menu");
+        mainPanel.add(plantPlantsMenu,"Plant Plants Menu");
+        mainPanel.add(selectFertilizerMenu,"Select Fertilizer Menu");
+        mainPanel.add(applyFertilizerMenu,"Apply Fertilizer Menu");
+        mainPanel.add(sellMaturePlantMenu,"Sell Mature Plant Menu");
 
         add(mainPanel);
 
