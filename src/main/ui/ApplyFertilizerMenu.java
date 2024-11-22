@@ -8,8 +8,10 @@ import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
 
+// Menu for user to aplly the selected fertilizer
 public class ApplyFertilizerMenu extends HelperPanel {
 
+    // EFFECTS: initialize the JPanel and buttons
     public ApplyFertilizerMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());

@@ -11,6 +11,7 @@ import model.AgriculturalEntity;
 // Plant plants Menu for planting actions
 public class PlantPlantsMenu extends HelperPanel {
 
+    // initialize the Panel and buttons
     public PlantPlantsMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());

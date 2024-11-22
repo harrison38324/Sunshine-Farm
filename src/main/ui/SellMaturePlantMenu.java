@@ -6,11 +6,14 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import exceptions.NegativeGrowthTimeException;
+import exceptions.NotMatureException;
 import model.AgriculturalEntity;
-import model.exceptions.NegativeGrowthTimeException;
-import model.exceptions.NotMatureException;
 
+// JPanel for user to sell the Plant in the Slot
 public class SellMaturePlantMenu extends HelperPanel {
+
+    // EFFECTS: initialize the Panel
     public SellMaturePlantMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
@@ -33,16 +36,19 @@ public class SellMaturePlantMenu extends HelperPanel {
     }
 
     @Override
+    // EFFECTS: set the default Laber text
     protected String getHeaderLabelText() {
         return "select one Plant in the slot you want to sell";
     }
 
     @Override
+    // EFFECTS: set the text on the panel change button
     protected String getBackButtonText() {
         return "Back to Farm";
     }
 
     @Override
+    // EFFECTS: set the constrains String of the panel in the mainPanel
     protected String getBackPanelName() {
         return "Farm Menu";
     }

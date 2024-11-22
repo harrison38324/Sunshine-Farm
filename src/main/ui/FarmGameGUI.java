@@ -24,7 +24,7 @@ public class FarmGameGUI extends JFrame {
         this.coreData = coreData;
 
         setTitle("SunShine Farm");
-        setSize(400, 300);
+        setSize(600, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setUpMainPanel();

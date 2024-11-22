@@ -2,9 +2,9 @@ package ui;
 
 import java.util.Scanner;
 
+import exceptions.NegativeGrowthTimeException;
+import exceptions.NotMatureException;
 import model.*;
-import model.exceptions.NegativeGrowthTimeException;
-import model.exceptions.NotMatureException;
 
 // the ui for the whole application
 // have functions for all the application
@@ -20,7 +20,6 @@ public class ConsoleUI {
         runProgram();
     }
 
-    // MODIFIES: this
     // EFFECTS: process user input
     private void runProgram() {
         boolean keepGoing = true;
@@ -42,7 +41,6 @@ public class ConsoleUI {
         System.out.println("\nGood bye!");
     }
 
-    // MODIFIES: this
     // EFFECTS: initiate the game
     private void init() {
         input = new Scanner(System.in);
@@ -59,7 +57,6 @@ public class ConsoleUI {
         System.out.println("\nq -> quit game");
     }
 
-    // MODIFIES: this
     // EFFECTS: choose sub Menu based on the user's input command
     private void chooseSubMenu(String command) {
         if (command.equals("f")) {
@@ -86,7 +83,7 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFES: JSON_STORE
+    // MODIFES: coreData
     // EFFECTS: save game data
     private void saveGameData() {
         boolean isSucess = coreData.saveGameData();
@@ -107,7 +104,6 @@ public class ConsoleUI {
         printPlantsSlotStatusList();
     }
 
-    // MODIFIES: this
     // EFFECTS: display market Menu and buy items based on user's input command
     private void marketMenu() {
         boolean keepGoing = true;
@@ -120,7 +116,7 @@ public class ConsoleUI {
             if (command.equals("b")) {
                 keepGoing = false;
             } else {
-                tryBuyingIndicatedCommodity(command);
+                selectCommodityCategory(command);
             }
         }
     }
@@ -136,9 +132,8 @@ public class ConsoleUI {
         System.out.println("\nWhat do you want to buy, p -> Plants, f -> Fertilizer, b -> back");
     }
 
-    // MODIFIES: this
-    // EFFECTS: try to buy Indicated commodity
-    private void tryBuyingIndicatedCommodity(String command) {
+    // EFFECTS: select the commodity Category user want to buy
+    private void selectCommodityCategory(String command) {
         int intCommand = 0;
         if (command.equals("p")) {
             printPlantsStorageStatusList(coreData.plantsCommodity);
@@ -157,7 +152,6 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
     // EFFECTS: valid the user's input value to be int
     private int validInputInt() {
         while (!input.hasNextInt()) {
@@ -167,7 +161,7 @@ public class ConsoleUI {
         return input.nextInt();
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: try to buy Indicated Plants
     private void tryBuyingIndicatedPlants(int command) {
         if (command > coreData.plantsCommodity.getStorageSize()) {
@@ -188,7 +182,7 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: try to buy Indicated Fertilizer
     private void tryBuyingIndicatedFertilizer(int command) {
         if (command > coreData.fertilizerCommodity.getStorage().size()) {
@@ -209,7 +203,6 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
     // EFFECTS: show the Farm Menu and process user's input
     private void farmMenu() {
         boolean keepGoing = true;
@@ -261,7 +254,6 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
     // EFFECTS: Sell Plants that is Mature
     private void sellMaturePlants() {
         boolean keepGoing = true;
@@ -279,7 +271,7 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: try to sell the Plants
     private void trySellPlants(int command) {
         if (command > coreData.plantsSlot.getStorageSize()) {
@@ -355,7 +347,7 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: show the plant options and process user's input
     private void plantPlants() {
         boolean keepGoing = true;
@@ -380,7 +372,7 @@ public class ConsoleUI {
         System.out.println("\n type 0 to go back to the upper menu");
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: try to plant Plants from the PlantsStorage
     private void tryPlantPlants(int command) {
         if (command > coreData.plantsStorage.getStorageSize()) {
@@ -393,7 +385,7 @@ public class ConsoleUI {
         }
     }
 
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: show the fertilizer-using options and process user's input
     private void useFertilizer() {
         boolean keepGoing = true;
@@ -439,7 +431,7 @@ public class ConsoleUI {
 
     // REQUIRES: fertilizerCommand > 0 and fertilizerCommand <= the size of
     // fertilizerStorage
-    // MODIFIES: this
+    // MODIFIES: coreData
     // EFFECTS: try to apply the fertilizer to the plant that user indicated
     private void tryApplyFertilizer(int slotChosenCommand, int fertilizerCommand) {
         if (slotChosenCommand > coreData.plantsSlot.getStorageSize()) {

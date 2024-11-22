@@ -8,9 +8,10 @@ import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
 
-
+// JPanel for user to select the fertilizer they have to use
 public class SelectFertilizerMenu extends HelperPanel {
 
+    // EFFECTS: initialize the Panel
     public SelectFertilizerMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
@@ -29,16 +30,19 @@ public class SelectFertilizerMenu extends HelperPanel {
 
     // EFFECTS: below, 3 methods set values for the PlantPlantsMenu in HelperPanel
     @Override
+    // EFFECTS: set the default Laber text
     protected String getHeaderLabelText() {
         return "You have thses Fertilizers,choose one you want to use";
     }
 
     @Override
+    // EFFECTS: set the text on the panel change button
     protected String getBackButtonText() {
         return "Go back to Farm";
     }
 
     @Override
+    // EFFECTS: set the constrains String of the panel in the mainPanel
     protected String getBackPanelName() {
         return "Farm Menu";
     }

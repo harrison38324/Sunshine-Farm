@@ -3,6 +3,9 @@ package ui;
 import java.io.IOException;
 import java.util.Scanner;
 
+import exceptions.MoneyNotEnoughException;
+import exceptions.NegativeGrowthTimeException;
+import exceptions.NotMatureException;
 import model.AgriculturalEntity;
 import model.Fertilizer;
 import model.FertilizerStorage;
@@ -10,9 +13,6 @@ import model.Plants;
 import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
-import model.exceptions.MoneyNotEnoughException;
-import model.exceptions.NegativeGrowthTimeException;
-import model.exceptions.NotMatureException;
 import persistence.LoadGameData;
 import persistence.SaveGameData;
 

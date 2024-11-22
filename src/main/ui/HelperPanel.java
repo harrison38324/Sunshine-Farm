@@ -9,7 +9,8 @@ import javax.swing.JPanel;
 import model.AgriculturalEntity;
 import model.AgriculturalEntityStorage;
 
-public abstract class HelperPanel extends JPanel implements ButtonActionForButtonInitialize {
+// Helper Panel for generate buttons of the AgriculturalEntityStorage and JPanel change
+public abstract class HelperPanel extends JPanel{
     protected CoreData coreData;
     protected JLabel headerLabel;
     protected JButton backButton;
@@ -18,6 +19,7 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
     protected AgriculturalEntityStorage agriculturalEntityStorage;
     protected String timePropertyText;
 
+    // EFFECTS: initialize the Helper Panel
     public HelperPanel(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         this.coreData = coreData;
         this.cardLayout = cardLayout;
@@ -75,12 +77,17 @@ public abstract class HelperPanel extends JPanel implements ButtonActionForButto
         repaint();
     }
 
+    // EFFECTS: the implemented method when the button is pressed.
+    protected abstract void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton);
+
     // Abstract methods to be defined by subclasses for customization
+
+    // EFFECTS: set the default Laber text
     protected abstract String getHeaderLabelText();
 
+    // EFFECTS: set the text on the panel change button
     protected abstract String getBackButtonText();
 
+    // EFFECTS: set the constrains String of the panel in the mainPanel
     protected abstract String getBackPanelName();
-
-    // protected abstract void onEntityButtonClick(AgriculturalEntity entity);
 }

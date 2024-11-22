@@ -9,7 +9,8 @@ import javax.swing.JPanel;
 
 import model.AgriculturalEntityStorage;
 
-// Farm Menu panel
+// Farm Menu panel, user can select to go to shop, go to main menu, check fertilizer storage,
+// check plants storage, check slots status. plant plants, use fertilizer, sell mature plants
 public class FarmMenu extends JPanel {
     private JButton goToShop;
     private JButton goToMainMenu;
