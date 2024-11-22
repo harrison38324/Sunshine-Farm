@@ -6,17 +6,16 @@ import java.util.ArrayList;
 // the storage of AgriculturalEntity, a list of the entities
 public class AgriculturalEntityStorage {
     protected List<AgriculturalEntity> storage;
-    protected List<String> storageNameList;
 
     // EFFECTS: generate a list which stores Plants
     public AgriculturalEntityStorage() {
         storage = new ArrayList<>();
-        storageNameList = new ArrayList<>();
     }
 
     // EFFECTS: generate a Namelist of the Plants
     // in the storage in original order
     public List<String> getNameList() {
+        List<String> storageNameList = new ArrayList<>();
         for (int i = 0; i < storage.size(); i++) {
             storageNameList.add(storage.get(i).getName());
         }
