@@ -106,25 +106,26 @@ public class FarmGameGUI extends JFrame {
 
     // MODIFIES: coreData
     // EFFECTS: load game data, and show feedback(success or not)
-    private void loadData(){
+    private void loadData() {
         boolean isSucess = coreData.loadGameData();
-        if(isSucess){
+        if (isSucess) {
             mainMenuTextLabel.setText("Load Sucessfully");
-        }else{
+        } else {
             mainMenuTextLabel.setText("Error, fail to load game data");
         }
     }
 
     // MODIFIES: coreData
     // EFFECTS: save game data, and show feedback(success or not)
-    private void saveData(){
+    private void saveData() {
         boolean isSucess = coreData.saveGameData();
-        if(isSucess){
+        if (isSucess) {
             mainMenuTextLabel.setText("Save Sucessfully");
-        }else{
+        } else {
             mainMenuTextLabel.setText("Error, fail to load game data");
         }
     }
+
     // MODIFES: helperPanel
     // EFFECTS: refresh the buttons in the menu and display it
     private void displayMenu(HelperPanel helperPanel, String constrain) {

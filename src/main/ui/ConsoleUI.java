@@ -76,10 +76,10 @@ public class ConsoleUI {
     // EFFECTS: load game data
     private void loadGameData() {
         boolean isSucess = coreData.loadGameData();
-        if(isSucess){
+        if (isSucess) {
             printLoadedData();
-        }else{
-            System.out.println("Fail to load Game Data");  
+        } else {
+            System.out.println("Fail to load Game Data");
         }
     }
 
@@ -87,9 +87,9 @@ public class ConsoleUI {
     // EFFECTS: save game data
     private void saveGameData() {
         boolean isSucess = coreData.saveGameData();
-        if(isSucess){
+        if (isSucess) {
             System.out.println("Save successfully!");
-        }else{
+        } else {
             System.out.println("Fail to save Game Data");
         }
     }

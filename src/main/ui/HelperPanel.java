@@ -10,7 +10,7 @@ import model.AgriculturalEntity;
 import model.AgriculturalEntityStorage;
 
 // Helper Panel for generate buttons of the AgriculturalEntityStorage and JPanel change
-public abstract class HelperPanel extends JPanel{
+public abstract class HelperPanel extends JPanel {
     protected CoreData coreData;
     protected JLabel headerLabel;
     protected JButton backButton;
@@ -78,7 +78,7 @@ public abstract class HelperPanel extends JPanel{
     }
 
     // EFFECTS: the implemented method when the button is pressed.
-    protected abstract void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton);
+    protected abstract void buttonMethod(AgriculturalEntity agriculturalEntity, JButton tempButton);
 
     // Abstract methods to be defined by subclasses for customization
 

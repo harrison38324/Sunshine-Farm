@@ -11,16 +11,10 @@
             "timeReduced": 20
         }
     ],
-    "money": 700,
-    "plantsSlot": [],
-    "plantsStorage": [
+    "money": 750,
+    "plantsSlot": [
         {
-            "growthTime": 50,
-            "price": 50,
-            "name": "Apple"
-        },
-        {
-            "growthTime": 80,
+            "growthTime": 60,
             "price": 100,
             "name": "blueberry"
         },
@@ -29,5 +23,6 @@
             "price": 200,
             "name": "Golden Apple"
         }
-    ]
+    ],
+    "plantsStorage": []
 }
