@@ -1,13 +1,10 @@
 package ui;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import model.*;
-import model.timeException.NegativeGrowthTimeException;
-import model.timeException.NotMatureException;
-import persistence.LoadGameData;
-import persistence.SaveGameData;
+import model.exceptions.NegativeGrowthTimeException;
+import model.exceptions.NotMatureException;
 
 // the ui for the whole application
 // have functions for all the application
@@ -16,7 +13,6 @@ import persistence.SaveGameData;
 public class ConsoleUI {
     private CoreData coreData;
     private Scanner input;
-    private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: run run the Sunshine Farm application
     public ConsoleUI(CoreData coreData) {
@@ -82,25 +78,21 @@ public class ConsoleUI {
     // MODIFES: coreData
     // EFFECTS: load game data
     private void loadGameData() {
-        coreData.loadGameData = new LoadGameData(JSON_STORE);
-        try {
-            coreData.loadGameData.loadGameData(coreData.wallet, coreData.fertilizerStorage,
-                    coreData.plantsStorage, coreData.plantsSlot);
+        boolean isSucess = coreData.loadGameData();
+        if(isSucess){
             printLoadedData();
-        } catch (Exception e) {
-            System.out.println("Fail to load Game Data");
+        }else{
+            System.out.println("Fail to load Game Data");  
         }
     }
 
     // MODIFES: JSON_STORE
     // EFFECTS: save game data
     private void saveGameData() {
-        coreData.saveGameData = new SaveGameData(JSON_STORE);
-        try {
-            coreData.saveGameData.saveGameData(coreData.wallet, coreData.fertilizerStorage,
-                    coreData.plantsStorage, coreData.plantsSlot);
+        boolean isSucess = coreData.saveGameData();
+        if(isSucess){
             System.out.println("Save successfully!");
-        } catch (IOException e) {
+        }else{
             System.out.println("Fail to save Game Data");
         }
     }

@@ -1,4 +1,4 @@
-package model.timeException;
+package model.exceptions;
 
 public class NotMatureException extends Exception{
 

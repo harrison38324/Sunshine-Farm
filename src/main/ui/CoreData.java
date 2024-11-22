@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.AgriculturalEntity;
@@ -9,9 +10,9 @@ import model.Plants;
 import model.PlantsSlots;
 import model.PlantsStorage;
 import model.Wallet;
-import model.MoneyNotEnoughException.MoneyNotEnoughException;
-import model.timeException.NegativeGrowthTimeException;
-import model.timeException.NotMatureException;
+import model.exceptions.MoneyNotEnoughException;
+import model.exceptions.NegativeGrowthTimeException;
+import model.exceptions.NotMatureException;
 import persistence.LoadGameData;
 import persistence.SaveGameData;
 
@@ -38,6 +39,7 @@ public class CoreData {
 
     protected LoadGameData loadGameData;
     protected SaveGameData saveGameData;
+    protected static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: the game data and the core behavior about the game data
     public CoreData() {
@@ -130,13 +132,38 @@ public class CoreData {
         if (price <= saving) {
             wallet.spend(price);
             if (agriculturalEntity instanceof Fertilizer) {
-                fertilizerStorage.add(agriculturalEntity);
+                fertilizerStorage.buyEntity(agriculturalEntity);
             } else if (agriculturalEntity instanceof Plants) {
-                plantsStorage.add(agriculturalEntity);
+                plantsStorage.buyEntity(agriculturalEntity);
             }
         } else {
             throw new MoneyNotEnoughException();
         }
     }
 
+    // MODIFES: coreData
+    // EFFECTS: load game data, return true if load successfully, else return false
+    public boolean loadGameData() {
+        loadGameData = new LoadGameData(JSON_STORE);
+        try {
+            loadGameData.loadGameData(wallet, fertilizerStorage,
+                    plantsStorage, plantsSlot);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // MODIFES: JSON_STORE
+    // EFFECTS: save game data,return true if save successfully, else return false
+    public boolean saveGameData() {
+        saveGameData = new SaveGameData(JSON_STORE);
+        try {
+            saveGameData.saveGameData(wallet, fertilizerStorage,
+                    plantsStorage, plantsSlot);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
 }

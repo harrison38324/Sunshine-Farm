@@ -6,16 +6,18 @@ import java.awt.*;
 // Sunshine Farm Game user interface
 public class FarmGameGUI extends JFrame {
     private JPanel mainMenu;
-    private JPanel shopMenu;
+    private ShopMenu shopMenu;
     private PlantPlantsMenu plantPlantsMenu;
     private SelectFertilizerMenu selectFertilizerMenu;
     private ApplyFertilizerMenu applyFertilizerMenu;
     private SellMaturePlantMenu sellMaturePlantMenu;
-    private JPanel farmMenu;
+    private FarmMenu farmMenu;
 
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private CoreData coreData;
+
+    private JLabel mainMenuTextLabel;
 
     // constructor of the FarmGameGUI, initialize the GUI
     public FarmGameGUI(CoreData coreData) {
@@ -51,7 +53,7 @@ public class FarmGameGUI extends JFrame {
         applyFertilizerMenu = new ApplyFertilizerMenu(cardLayout, mainPanel, coreData);
         sellMaturePlantMenu = new SellMaturePlantMenu(cardLayout, mainPanel, coreData);
         farmMenu = new FarmMenu(cardLayout, mainPanel, coreData, plantPlantsMenu, selectFertilizerMenu,
-                applyFertilizerMenu, sellMaturePlantMenu);
+                applyFertilizerMenu, sellMaturePlantMenu, shopMenu);
     }
 
     // MODIFIEES: this
@@ -75,11 +77,15 @@ public class FarmGameGUI extends JFrame {
 
         JButton goToFarm = new JButton("Go to Farm");
         JButton goToShop = new JButton("Go to Shop");
+        JButton saveData = new JButton("Save Data");
+        JButton loadData = new JButton("Load Data");
 
         goToFarm.addActionListener(e -> cardLayout.show(mainPanel, "Farm Menu"));
-        goToShop.addActionListener(e -> cardLayout.show(mainPanel, "Shop Menu"));
+        goToShop.addActionListener(e -> displayMenu(shopMenu, "Shop Menu"));
+        saveData.addActionListener(e -> saveData());
+        loadData.addActionListener(e -> loadData());
 
-        JLabel mainMenuTextLabel = new JLabel("Hello,Sunshine Farm, what do you want to do today?");
+        mainMenuTextLabel = new JLabel("Hello,Sunshine Farm, what do you want to do today?");
 
         ImageIcon icon = new ImageIcon("./data/image/th.jpeg");
 
@@ -92,7 +98,37 @@ public class FarmGameGUI extends JFrame {
         mainMenuPanel.add(imageLabel);
         mainMenuPanel.add(goToFarm);
         mainMenuPanel.add(goToShop);
+        mainMenuPanel.add(saveData);
+        mainMenuPanel.add(loadData);
 
         return mainMenuPanel;
+    }
+
+    // MODIFIES: coreData
+    // EFFECTS: load game data, and show feedback(success or not)
+    private void loadData(){
+        boolean isSucess = coreData.loadGameData();
+        if(isSucess){
+            mainMenuTextLabel.setText("Load Sucessfully");
+        }else{
+            mainMenuTextLabel.setText("Error, fail to load game data");
+        }
+    }
+
+    // MODIFIES: coreData
+    // EFFECTS: save game data, and show feedback(success or not)
+    private void saveData(){
+        boolean isSucess = coreData.saveGameData();
+        if(isSucess){
+            mainMenuTextLabel.setText("Save Sucessfully");
+        }else{
+            mainMenuTextLabel.setText("Error, fail to load game data");
+        }
+    }
+    // MODIFES: helperPanel
+    // EFFECTS: refresh the buttons in the menu and display it
+    private void displayMenu(HelperPanel helperPanel, String constrain) {
+        helperPanel.refreshStatus();
+        cardLayout.show(mainPanel, constrain);
     }
 }

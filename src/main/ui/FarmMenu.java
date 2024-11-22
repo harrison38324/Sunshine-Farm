@@ -26,6 +26,7 @@ public class FarmMenu extends JPanel {
     private ApplyFertilizerMenu applyFertilizerMenu;
     private SellMaturePlantMenu sellMaturePlantMenu;
     private CoreData coreData;
+    private ShopMenu shopMenu;
 
     private JPanel mainPanel;
     private CardLayout cardLayout;
@@ -33,12 +34,13 @@ public class FarmMenu extends JPanel {
     // the main part of the FarmMenu Panel
     public FarmMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData, PlantPlantsMenu plantPlantsMenu,
             SelectFertilizerMenu selectFertilizerMenu, ApplyFertilizerMenu applyFertilizerMenu,
-            SellMaturePlantMenu sellMaturePlantMenu) {
+            SellMaturePlantMenu sellMaturePlantMenu, ShopMenu shopMenu) {
         this.plantPlantsMenu = plantPlantsMenu;
         this.selectFertilizerMenu = selectFertilizerMenu;
         this.applyFertilizerMenu = applyFertilizerMenu;
         this.sellMaturePlantMenu = sellMaturePlantMenu;
         this.coreData = coreData;
+        this.shopMenu = shopMenu;
 
         this.mainPanel = mainPanel;
         this.cardLayout = cardLayout;
@@ -70,7 +72,7 @@ public class FarmMenu extends JPanel {
     // MODIFISE: this
     // EFFECTS: create action listeners for the buttons in the Farm Menu
     private void addActionListeners() {
-        goToShop.addActionListener(e -> cardLayout.show(mainPanel, "Shop Menu"));
+        goToShop.addActionListener(e -> displayMenu(shopMenu, "Shop Menu"));
         goToMainMenu.addActionListener(e -> cardLayout.show(mainPanel, "Main Menu"));
         checkFertilizer.addActionListener(
                 e -> farmMenuText
@@ -88,8 +90,9 @@ public class FarmMenu extends JPanel {
         sellMaturePlants.addActionListener(e -> displayMenu(sellMaturePlantMenu, "Sell Mature Plant Menu"));
     }
 
+    // MODIFES: helperPanel
     // EFFECTS: refresh the buttons in the menu and display it
-    private void displayMenu(HelperPanel helperPanel, String constrain) {
+    public void displayMenu(HelperPanel helperPanel, String constrain) {
         helperPanel.refreshStatus();
         cardLayout.show(mainPanel, constrain);
     }

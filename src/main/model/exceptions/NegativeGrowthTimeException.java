@@ -1,4 +1,4 @@
-package model.timeException;
+package model.exceptions;
 
 public class NegativeGrowthTimeException extends Exception{
 

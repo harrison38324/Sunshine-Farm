@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
-import model.MoneyNotEnoughException.MoneyNotEnoughException;
+import model.exceptions.MoneyNotEnoughException;
 
 public class ShopMenu extends HelperPanel {
 
