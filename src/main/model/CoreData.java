@@ -76,6 +76,8 @@ public class CoreData {
     public void plantPlants(AgriculturalEntity plant) {
         plantsStorage.remove(plant);
         plantsSlot.add(plant);
+        EventLog.getInstance().logEvent(
+                        new Event("Plant "+plant.getName()+" to the plots"));
     }
 
     // REQUIRES: selectedFertilizer is in the fertilizerStorage
@@ -94,6 +96,8 @@ public class CoreData {
             selectedPlant.decreaseTime(timeReduced);
         }
         fertilizerStorage.remove(selectedFertilizer);
+        EventLog.getInstance().logEvent(
+                        new Event("Apply "+selectedFertilizer.getName()+ " to "+selectedPlant.getName()));
     }
 
     // REQUIRES: indicatedPlant should in plantsSlot
@@ -109,6 +113,8 @@ public class CoreData {
         if (timeToGrow == 0) {
             plantsSlot.remove(indicatedPlant);
             wallet.earn(price * 2);
+            EventLog.getInstance().logEvent(
+                        new Event("Mature plant "+indicatedPlant.getName()+ " sold"));
         } else if (timeToGrow > 0) {
             throw new NotMatureException();
         } else {
@@ -126,8 +132,12 @@ public class CoreData {
             wallet.spend(price);
             if (agriculturalEntity instanceof Fertilizer) {
                 fertilizerStorage.buyEntity(agriculturalEntity);
+                EventLog.getInstance().logEvent(
+                        new Event("Bought Fertilizer: " + agriculturalEntity.getName()));
             } else if (agriculturalEntity instanceof Plants) {
                 plantsStorage.buyEntity(agriculturalEntity);
+                EventLog.getInstance().logEvent(
+                        new Event("Bought Plant: " + agriculturalEntity.getName()));
             }
         } else {
             throw new MoneyNotEnoughException();
@@ -141,6 +151,8 @@ public class CoreData {
         try {
             loadGameData.loadGameData(wallet, fertilizerStorage,
                     plantsStorage, plantsSlot);
+            EventLog.getInstance().logEvent(
+                    new Event("Load Game data from " + JSON_STORE));
             return true;
         } catch (Exception e) {
             return false;
@@ -154,6 +166,8 @@ public class CoreData {
         try {
             saveGameData.saveGameData(wallet, fertilizerStorage,
                     plantsStorage, plantsSlot);
+            EventLog.getInstance().logEvent(
+                    new Event("Save Game data at " + JSON_STORE));
             return true;
         } catch (IOException e) {
             return false;

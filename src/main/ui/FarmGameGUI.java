@@ -3,8 +3,11 @@ package ui;
 import javax.swing.*;
 
 import model.CoreData;
+import model.EventLog;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 // Sunshine Farm Game user interface
 public class FarmGameGUI extends JFrame {
@@ -28,8 +31,18 @@ public class FarmGameGUI extends JFrame {
 
         setTitle("SunShine Farm");
         setSize(600, 400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
+        addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e){
+                printLog(EventLog.getInstance());
+
+                System.out.println("Log ended");
+                dispose();
+                System.exit(0);
+            }
+        });
         setUpMainPanel();
 
         setupJPanels();
@@ -134,5 +147,13 @@ public class FarmGameGUI extends JFrame {
     private void displayMenu(HelperPanel helperPanel, String constrain) {
         helperPanel.refreshStatus();
         cardLayout.show(mainPanel, constrain);
+    }
+
+    // EFFECTS: print the log
+    private static void printLog(EventLog el) {
+        for (model.Event next : el) {
+            System.out.println(next.toString());
+        }
+
     }
 }
