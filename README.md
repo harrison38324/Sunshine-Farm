@@ -21,3 +21,41 @@
 - As a user, I want to be able to buy a tool into my tool package.
 - As a user, I want to be able to save my entire state data (like money I earned, plants I planted, itmes I owned) to file
 - As a user, I want to be able to have option to reload my data from file.
+
+## Phase 4: Task 2
+Welcome to my project!
+Tue Nov 26 21:42:44 PST 2024
+Bought Plant: Golden Apple
+Tue Nov 26 21:42:46 PST 2024
+Bought Plant: Apple
+Tue Nov 26 21:42:48 PST 2024
+Bought Fertilizer: legend Fertilizer
+Tue Nov 26 21:42:49 PST 2024
+Bought Plant: Golden Apple
+Tue Nov 26 21:42:49 PST 2024
+Bought Plant: Golden Apple
+Tue Nov 26 21:42:49 PST 2024
+Bought Plant: Golden Apple
+Tue Nov 26 21:42:52 PST 2024
+Try to buy Golden Apple But fail because not enough balance
+Tue Nov 26 21:42:56 PST 2024
+Bought Fertilizer: legend Fertilizer
+Tue Nov 26 21:42:58 PST 2024
+Try to buy legend Fertilizer But fail because not enough balance
+Tue Nov 26 21:43:07 PST 2024
+Plant Golden Apple to the plots
+Tue Nov 26 21:43:10 PST 2024
+Plant Apple to the plots
+Tue Nov 26 21:43:14 PST 2024
+Apply Normal Fertilizer to Apple
+Tue Nov 26 21:43:17 PST 2024
+Apply legend Fertilizer to Golden Apple
+Tue Nov 26 21:43:18 PST 2024
+Mature plant Golden Apple sold
+Tue Nov 26 21:43:19 PST 2024
+Try to sell Apple But fail because it is not mature
+Tue Nov 26 21:43:35 PST 2024
+Save Game data at ./data/gamedata.json
+Tue Nov 26 21:43:37 PST 2024
+Load Game data from ./data/gamedata.json
+Log ended

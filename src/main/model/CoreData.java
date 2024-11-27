@@ -116,8 +116,12 @@ public class CoreData {
             EventLog.getInstance().logEvent(
                         new Event("Mature plant "+indicatedPlant.getName()+ " sold"));
         } else if (timeToGrow > 0) {
+            EventLog.getInstance().logEvent(
+                        new Event("Try to sell "+indicatedPlant.getName()+ " But fail because it is not mature"));
             throw new NotMatureException();
         } else {
+            EventLog.getInstance().logEvent(
+                        new Event("Try to sell "+indicatedPlant.getName()+ " But fail because it has negative growth time"));
             throw new NegativeGrowthTimeException();
         }
     }
@@ -140,6 +144,8 @@ public class CoreData {
                         new Event("Bought Plant: " + agriculturalEntity.getName()));
             }
         } else {
+            EventLog.getInstance().logEvent(
+                        new Event("Try to buy "+agriculturalEntity.getName()+ " But fail because not enough balance"));
             throw new MoneyNotEnoughException();
         }
     }
@@ -154,7 +160,9 @@ public class CoreData {
             EventLog.getInstance().logEvent(
                     new Event("Load Game data from " + JSON_STORE));
             return true;
-        } catch (Exception e) {
+        } catch (IOException e) {
+            EventLog.getInstance().logEvent(
+                        new Event("Try to load Game data but encounter error: IOException"));
             return false;
         }
     }
@@ -170,6 +178,8 @@ public class CoreData {
                     new Event("Save Game data at " + JSON_STORE));
             return true;
         } catch (IOException e) {
+            EventLog.getInstance().logEvent(
+                        new Event("Save to load Game data but encounter error: IOException"));
             return false;
         }
     }

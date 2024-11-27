@@ -6,16 +6,16 @@
             "timeReduced": 20
         },
         {
-            "price": 10,
-            "name": "Normal Fertilizer",
-            "timeReduced": 20
+            "price": 60,
+            "name": "legend Fertilizer",
+            "timeReduced": 200
         }
     ],
-    "money": 540,
+    "money": 430,
     "plantsSlot": [{
-        "growthTime": 60,
-        "price": 200,
-        "name": "Golden Apple"
+        "growthTime": 30,
+        "price": 50,
+        "name": "Apple"
     }],
     "plantsStorage": [
         {
@@ -24,14 +24,14 @@
             "name": "Apple"
         },
         {
-            "growthTime": 50,
-            "price": 50,
-            "name": "Apple"
+            "growthTime": 100,
+            "price": 200,
+            "name": "Golden Apple"
         },
         {
-            "growthTime": 80,
-            "price": 100,
-            "name": "blueberry"
+            "growthTime": 100,
+            "price": 200,
+            "name": "Golden Apple"
         },
         {
             "growthTime": 100,
