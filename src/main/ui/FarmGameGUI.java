@@ -1,6 +1,9 @@
 package ui;
 
 import javax.swing.*;
+
+import model.CoreData;
+
 import java.awt.*;
 
 // Sunshine Farm Game user interface

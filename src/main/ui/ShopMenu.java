@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import exceptions.MoneyNotEnoughException;
 import model.AgriculturalEntity;
+import model.CoreData;
 
 // Shop Menu for user to but items (plants / fertilizer) they want
 public class ShopMenu extends HelperPanel {

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
 import model.AgriculturalEntityStorage;
+import model.CoreData;
 
 // Helper Panel for generate buttons of the AgriculturalEntityStorage and JPanel change
 public abstract class HelperPanel extends JPanel {

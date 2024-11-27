@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -6,40 +6,33 @@ import java.util.Scanner;
 import exceptions.MoneyNotEnoughException;
 import exceptions.NegativeGrowthTimeException;
 import exceptions.NotMatureException;
-import model.AgriculturalEntity;
-import model.Fertilizer;
-import model.FertilizerStorage;
-import model.Plants;
-import model.PlantsSlots;
-import model.PlantsStorage;
-import model.Wallet;
 import persistence.LoadGameData;
 import persistence.SaveGameData;
 
-// the Core Logic : the core data and methods for Console UI and GUI
+// the Core Data : the core data and methods for Console UI and GUI
 public class CoreData {
-    protected Scanner input;
+    public Scanner input;
 
-    protected AgriculturalEntity selectedFertilizer;
-    protected Plants norPlant;
-    protected Plants rarePlant;
-    protected Plants legendPlant;
-    protected Fertilizer norFertilizer;
-    protected Fertilizer rareFertilizer;
-    protected Fertilizer legendFertilizer;
+    public AgriculturalEntity selectedFertilizer;
+    public Plants norPlant;
+    public Plants rarePlant;
+    public Plants legendPlant;
+    public Fertilizer norFertilizer;
+    public Fertilizer rareFertilizer;
+    public Fertilizer legendFertilizer;
 
-    protected PlantsStorage plantsCommodity;
-    protected FertilizerStorage fertilizerCommodity;
-    protected PlantsStorage plantsStorage;
-    protected FertilizerStorage fertilizerStorage;
+    public PlantsStorage plantsCommodity;
+    public FertilizerStorage fertilizerCommodity;
+    public PlantsStorage plantsStorage;
+    public FertilizerStorage fertilizerStorage;
 
-    protected Wallet wallet;
+    public Wallet wallet;
 
-    protected PlantsSlots plantsSlot;
+    public PlantsSlots plantsSlot;
 
-    protected LoadGameData loadGameData;
-    protected SaveGameData saveGameData;
-    protected static final String JSON_STORE = "./data/gamedata.json";
+    public LoadGameData loadGameData;
+    public SaveGameData saveGameData;
+    public static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: the game data and the core behavior about the game data
     public CoreData() {

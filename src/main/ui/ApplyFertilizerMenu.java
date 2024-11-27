@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
+import model.CoreData;
 
 // Menu for user to aplly the selected fertilizer
 public class ApplyFertilizerMenu extends HelperPanel {

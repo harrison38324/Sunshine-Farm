@@ -1,5 +1,7 @@
 package ui;
 
+import model.CoreData;
+
 // Runing the RunProgram ui
 public class Main {
     public static void main(String[] args) throws Exception {

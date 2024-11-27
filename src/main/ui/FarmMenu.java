@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntityStorage;
+import model.CoreData;
 
 // Farm Menu panel, user can select to go to shop, go to main menu, check fertilizer storage,
 // check plants storage, check slots status. plant plants, use fertilizer, sell mature plants

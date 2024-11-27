@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.AgriculturalEntity;
+import model.CoreData;
 
 // Plant plants Menu for planting actions
 public class PlantPlantsMenu extends HelperPanel {

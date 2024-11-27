@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import exceptions.NegativeGrowthTimeException;
 import exceptions.NotMatureException;
 import model.AgriculturalEntity;
+import model.CoreData;
 
 // JPanel for user to sell the Plant in the Slot
 public class SellMaturePlantMenu extends HelperPanel {
