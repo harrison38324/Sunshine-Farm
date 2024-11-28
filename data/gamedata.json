@@ -1,22 +1,11 @@
 {
-    "fertilizerStorage": [
-        {
-            "price": 10,
-            "name": "Normal Fertilizer",
-            "timeReduced": 20
-        },
-        {
-            "price": 60,
-            "name": "legend Fertilizer",
-            "timeReduced": 200
-        }
-    ],
-    "money": 430,
-    "plantsSlot": [{
-        "growthTime": 30,
-        "price": 50,
-        "name": "Apple"
+    "fertilizerStorage": [{
+        "price": 10,
+        "name": "Normal Fertilizer",
+        "timeReduced": 20
     }],
+    "money": 530,
+    "plantsSlot": [],
     "plantsStorage": [
         {
             "growthTime": 50,

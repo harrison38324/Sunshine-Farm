@@ -1,8 +1,6 @@
 package ui;
 
 import model.CoreData;
-import model.Event;
-import model.EventLog;
 
 // Runing the RunProgram ui
 public class Main {

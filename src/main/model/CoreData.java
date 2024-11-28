@@ -11,28 +11,28 @@ import persistence.SaveGameData;
 
 // the Core Data : the core data and methods for Console UI and GUI
 public class CoreData {
-    public Scanner input;
+    private Scanner input;
 
-    public AgriculturalEntity selectedFertilizer;
-    public Plants norPlant;
-    public Plants rarePlant;
-    public Plants legendPlant;
-    public Fertilizer norFertilizer;
-    public Fertilizer rareFertilizer;
-    public Fertilizer legendFertilizer;
+    private AgriculturalEntity selectedFertilizer;
+    private Plants norPlant;
+    private Plants rarePlant;
+    private Plants legendPlant;
+    private Fertilizer norFertilizer;
+    private Fertilizer rareFertilizer;
+    private Fertilizer legendFertilizer;
 
-    public PlantsStorage plantsCommodity;
-    public FertilizerStorage fertilizerCommodity;
-    public PlantsStorage plantsStorage;
-    public FertilizerStorage fertilizerStorage;
+    private PlantsStorage plantsCommodity;
+    private FertilizerStorage fertilizerCommodity;
+    private PlantsStorage plantsStorage;
+    private FertilizerStorage fertilizerStorage;
 
-    public Wallet wallet;
+    private Wallet wallet;
 
-    public PlantsSlots plantsSlot;
+    private PlantsSlots plantsSlot;
 
-    public LoadGameData loadGameData;
-    public SaveGameData saveGameData;
-    public static final String JSON_STORE = "./data/gamedata.json";
+    private LoadGameData loadGameData;
+    private SaveGameData saveGameData;
+    private static final String JSON_STORE = "./data/gamedata.json";
 
     // EFFECTS: the game data and the core behavior about the game data
     public CoreData() {
@@ -77,7 +77,7 @@ public class CoreData {
         plantsStorage.remove(plant);
         plantsSlot.add(plant);
         EventLog.getInstance().logEvent(
-                        new Event("Plant "+plant.getName()+" to the plots"));
+                new Event("Plant " + plant.getName() + " to the plots"));
     }
 
     // REQUIRES: selectedFertilizer is in the fertilizerStorage
@@ -97,7 +97,7 @@ public class CoreData {
         }
         fertilizerStorage.remove(selectedFertilizer);
         EventLog.getInstance().logEvent(
-                        new Event("Apply "+selectedFertilizer.getName()+ " to "+selectedPlant.getName()));
+                new Event("Apply " + selectedFertilizer.getName() + " to " + selectedPlant.getName()));
     }
 
     // REQUIRES: indicatedPlant should in plantsSlot
@@ -114,14 +114,15 @@ public class CoreData {
             plantsSlot.remove(indicatedPlant);
             wallet.earn(price * 2);
             EventLog.getInstance().logEvent(
-                        new Event("Mature plant "+indicatedPlant.getName()+ " sold"));
+                    new Event("Mature plant " + indicatedPlant.getName() + " sold"));
         } else if (timeToGrow > 0) {
             EventLog.getInstance().logEvent(
-                        new Event("Try to sell "+indicatedPlant.getName()+ " But fail because it is not mature"));
+                    new Event("Try to sell " + indicatedPlant.getName() + " But fail because it is not mature"));
             throw new NotMatureException();
         } else {
             EventLog.getInstance().logEvent(
-                        new Event("Try to sell "+indicatedPlant.getName()+ " But fail because it has negative growth time"));
+                    new Event("Try to sell " + indicatedPlant.getName()
+                            + " But fail because it has negative growth time"));
             throw new NegativeGrowthTimeException();
         }
     }
@@ -145,7 +146,7 @@ public class CoreData {
             }
         } else {
             EventLog.getInstance().logEvent(
-                        new Event("Try to buy "+agriculturalEntity.getName()+ " But fail because not enough balance"));
+                    new Event("Try to buy " + agriculturalEntity.getName() + " But fail because not enough balance"));
             throw new MoneyNotEnoughException();
         }
     }
@@ -162,7 +163,7 @@ public class CoreData {
             return true;
         } catch (IOException e) {
             EventLog.getInstance().logEvent(
-                        new Event("Try to load Game data but encounter error: IOException"));
+                    new Event("Try to load Game data but encounter error: IOException"));
             return false;
         }
     }
@@ -179,8 +180,89 @@ public class CoreData {
             return true;
         } catch (IOException e) {
             EventLog.getInstance().logEvent(
-                        new Event("Save to load Game data but encounter error: IOException"));
+                    new Event("Save to load Game data but encounter error: IOException"));
             return false;
         }
     }
+
+    // MODIFIES: this
+    // EFFECTS: set the selected fertilizer to null
+    public void unSelectFertilizer(){
+        selectedFertilizer = null;
+    }
+
+    // MODIFIES: this
+    // EFFECT: set the selectedFertilizer to the given one
+    public void selectFertilizer(AgriculturalEntity fertilizer){
+        selectedFertilizer = fertilizer;
+    }
+
+    public Scanner getInput() {
+        return input;
+    }
+    
+    public AgriculturalEntity getSelectedFertilizer() {
+        return selectedFertilizer;
+    }
+    
+    public Plants getNorPlant() {
+        return norPlant;
+    }
+    
+    public Plants getRarePlant() {
+        return rarePlant;
+    }
+    
+    public Plants getLegendPlant() {
+        return legendPlant;
+    }
+    
+    public Fertilizer getNorFertilizer() {
+        return norFertilizer;
+    }
+    
+    public Fertilizer getRareFertilizer() {
+        return rareFertilizer;
+    }
+    
+    public Fertilizer getLegendFertilizer() {
+        return legendFertilizer;
+    }
+    
+    public PlantsStorage getPlantsCommodity() {
+        return plantsCommodity;
+    }
+    
+    public FertilizerStorage getFertilizerCommodity() {
+        return fertilizerCommodity;
+    }
+    
+    public PlantsStorage getPlantsStorage() {
+        return plantsStorage;
+    }
+    
+    public FertilizerStorage getFertilizerStorage() {
+        return fertilizerStorage;
+    }
+    
+    public Wallet getWallet() {
+        return wallet;
+    }
+    
+    public PlantsSlots getPlantsSlot() {
+        return plantsSlot;
+    }
+    
+    public LoadGameData getLoadGameData() {
+        return loadGameData;
+    }
+    
+    public SaveGameData getSaveGameData() {
+        return saveGameData;
+    }
+    
+    public static String getJsonStore() {
+        return JSON_STORE;
+    }
+    
 }

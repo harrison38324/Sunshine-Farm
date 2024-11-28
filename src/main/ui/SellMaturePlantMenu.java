@@ -18,7 +18,7 @@ public class SellMaturePlantMenu extends HelperPanel {
     public SellMaturePlantMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initialValue(coreData.plantsSlot,"Time to growth");
+        initialValue(coreData.getPlantsSlot(),"Time to growth");
         initButtons();
     }
 

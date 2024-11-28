@@ -16,7 +16,7 @@ public class ApplyFertilizerMenu extends HelperPanel {
     public ApplyFertilizerMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initialValue(coreData.plantsSlot, "time to grow up");
+        initialValue(coreData.getPlantsSlot(), "time to grow up");
         initButtons();
     }
 
@@ -24,9 +24,9 @@ public class ApplyFertilizerMenu extends HelperPanel {
     // MODIFIES: coreData
     // EFFECTS: apply the fertilizer and remove it from the storage
     public void buttonMethod(AgriculturalEntity agriculturalEntity,JButton tempButton) {
-        coreData.applyFertilizer(coreData.selectedFertilizer,agriculturalEntity);
+        coreData.applyFertilizer(coreData.getSelectedFertilizer(),agriculturalEntity);
         cardLayout.show(mainPanel,"Farm Menu");
-        coreData.selectedFertilizer = null;
+        coreData.unSelectFertilizer();
     }
 
     // EFFECTS: below, 3 methods set values for the ApplyFertilizerMenu in

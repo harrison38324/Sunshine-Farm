@@ -78,12 +78,14 @@ public class FarmMenu extends JPanel {
         goToMainMenu.addActionListener(e -> cardLayout.show(mainPanel, "Main Menu"));
         checkFertilizer.addActionListener(
                 e -> farmMenuText
-                        .setText(generateAriculturalEntityNameList(coreData.fertilizerStorage, "Fertilizer Storage")));
+                        .setText(generateAriculturalEntityNameList(coreData.getFertilizerStorage(),
+                                "Fertilizer Storage")));
         checkPlantsStorage.addActionListener(
-                e -> farmMenuText.setText(generateAriculturalEntityNameList(coreData.plantsStorage, "Plants Storage")));
+                e -> farmMenuText
+                        .setText(generateAriculturalEntityNameList(coreData.getPlantsStorage(), "Plants Storage")));
         checkSLotsStatus
                 .addActionListener(e -> farmMenuText
-                        .setText(generateAriculturalEntityNameList(coreData.plantsSlot, "Plant Slot")));
+                        .setText(generateAriculturalEntityNameList(coreData.getPlantsSlot(), "Plant Slot")));
         plantPlants.addActionListener(e -> displayMenu(plantPlantsMenu, "Plant Plants Menu"));
         useFertilizer.addActionListener(e -> {
             applyFertilizerMenu.refreshStatus();

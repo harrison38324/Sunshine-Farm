@@ -33,9 +33,9 @@ public class FarmGameGUI extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
-        addWindowListener(new WindowAdapter(){
+        addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent e){
+            public void windowClosing(WindowEvent e) {
                 printLog(EventLog.getInstance());
 
                 System.out.println("Log ended");

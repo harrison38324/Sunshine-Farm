@@ -17,9 +17,9 @@ public class ShopMenu extends HelperPanel {
     public ShopMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initialValue(coreData.plantsCommodity, "Time to grow up");
+        initialValue(coreData.getPlantsCommodity(), "Time to grow up");
         initButtons();
-        initialValue(coreData.fertilizerCommodity, "Time to reduce");
+        initialValue(coreData.getFertilizerCommodity(), "Time to reduce");
         initButtons();
     }
 
@@ -38,7 +38,7 @@ public class ShopMenu extends HelperPanel {
     @Override
     public void refreshStatus() {
         headerLabel
-                .setText("These items are on sale, what do you want \n Your Balance: " + coreData.wallet.getBalance());
+                .setText("These items are on sale, what do you want \n Your Balance: " + coreData.getWallet().getBalance());
         revalidate();
         repaint();
     }
@@ -46,7 +46,7 @@ public class ShopMenu extends HelperPanel {
     @Override
     // EFFECTS: set the default Laber text
     protected String getHeaderLabelText() {
-        return "These items are on sale, what do you want \n Your Balance: " + coreData.wallet.getBalance();
+        return "These items are on sale, what do you want \n Your Balance: " + coreData.getWallet().getBalance();
     }
 
     @Override

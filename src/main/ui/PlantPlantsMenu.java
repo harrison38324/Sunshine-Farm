@@ -16,7 +16,7 @@ public class PlantPlantsMenu extends HelperPanel {
     public PlantPlantsMenu(CardLayout cardLayout, JPanel mainPanel, CoreData coreData) {
         super(cardLayout, mainPanel, coreData);
         setLayout(new FlowLayout());
-        initialValue(coreData.plantsStorage,"Time to grow up");
+        initialValue(coreData.getPlantsStorage(),"Time to grow up");
         initButtons();
     }
 
