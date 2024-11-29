@@ -187,82 +187,82 @@ public class CoreData {
 
     // MODIFIES: this
     // EFFECTS: set the selected fertilizer to null
-    public void unSelectFertilizer(){
+    public void unSelectFertilizer() {
         selectedFertilizer = null;
     }
 
     // MODIFIES: this
     // EFFECT: set the selectedFertilizer to the given one
-    public void selectFertilizer(AgriculturalEntity fertilizer){
+    public void selectFertilizer(AgriculturalEntity fertilizer) {
         selectedFertilizer = fertilizer;
     }
 
     public Scanner getInput() {
         return input;
     }
-    
+
     public AgriculturalEntity getSelectedFertilizer() {
         return selectedFertilizer;
     }
-    
+
     public Plants getNorPlant() {
         return norPlant;
     }
-    
+
     public Plants getRarePlant() {
         return rarePlant;
     }
-    
+
     public Plants getLegendPlant() {
         return legendPlant;
     }
-    
+
     public Fertilizer getNorFertilizer() {
         return norFertilizer;
     }
-    
+
     public Fertilizer getRareFertilizer() {
         return rareFertilizer;
     }
-    
+
     public Fertilizer getLegendFertilizer() {
         return legendFertilizer;
     }
-    
+
     public PlantsStorage getPlantsCommodity() {
         return plantsCommodity;
     }
-    
+
     public FertilizerStorage getFertilizerCommodity() {
         return fertilizerCommodity;
     }
-    
+
     public PlantsStorage getPlantsStorage() {
         return plantsStorage;
     }
-    
+
     public FertilizerStorage getFertilizerStorage() {
         return fertilizerStorage;
     }
-    
+
     public Wallet getWallet() {
         return wallet;
     }
-    
+
     public PlantsSlots getPlantsSlot() {
         return plantsSlot;
     }
-    
+
     public LoadGameData getLoadGameData() {
         return loadGameData;
     }
-    
+
     public SaveGameData getSaveGameData() {
         return saveGameData;
     }
-    
+
     public static String getJsonStore() {
         return JSON_STORE;
     }
-    
+
 }

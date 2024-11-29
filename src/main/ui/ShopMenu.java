@@ -38,7 +38,8 @@ public class ShopMenu extends HelperPanel {
     @Override
     public void refreshStatus() {
         headerLabel
-                .setText("These items are on sale, what do you want \n Your Balance: " + coreData.getWallet().getBalance());
+                .setText("These items are on sale, what do you want \n Your Balance: "
+                        + coreData.getWallet().getBalance());
         revalidate();
         repaint();
     }
