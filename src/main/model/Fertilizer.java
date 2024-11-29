@@ -5,9 +5,6 @@ package model;
 // have 3 property: 'name' 'price' 'time Reduced'
 // 'time Reduced' means how much time it can reduced the growth time of Plants
 public class Fertilizer extends AgriculturalEntity {
-    // private String name;
-    // private int price;
-    // private int timeReduced;
 
     // REQUIRES: price >= 0 ,TimeReduced >= 0, Name cannot be empty String
     // EFFECTS: set a new kind of Fertilizer by assigned the Name
