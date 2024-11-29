@@ -59,3 +59,8 @@ Save Game data at ./data/gamedata.json
 Tue Nov 26 21:43:37 PST 2024
 Load Game data from ./data/gamedata.json
 Log ended
+
+## Phase 4: Task 3
+I would devide my HelperPanel into 2 parts, One is for fertilizer related behaviour and One is for the Plants behaviour. On the top of 2 helperPanel, add one total abstract HelperPanel to collect the same and similar behaviour of the 2 HelperPanel.
+
+I would change my CoreData into 2 classes, one is the CoreBehaviour in module package, one is CoreData in the ui package, make it cohension.
